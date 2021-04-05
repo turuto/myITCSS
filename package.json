@@ -1,31 +1,34 @@
 {
-    "name": "basic compile scss",
-    "version": "1.0.0",
-    "description": "",
-    "main": "gulpfile.js",
-    "dependencies": {
-        "del": "^4.1.0",
-        "gulp": "^3.9.0",
-        "gulp-add-src": "~1.0.0",
-        "gulp-autoprefixer": "^6.1.0",
-        "gulp-chmod": "^2.0.0",
-        "gulp-concat": "^2.6.1",
-        "gulp-convert-encoding": "2.0.1",
-        "gulp-if": "~2.0.2",
-        "gulp-minify-css": "~1.2.4",
-        "gulp-notify": "^3.2.0",
-        "gulp-plumber": "^1.2.1",
-        "gulp-rename": "^1.4.0",
-        "gulp-sass": "*4.0.2",
-        "gulp-sourcemaps": "~2.6.5",
-        "gulp-uglify": "^3.0.2",
-        "ie11-custom-properties": "^2.6.0",
-        "package-script": "~0.0.8"
-    },
-    "scripts": {},
-    "author": "AlbertoGarcia",
-    "license": "MIT",
-    "browserslist": [
-        "IE 11"
-    ]
+  "name": "myITCSS",
+  "version": "1.0.0",
+  "description": "This is my take on ITCSS",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-if": "~2.0.2",
+    "gulp-minify-css": "~1.2.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "*4.1.0",
+    "gulp-wait": "0.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "gulp": "gulp",
+    "start": "npm run gulp",
+    "build:prod": "npm run gulp prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turuto/myITCSS.git"
+  },
+  "keywords": [],
+  "author": "Alberto Garcia+HugoEstevez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/turuto/myITCSS/issues"
+  },
+  "homepage": "https://github.com/turuto/myITCSS#readme"
 }
