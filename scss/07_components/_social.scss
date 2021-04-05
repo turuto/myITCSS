@@ -1,0 +1,84 @@
+// social variables
+// these variables should link to a setting variable. Only social variables should be used inside the social
+// --------------------------------------------------
+$c-social-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-social__gutter: map-get($f-spaces , 'tiny' );
+$c-social__size: map-get($f-spaces , 'large' );
+$c-social__transition: all $f-global-transition;
+$c-social__colors: (
+	'twitter': s-map-deep-get($f-colors,'vendor', 'twitter'),
+	'linkedin': s-map-deep-get($f-colors,'vendor', 'linkedin'),
+	'youtube': s-map-deep-get($f-colors,'vendor', 'youtube'),
+);
+
+// social toggling
+$c-social--enabled: false !default;
+
+// social and parts as a mixins
+// --------------------------------------------------
+@mixin c-social() {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	@media screen and (min-width:$c-social-toggle-BP) {
+		justify-content: flex-end;
+	}
+}
+@mixin c-social__item () {
+	display: inline-block;
+	&#{&} {
+		margin-left: $c-social__gutter;
+		padding: 0;
+	}
+
+	// SOCIALS enabled
+	&--twitter {
+		--myBg: #{map-get($c-social__colors,'twitter')};
+	}
+	&--linkedin {
+		--myBg: #{map-get($c-social__colors,'linkedin')};
+	}
+	&--youtube {
+		--myBg: #{map-get($c-social__colors,'youtube')};
+	}
+}
+@mixin c-social__btn () {
+	&,
+	&:link,
+	&:visited {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: $c-social__size;
+		height: $c-social__size;
+
+		transition: $c-social__transition;
+
+		border-radius: 100%;
+
+		font-size: $c-social__size/2;
+	};
+	&:hover,
+	&:active,
+	&:focus {
+		color: #FFFFFF;
+		background: var(--myBg);
+	};
+}
+
+// social selector output
+// --------------------------------------------------
+@if ($c-social--enabled) {
+	.c-social {
+		@include c-social();
+	}
+
+	.c-social__item {
+		@include c-social__item();
+	}
+	.c-social__btn {
+		@include c-social__btn();
+	}
+}

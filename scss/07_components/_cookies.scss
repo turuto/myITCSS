@@ -1,0 +1,137 @@
+// COOKIES variables
+// these variables should link to a setting variable. Only c-cookies variables should be used inside the component
+// --------------------------------------------------
+$c-cookies-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-cookies__padding-V: map-get($f-modspaces , 'small' );
+$c-cookies__padding-H: map-get($f-modspaces , 'tiny' );
+
+// C-COOKIES toggling
+$c-cookies--enabled: false !default;
+
+// C-COOKIES and parts as a mixins
+// --------------------------------------------------
+@mixin c-cookies() {
+	position: fixed;
+	z-index: 100;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	padding: $c-cookies__padding-V  $c-cookies__padding-H;
+	padding-top: 0;
+
+	text-align: left;
+
+	color: white;
+	border-top: 1px solid s-map-deep-get($f-colors, 'neutral', 'white');
+	box-shadow: 0 0 2px rgba(black, .8);
+
+	font-size: 1rem;
+	@supports (display: grid) {
+		//not IE11
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+
+		@media screen and (min-width:$c-cookies-toggle-BP) {
+			align-items: center;
+			flex-direction: row;
+
+@include t-container();
+		}
+	}
+
+	&--hidden {
+		display: none;
+
+		pointer-events: none;
+	}
+}
+@mixin c-cookies__title () {
+	flex: 1 0 0;
+
+	margin: 0;
+	margin-right: auto;
+	margin-left: auto;
+
+	text-align: center;
+	text-align: inherit;
+
+	color: inherit;
+
+	font-size: 1.5em;
+	@supports (display: grid) {
+		//not IE11
+	}
+}
+@mixin c-cookies__body () {
+	margin-right: auto;
+
+//write something good
+	margin-left: auto;
+
+	text-align: center;
+	p {
+		margin: 0 auto;
+
+		text-align: inherit;
+	}
+
+	@supports (display: grid) {
+		//not IE11
+		flex: 1 0 0;
+		p {
+			margin: 0;
+		}
+		@media screen and (min-width:$c-cookies-toggle-BP) {
+			max-width: 60%;
+			margin-right: $c-cookies__padding-V ;
+			margin-left: unset;
+
+			text-align: left;
+		}
+	}
+}
+@mixin c-cookies__action () {
+	display: block;
+
+	max-width: 100px;
+	margin: 0 auto;
+	margin-top: $c-cookies__padding-V;
+	padding: $c-cookies__padding-H/2 $c-cookies__padding-V;
+
+	border-radius: 0;
+
+	font-size: 1em;
+	@supports (display: grid) {
+		display: unset;
+
+//not IE11
+
+		max-width: unset;
+		margin: 0;
+	}
+}
+
+// C-COOKIES selector output
+// --------------------------------------------------
+@if ($c-cookies--enabled) {
+	.c-cookies {
+		@include c-cookies();
+	}
+
+	.c-cookies__title {
+		@include c-cookies__title();
+	}
+	.c-cookies__body {
+		@include c-cookies__body();
+	}
+	.c-cookies__action {
+		@include c-cookies__action();
+	}
+}
+
+
+
+

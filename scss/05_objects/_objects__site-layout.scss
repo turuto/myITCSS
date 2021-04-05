@@ -1,0 +1,57 @@
+/* -------------------------------------------------------------------------
+ * SITE LAYOUT
+ *
+ * Main page layout. The <body> has a full height page and provides a sticky footer
+ *
+ */
+// Object variables
+// --------------------------------------------------
+$o-site-toggle-BP: map-get($f-breakpoints , 'sml' );
+// Object toggling
+
+$o-site--enabled: false !default;
+//Object as mixins
+
+@mixin o-site() {
+	height: 100%;
+	min-height: 100vh;
+	max-height: 100vh;
+	@supports (display: grid) {
+		//not IE11
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	};
+}
+@mixin o-site__header () {
+}
+@mixin o-site__main () {
+	@supports (display: grid) {
+		//not IE11
+		flex: 1;
+	};
+}
+@mixin o-site__footer () {
+}
+
+// Object selector output
+// --------------------------------------------------
+
+@if ($o-site--enabled) {
+	.o-site {
+		@include o-site();
+	}
+
+	.o-site > main,
+	.o-site__main {
+		@include o-site__main();
+	}
+	/*
+	.o-site__header {
+		// @include o-site__header();
+	}
+	.o-site__footer {
+		// @include o-site__footer();
+	}*/
+}

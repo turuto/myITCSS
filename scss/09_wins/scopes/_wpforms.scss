@@ -1,0 +1,109 @@
+//WPFORMS BUTTONS OVERWRITE OUR BUTTONS STYLES {
+.wpforms-container-full {
+	/*&#{&}#{&} {
+		.wpforms-form button[type=submit],
+		.wpforms-form button[type=submit],
+		.wpforms-form * {
+			//background: var(--myColor);
+			//@include	background-color: var(--myColor);
+		}
+	}*/
+	button,
+	.c-btn {
+		padding: $c-btn__padding-V $c-btn__padding-H!important;
+
+		text-transform: uppercase!important;
+
+		border-radius: $c-btn__radius!important;
+	}
+	.c-btn--primary {
+		color: map-get($c-btn__color-scheme--primary, 'fg' )!important;
+		background: map-get($c-btn__color-scheme--primary, 'bg' )!important;
+		background-color: map-get($c-btn__color-scheme--primary, 'bg' )!important;
+	}
+	.c-btn--secondary {
+		color: map-get($c-btn__color-scheme--secondary, 'fg' )!important;
+		background: map-get($c-btn__color-scheme--secondary, 'bg' )!important;
+		background-color: map-get($c-btn__color-scheme--secondary, 'bg' )!important;
+	}
+	.c-btn--terciary {
+		color: map-get($c-btn__color-scheme--terciary, 'fg' )!important;
+		background: map-get($c-btn__color-scheme--terciary, 'bg' )!important;
+		background-color: map-get($c-btn__color-scheme--terciary, 'bg' )!important;
+	}
+	.c-btn--tiny {
+		&,
+		&:link,
+		&:visited {
+			padding: map-get($c-btn__paddings,'tiny') map-get($c-btn__paddings,'medium')!important;
+		};
+	}
+	.c-btn--small {
+		&,
+		&:link,
+		&:visited {
+			padding: map-get($c-btn__paddings,'small') map-get($c-btn__paddings,'medium')!important;
+		};
+	}
+	.c-btn--block {
+		display: block;
+
+		width: 100%!important;
+	}
+}
+//SPECIAL FORMS LAYOUTS
+.c-dialog--signup {
+	.c-dialog__dialog {
+		max-width: 90%;
+	}
+	@media screen and (min-width:map-get($f-breakpoints , 'sm' )) {
+		.wpforms-field-container {
+			display: grid;
+
+			grid-template-columns: 1fr 1fr;
+			grid-column-gap: 1em;
+		}
+		.c-form__name {
+			grid-column: 1/2;
+		}
+		.c-form__email {
+			grid-column: 2/2;
+		}
+		.c-form__phone {
+			grid-column: 1/2;
+		}
+		.c-form__country {
+			grid-column: 2/2;
+		}
+		.c-form__msg,
+		.c-form__privacy {
+			grid-column: 1/-1;
+		}
+	}
+}
+
+
+.c-dialog--call-me {
+	.c-dialog__dialog {
+		max-width: 90%;
+	}
+	@media screen and (min-width:map-get($f-breakpoints , 'sm' )) {
+		.wpforms-field-container {
+			display: grid;
+
+			grid-template-columns: 1fr 2fr;
+			grid-column-gap: 1em;
+		}
+
+		.c-form__phone {
+			grid-column: 1/2;
+		}
+		.c-form__country {
+			grid-column: 2/2;
+		}
+		.c-form__msg,
+		.c-form__privacy {
+			grid-column: 1/-1;
+		}
+	}
+}

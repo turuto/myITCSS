@@ -1,0 +1,288 @@
+// CAROUSEL component
+// the component used is https://van11y.net/accessible-carrousel/
+// some selectors and markup might be influenced by the component used
+
+// these variables should link to a setting variable. Only component variables should be used inside the component
+// --------------------------------------------------
+$c-carrousel__totalSlides: 6;
+$c-carrousel__colors: (
+	'controls': s-map-deep-get($f-colors, 'brand', 'primary'),
+	'focus': s-map-deep-get($f-colors, 'brand', 'secondary'),
+);
+$c-carrousel__btn-sz: map-get($f-modspaces , 'large' );
+$c-carrousel__controls__transitions: all $f-global-transition;
+
+
+// COMPONENT toggling
+$c-carrousel--enabled: false !default;
+$c-carrousel__transitions--enabled: (
+	'slide':true,
+	'fade': false,
+	'none': false
+)!default;
+
+// COMPONENT and parts as a mixins
+// --------------------------------------------------
+@mixin c-carrousel() {
+	padding-right: $c-carrousel__btn-sz;
+	padding-left: $c-carrousel__btn-sz;
+
+	// LEGACY from component
+	&.relative,
+	.relative {
+		position: relative;
+	}
+	&.mod--hidden,
+	.mod {
+		overflow: hidden;
+	}
+
+	&.invisible,
+	.invisible {
+		position: absolute;
+
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+
+		border: 0;
+	}
+}
+@mixin c-carrousel__container () {
+	white-space: nowrap;
+}
+@mixin c-carrousel__control__list () {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+
+	width: 100%;
+	max-width: 100%;
+
+// margin-top: -.5em;
+	padding-left: 0;
+
+	list-style-type: none;
+
+	text-align: center;
+
+	@supports (display: grid) {
+		width: unset;
+		max-width: 120ch;
+	}
+}
+@mixin c-carrousel__control__list__item () {
+	display: inline-block;
+
+	margin: 0 .5em;
+}
+@mixin c-carrousel__control__list__link () {
+	display: inline-block;
+
+	width: 1em;
+	height: 1em;
+
+	cursor: pointer;
+
+	border: 1px solid map-get($c-carrousel__colors, 'controls')	;
+	border-radius: 1em;
+	outline: none !important;
+	background: #FFFFFF;
+	/* ------------------ State rules ------------------ */
+	&:hover,
+	&:active,
+	&:focus,
+	&[aria-selected=true] {
+		outline: 2px dotted map-get($c-carrousel__colors, 'focus');
+		background: map-get($c-carrousel__colors, 'controls')	;
+	};
+}
+@mixin c-carrousel__button-container () {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+
+	transition: $c-carrousel__controls__transitions;
+
+	&:hover,
+	&:active,
+	&:focus {
+		> button {
+			//c-carrousel__button__button
+			opacity: 1;
+		}
+		img {
+			opacity: 1;
+		}
+	}
+}
+@mixin c-carrousel__button__previous () {
+	left: 0;
+
+	width: 50%;
+}
+@mixin c-carrousel__button__next () {
+	right: 0;
+
+	width: 50%;
+	> button {
+		//c-carrousel__button__button
+		align-items: flex-end;
+	}
+	// align-items: flex-end;
+}
+@mixin c-carrousel__button__button () {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+
+	margin: 0;
+	padding: 0;
+
+	cursor: pointer;
+	transition: inherit;
+
+	opacity: 0;
+	border: 0;
+	background: transparent;
+
+	> img {
+		width: $c-carrousel__btn-sz;
+		height: $c-carrousel__btn-sz;
+
+		transition: inherit;
+
+		opacity: 1;
+		border: none;
+
+		filter: contrast(0) sepia(100%) hue-rotate(344deg) brightness(1.4) saturate(10.98);
+	}
+}
+@mixin  carrousel__content() {
+	position: relative;
+
+	display: inline-block;
+	visibility: visible;
+
+	width: 100%;
+
+	transition: visibility 0s ease, transform .5s ease-in;
+	vertical-align: top;
+	white-space: normal;
+}
+@mixin c-carrousel-translateX ($index) {
+	$dist: number($index) - 1;
+	$translateX: $dist*-100%;
+
+	transform: translateX($translateX);
+}
+@mixin slide--active() {
+	visibility: hidden;
+
+	transition-delay: .5s, 0s;
+}
+
+@mixin c-carousel__trans--fade() {
+	.carrousel__content {
+		animation: c-carrousel__fadein 1s;
+		white-space: normal;
+	}
+	.carrousel__content[aria-hidden=true] {
+		display: none;
+
+		animation: c-carrousel__fadeout 1s;
+	}
+}
+@mixin c-carousel__trans--none () {
+	.carrousel__content {
+		white-space: normal;
+	}
+	.carrousel__content[aria-hidden=true] {
+		display: none;
+	}
+}
+@keyframes c-carrousel__fadeout {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes c-carrousel__fadein {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// CARROUSEL selector output
+// --------------------------------------------------
+@if ($c-carrousel--enabled) {
+	.c-carrousel {
+		@include c-carrousel();
+	}
+	.c-carrousel__container {
+		@include c-carrousel__container();
+	}
+	.c-carrousel__control__list {
+		@include c-carrousel__control__list();
+	}
+	.c-carrousel__control__list__item {
+		@include c-carrousel__control__list__item();
+	}
+	.c-carrousel__control__list__link {
+		@include c-carrousel__control__list__link();
+	}
+	.c-carrousel__button-container {
+		@include c-carrousel__button-container();
+	}
+	.c-carrousel__button__previous {
+		@include c-carrousel__button__previous();
+	}
+	.c-carrousel__button__next {
+		@include c-carrousel__button__next();
+	}
+	.c-carrousel__button__button {
+		@include c-carrousel__button__button();
+	}
+	.carrousel__content {
+		@include carrousel__content();
+	}
+	@for $i from 1 through $c-carrousel__totalSlides {
+		[data-carrousel-active-slide='#{$i}'].slide > .carrousel__content {
+			@include  c-carrousel-translateX(#{$i});
+		}
+	}
+	[data-carrousel-active-slide].slide > [aria-hidden='true'].carrousel__content {
+		@include slide--active();
+	}
+	// transition fade
+	@if (map-get($c-carrousel__transitions--enabled, 'fade')) {
+		.fade {
+			@include c-carousel__trans--fade();
+		}
+	}
+	// transition none
+	@if (map-get($c-carrousel__transitions--enabled, 'none')) {
+		.none {
+			@include c-carousel__trans--none();
+		}
+	}
+}
+
+
+

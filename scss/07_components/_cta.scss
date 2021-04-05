@@ -1,0 +1,108 @@
+// cta variables
+// these variables should link to a setting variable. Only cta variables should be used inside the cta
+// --------------------------------------------------
+$c-cta-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-cta__color-scheme--primary: map-get($f-color-schemes, 'primary');
+$c-cta__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
+$c-cta__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
+$c-cta__title-typeScale: map-get($sc-type-scale , 'sc-2' );
+$c-cta__padding-V: map-get($f-modspaces , 'large' );
+
+
+// cta toggling
+$c-cta--enabled: false !default;
+
+// cta and parts as a mixins
+// --------------------------------------------------
+@mixin c-cta() {
+	display: block;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+
+	padding-top: $c-cta__padding-V;
+	padding-bottom: $c-cta__padding-V;
+
+	text-align: center;
+
+	color: map-get($c-cta__color-scheme--primary, 'fg');
+	background: map-get($c-cta__color-scheme--primary, 'bg');
+	::selection {
+		color: s-map-deep-get($f-colors,'neutral', 'white');
+		background: s-map-deep-get($f-colors,'brand', 'secondary');
+	}
+	> * {
+		display: inline-block;
+	}
+	@supports (display: grid) {
+		//not IE11
+		display: flex;
+		> * {
+			display: unset;
+		}
+	};
+	@media screen and (min-width:$c-cta-toggle-BP) {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;
+
+		text-align: left;
+
+@include t-container();
+	}
+}
+@mixin c-cta--secondary() {
+	color: map-get($c-cta__color-scheme--secondary, 'fg');
+	background: map-get($c-cta__color-scheme--secondary, 'bg');
+	::selection {
+		color: s-map-deep-get($f-colors,'neutral', 'white');
+		background: s-map-deep-get($f-colors,'brand', 'primary');
+	}
+}
+@mixin c-cta__title () {
+	margin: map-get($c-cta__title-typeScale, 'line') 0;
+
+	font-size: map-get($c-cta__title-typeScale, 'fontSize');
+	line-height: map-get($c-cta__title-typeScale, 'autoLineHeight');
+	strong {
+		text-transform: uppercase;
+
+		font-weight: bold;
+	}
+}
+
+@mixin c-cta__link() {
+	&,
+	&:link,
+	&:visited {
+		text-transform: uppercase;
+
+		font-weight: bold;
+	};
+	&:hover,
+	&:active,
+	&:focus {
+		color: inherit;
+	};
+}
+
+// cta selector output
+// --------------------------------------------------
+@if ($c-cta--enabled) {
+	.c-cta {
+		@include c-cta();
+	}
+
+	.c-cta__title {
+		@include c-cta__title();
+	}
+
+	.c-cta__link {
+		@include c-cta__link();
+	}
+	.c-cta--secondary {
+		@include c-cta--secondary();
+	}
+}
+

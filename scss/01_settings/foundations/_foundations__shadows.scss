@@ -1,0 +1,47 @@
+
+/* -------------------------------------------------------------------------
+ * SHADOWS
+ *
+ * Define UNCOLORED shadow sizes
+ *
+ *
+ */
+
+
+// Main shadow
+
+$f-shadow: (
+  's1':     0 4px 5px -2px ,  //black.22
+  's2':     0 2px 1px -1px    //black .05
+)!default;
+
+
+// Shadow variants
+
+$f-shadow--basic: $f-shadow !default;
+$f-shadow--elevated: 0 14px 28px 0 !default;
+$f-shadow--sunken: inset 0 0 28px 0 !default;
+$f-shadow--btn: (
+  'normal': (
+      's1':     0 2px 1px ,  //black.1
+      's2':     0 1px 3px    //black .3
+  ),
+  'hover': (
+      's1':     0 2px 3px ,  //black.1
+      's2':     0 4px 8px    //black .3
+
+  )
+)!default;
+
+//default shadow-color
+$f-shadow-color: black!default;
+
+// Shadows map
+
+$f-shadows: (
+  'basic':                    $f-shadow--basic,
+  'btn':                      $f-shadow--btn,
+  'elevated':                 $f-shadow--elevated,
+  'sunken':                   $f-shadow--sunken
+
+) !default;

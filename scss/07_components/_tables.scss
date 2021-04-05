@@ -1,0 +1,136 @@
+// TABLE variables
+// these variables should link to a setting variable. Only TABLE variables should be used inside the TABLE
+// --------------------------------------------------
+$c-table__border-color: s-map-deep-get($f-colors, 'neutral', 'grey--light');
+$c-table__padding: map-get($f-modspaces , 'tiny' );
+
+// TABLE toggling
+$c-table--enabled: false !default;
+$c-table--removableRows--enabled: false !default;
+
+// TABLE and parts as a mixins
+// --------------------------------------------------
+
+@mixin c-table() {
+	width: 100%;
+	max-width: 100%;
+
+	text-align: left;
+
+	th:last-child,
+	td:last-child {
+		padding-right: $c-table__padding ;
+	}
+}
+@mixin c-table__header () {
+	th {
+		padding-top: $c-table__padding*3;
+	}
+}
+@mixin c-table__row() {
+	border-bottom: 1px solid $c-table__border-color;
+	td {
+		padding: $c-table__padding 0;
+	}
+}
+@mixin c-table__footer() {
+	font-weight: bold;
+
+	&,
+	tr {
+		border-bottom: none;
+	}
+	td {
+		vertical-align: bottom;
+	}
+}
+//CELLS
+@mixin  c-table__cell-units() {
+	min-width: 6ch;
+}
+
+
+
+//VARIANTS
+@mixin c-table--removableRows() {
+	tr {
+		.c-btn--remove {
+			margin: 0 .5em;
+		}
+	}
+	//make it visible in tr over
+	tbody tr:hover {
+		cursor: pointer;
+		transition: background-color .2s ease-out;
+
+		background-color: #{s-map-deep-get($f-colors,'neutral', 'grey--ultra-light')};
+		td:first-child:before {
+			opacity: 1;
+		}
+		.c-btn--remove {
+			--myColor: #{s-map-deep-get($f-colors,'state', 'danger')};
+		}
+	}
+}
+@mixin c-table--clean() {
+	width: 100%;
+	margin-bottom: map-get($f-modspaces , 'medium' );
+
+	table-layout: fixed;;
+	.c-table__header {
+		th {
+			padding: map-get($f-modspaces , 'small' );
+
+			vertical-align: bottom;
+		}
+	}
+	.c-table__cell {
+		padding: map-get($f-modspaces , 'small' );
+
+		vertical-align: top;
+		&:first-child {
+			font-weight: bold;
+		}
+	}
+}
+@mixin c-table--small() {
+	font-size: .9em;
+	line-height: 1.2;
+}
+// TABLE selector output
+// --------------------------------------------------
+@if ($c-table--enabled) {
+	.c-table {
+		@include c-table();
+	}
+
+	.c-table thead,
+	.c-table__header {
+		@include c-table__header();
+	}
+
+	.c-table tr,
+	.c-table__row {
+		@include c-table__row();
+	}
+	.c-table tfoot,
+	.c-table__footer {
+		@include c-table__footer();
+	}
+	.c-table__cell-units {
+		@include c-table__cell-units();
+	}
+	.c-table--clean {
+		@include c-table--clean();
+	}
+	.c-table--small {
+		@include c-table--small();
+	}
+
+	// VARIANTS
+	@if ($c-table--removableRows--enabled) {
+		.c-table--removableRows {
+			@include c-table--removableRows();
+		}
+	}
+}

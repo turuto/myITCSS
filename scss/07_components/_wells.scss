@@ -1,0 +1,74 @@
+// WELL variables
+// these variables should link to a setting variable. Only WELL variables should be used inside the WELL
+// --------------------------------------------------
+$c-well__padding: map-get($f-modspaces , 'tiny' );
+$c-well__title-typeScale: map-get($sc-type-scale , 'default' );
+$c-well__border-color: s-map-deep-get($f-colors, 'neutral', 'grey');
+$c-well__border-radius: 6px;
+$c-well__color-scheme--default: map-get($f-color-schemes, 'terciary');
+$c-well__color-scheme--primary: map-get($f-color-schemes, 'primary');
+$c-well__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
+$c-well__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
+$c-well__color-scheme--neutral: map-get($f-color-schemes, 'neutral');
+
+// WELL toggling
+$c-well--enabled: false !default;
+
+// WELL and parts as a mixins
+// --------------------------------------------------
+@mixin c-well() {
+	margin-top: $c-well__padding*4;
+	padding: $c-well__padding $c-well__padding*2;
+
+	border: 1px solid $c-well__border-color;
+	border-left: 5px solid;
+	background: rgba( s-map-deep-get($f-colors, 'brand','secondary'),.05);
+	box-shadow: 0 0 2px rgba(0,0,0,.5);
+	box-shadow: s-map-deep-get($f-shadows, 'btn','normal','s1') rgba($f-shadow-color, .1),;
+}
+@mixin c-well__title () {
+	margin: map-get($c-well__title-typeScale, 'line')/2 0;
+
+	font-size: map-get($c-well__title-typeScale, 'fontSize');
+	line-height: map-get($c-well__title-typeScale, 'autoLineHeight');
+}
+
+
+// color variations
+@mixin c-well--primary() {
+	color: map-get($c-well__color-scheme--primary, 'fg');
+	border-left-color: map-get($c-well__color-scheme--primary, 'bg');
+	::selection {
+		color: s-map-deep-get($f-colors,'neutral', 'white');
+		background: s-map-deep-get($f-colors,'brand', 'secondary');
+	}
+}
+
+@mixin c-well--secondary() {
+	// color: map-get($c-well__color-scheme--secondary, 'fg');
+	border-left-color: map-get($c-well__color-scheme--secondary, 'bg');
+}
+@mixin c-well--terciary() {
+	// color: map-get($c-well__color-scheme--terciary, 'fg');
+	border-left-color: map-get($c-well__color-scheme--terciary, 'bg');
+}
+@mixin c-well--neutral() {
+	// color: map-get($c-well__color-scheme--neutral, 'fg');
+	border-left-color: map-get($c-well__color-scheme--neutral, 'bg');
+
+	--color-accent: #{s-map-deep-get($f-colors, 'brand', secondary)};
+}
+// WELL selector output
+// --------------------------------------------------
+@if ($c-well--enabled) {
+	.c-well {
+		@include c-well();
+	}
+
+	.c-well__title {
+		@include c-well__title();
+	}
+	.c-well--primary {
+		@include c-well--primary();
+	}
+}

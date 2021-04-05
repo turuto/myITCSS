@@ -1,0 +1,21 @@
+
+/* -------------------------------------------------------------------------
+ * COLORS OTHER
+ *
+ * Define all other colors
+ * The values here are for sample proposes, consider add your owns
+ *
+ */
+
+
+// Main other colors
+
+$f-color__cool-grey--dark: #25282B !default;
+
+
+
+// Other color map
+
+$f-colors-other: (
+  'cool-grey--dark':                  $f-color__cool-grey--dark,
+) !default;

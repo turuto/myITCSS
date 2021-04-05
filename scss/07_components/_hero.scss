@@ -1,0 +1,106 @@
+// hero variables
+// these variables should link to a setting variable. Only hero variables should be used inside the hero
+// --------------------------------------------------
+$c-hero-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-hero__title-typeScale: map-get($sc-type-scale , 'sc-3' );
+$c-hero__desc-typeScale: map-get($sc-type-scale , 'sc-2' );
+$c-hero__padding: map-get($f-spaces , 'small' );
+$c-hero__padding-top: map-get($f-modspaces , 'large' );
+
+// hero toggling
+$c-hero--enabled: false !default;
+
+
+
+// hero and parts as a mixins
+// --------------------------------------------------
+@mixin c-hero() {
+	align-items: center;
+
+	padding: $c-hero__padding-top  $c-hero__padding;
+	padding-top: $c-hero__padding-top;
+
+	text-align: left;
+
+
+	@media screen and (max-width:$c-hero-toggle-BP) {
+		display: block;
+
+		text-align: center;
+
+		// @supports (display: grid) {
+		// 	//not IE11
+		// 	display: flex;
+		// };
+	}
+	@media screen and (min-width:$c-hero-toggle-BP) {
+		display: flex;
+
+@include t-container();
+	}
+}
+@mixin c-hero__title () {
+	margin: map-get($c-hero__title-typeScale, 'line') 0;
+
+	text-transform: uppercase;
+
+	font-size: map-get($c-hero__title-typeScale, 'fontSize');
+	line-height: map-get($c-hero__title-typeScale, 'autoLineHeight');
+	@media screen and (max-width:400px) {
+		font-size: map-get($c-hero__title-typeScale, 'fontSize')*.8;
+		line-height: map-get($c-hero__title-typeScale, 'autoLineHeight')*.8;
+	}
+}
+
+
+@mixin c-hero__desc () {
+	margin: map-get($c-hero__desc-typeScale, 'line') 0;
+
+	font-size: map-get($c-hero__desc-typeScale, 'fontSize');
+	font-weight: 300;
+	line-height: map-get($c-hero__desc-typeScale, 'autoLineHeight');
+}
+@mixin c-hero__img () {
+	flex: unset;
+
+	&#{&} {
+		margin: 0 auto;
+	}
+	@media screen and (min-width:$c-hero-toggle-BP) {
+		width: 390px;
+		max-width: 390px;
+		height: 300px;
+	}
+	@supports (display: grid) {
+		width: calc( 300px * 1.3);
+		height: 300px;
+		@media screen and (max-width:$c-hero-toggle-BP) {
+			width: 300px;
+			height: auto;
+		}
+		@media screen and (min-width:$c-hero-toggle-BP) {
+			// max-width: 44%;
+			max-width: unset;
+			max-height: unset;
+			margin-right: unset;
+			margin-left: unset;
+		}
+	}
+}
+// hero selector output
+// --------------------------------------------------
+@if ($c-hero--enabled) {
+	.c-hero {
+		@include c-hero();
+	}
+
+	.c-hero__title {
+		@include c-hero__title();
+	}
+	.c-hero__desc {
+		@include c-hero__desc();
+	}
+	.c-hero__img {
+		@include c-hero__img();
+	}
+}

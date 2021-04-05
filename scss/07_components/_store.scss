@@ -1,0 +1,132 @@
+// STORE variables
+// these variables should link to a setting variable. Only STORE variables should be used inside the STORE
+// --------------------------------------------------
+$c-store__border-color: s-map-deep-get($f-colors, 'neutral', 'grey--light');
+$c-store-toggle-BP: map-get($f-breakpoints , 'sml' );
+
+// STORE toggling
+$c-store--enabled: false !default;
+
+// STORE and parts as a mixins
+// --------------------------------------------------
+@mixin c-store() {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	@media screen and (max-width: $c-store-toggle-BP) {
+		padding-top: 0;
+	}
+	@media screen and (min-width: $c-store-toggle-BP) {
+		display: grid;
+
+		grid-template-columns: 1fr 300px ;
+		grid-template-rows: auto 1fr ;
+		grid-column-gap: map-get($f-modspaces,'small');
+	}
+}
+@mixin c-store__title () {
+	grid-column: 1 /-1;
+	@media screen and (min-width: $c-store-toggle-BP) {
+		margin-bottom: map-get($f-modspaces, 'large' );
+	}
+}
+@mixin c-store__products () {
+	display: inline-block;
+
+	width: 98%;
+	@supports (display: grid) {
+		//NOT IE11
+		display: flex;
+	}
+	@media screen and (min-width: $c-store-toggle-BP) {
+		width: auto;
+		@supports (display: grid) {
+			//NOT IE11
+			width: unset;
+
+			grid-column: 1 /-1;
+			grid-row: 2 /2;
+		}
+	}
+}
+@mixin c-store__product () {
+	flex: 1;
+
+	min-width: 47%;
+	margin-bottom: map-get($f-modspaces, 'large' );
+	&#{&} {
+		max-width: none;
+	}
+	.c-iconbox__desc {
+		margin-bottom: 1em;
+	}
+	button {
+		display: block;
+
+		margin-left: auto;
+	}
+}
+@mixin c-store__cart () {
+	// position: sticky;
+	top: 20px;
+
+	width: 100%;
+	margin-bottom: map-get($f-modspaces,'large');
+
+// padding-bottom: map-get($f-spaces, 'medium' );
+
+	border-bottom: 1px solid  s-map-deep-get($f-colors, 'brand', 'grey--ultra-light');
+	background: inherit;
+
+	// box-shadow: 0 7px 4px 2px white;
+	;
+	@media screen and (max-width: $c-store-toggle-BP) {
+		border-bottom: none;
+	}
+	@media screen and (min-width: $c-store-toggle-BP) {
+		position: sticky;
+		top: unset;
+
+		width: auto;
+		padding-left: map-get($f-modspaces, 'small' );
+
+		border-bottom: none;
+		border-left: 1px solid $c-store__border-color;
+		box-shadow: unset;
+
+		grid-column: 2 /-1;
+	}
+}
+
+@mixin c-store__options () {
+	@media screen and (max-width: $c-store-toggle-BP) {
+		p,
+		button {
+			margin: 0!important;
+		}
+	}
+}
+// STORE selector output
+// --------------------------------------------------
+@if ($c-store--enabled) {
+	.c-store {
+		@include c-store();
+	}
+
+	.c-store__title {
+		@include c-store__title();
+	}
+	.c-store__products {
+		@include c-store__products();
+	}
+	.c-store__product {
+		@include c-store__product();
+	}
+	.c-store__cart {
+		@include c-store__cart();
+	}
+	// .c-store__options {
+	// 	@include c-store__options();
+	// }
+}

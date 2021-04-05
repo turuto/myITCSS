@@ -1,0 +1,88 @@
+// BANNER variables
+// these variables should link to a setting variable. Only BANNER variables should be used inside the banner
+// --------------------------------------------------
+$c-banner-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-banner__color-schemes: (
+    'lima': map-get($f-color-schemes, 'secondary')
+    );
+$c-banner__title-typeScale: map-get($sc-type-scale , 'h3' );
+$c-banner__lead-typeScale: map-get($sc-type-scale , 'h4' );
+$c-banner__padding-V: map-get($f-modspaces , 'large' );
+$c-banner__padding-H: map-get($f-modspaces , 'large' );
+
+
+// BANNER toggling
+$c-banner--enabled: false !default;
+
+// BANNER and parts as a mixins
+// --------------------------------------------------
+@mixin c-banner() {
+	padding: $c-banner__padding-V $c-banner__padding-H;
+	@media screen and (min-width:$c-banner-toggle-BP) {
+		@include t-container();
+
+
+		p {
+			margin-top: 0;
+		};
+	}
+}
+@mixin c-banner__title () {
+	margin: map-get($c-banner__title-typeScale, 'line') 0;
+
+	font-size: map-get($c-banner__title-typeScale, 'fontSize');
+	line-height: map-get($c-banner__title-typeScale, 'autoLineHeight');
+}
+@mixin c-banner__lead () {
+	margin: map-get($c-banner__lead-typeScale, 'line') 0;
+
+	font-size: map-get($c-banner__lead-typeScale, 'fontSize');
+	line-height: map-get($c-banner__lead-typeScale, 'autoLineHeight');
+}
+@mixin c-banner--lima {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	text-align: center;
+
+	color: s-map-deep-get($c-banner__color-schemes, 'lima','fg');
+	background: s-map-deep-get($c-banner__color-schemes, 'lima','bg');
+	background: url('../images/banner-peru__bg.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-shadow: 0 0 2px black;
+	@media screen and (min-width:$c-banner-toggle-BP) {
+	}
+	.c-banner__img {
+		overflow: visible;
+		align-self: center;
+		order: -1;
+
+		max-width: 200px;
+		height: auto;
+
+		border-radius: 100%;
+		box-shadow: s-map-deep-get($f-shadows, 'basic','s1') rgba($f-shadow-color, .22),
+		s-map-deep-get($f-shadows, 'basic','s2') rgba($f-shadow-color, .05);
+	}
+}
+
+// BANNER selector output
+// --------------------------------------------------
+@if ($c-banner--enabled) {
+	.c-banner {
+		@include c-banner();
+	}
+	.c-banner__title {
+		@include c-banner__title();
+	}
+	.c-banner__lead {
+		@include c-banner_-lead();
+	}
+	.c-banner--lima {
+		@include c-banner--lima();
+	}
+}
+

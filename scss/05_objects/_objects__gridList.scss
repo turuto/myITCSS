@@ -1,0 +1,49 @@
+/* ==========================================================================
+   #GRIDLIST
+   ========================================================================== */
+
+/*
+ * Remove any ornament, margin, padding from the list aand their elements
+ * places the items side by side on big screen, and stacked on small viewports
+ *
+ *
+ */
+
+$o-list-h-toggle-BP: map-get($f-breakpoints , 'sml' );
+
+//  OBJECT TOGGLING
+$o-list-h--enabled: false !default;
+
+
+//SCSS AS MIXINS
+@mixin o-list-h () {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	margin-left: 0;
+
+	list-style: none;
+	@media screen and (min-width:$o-list-h-toggle-BP) {
+		align-items: flex-start;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@mixin o-list-h__item () {
+	margin-left: 0;
+}
+
+
+//OBJECT selector output
+@if ($o-list-h--enabled) {
+	.o-list-h {
+		@include o-list-h();
+	}
+	.o-list-h > li,
+	.o-list-h__item {
+		@include o-list-h__item();
+	}
+}

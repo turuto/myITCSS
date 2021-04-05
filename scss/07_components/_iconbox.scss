@@ -1,0 +1,130 @@
+// iconbox variables
+// these variables should link to a setting variable. Only iconbox variables should be used inside the iconbox
+// --------------------------------------------------
+$c-iconbox__sizes: (
+	'normal': map-get($f-modspaces , 'huge'),
+	'small':map-get($f-modspaces , 'large')
+);
+$c-iconbox__title-typeScale: map-get($sc-type-scale , 'h4' );
+$c-iconbox__desc__padding-H: map-get($f-modspaces , 'small');
+$c-iconbox__text-shadow: 0 0 2px black;
+$c-iconbox__gutter: map-get($f-modspaces , 'small');
+// iconbox toggling
+$c-iconbox--enabled: false !default;
+
+// iconbox and parts as a mixins
+// --------------------------------------------------
+@mixin c-iconbox() {
+	text-align: center;
+	&#{&}#{&} {
+		display: flex;
+	}
+
+	&--V {
+		align-items: center;
+		flex-direction: column;
+		&#{&}#{&}#{&}#{&} {
+			display: list-item;
+		}
+		@supports (display: grid) {
+			//not IE11
+			display: block;
+		};
+	}
+	.o-media__img {
+		flex: 0;
+
+		margin-right: $c-iconbox__gutter ;
+	}
+	.o-media__body {
+		padding-left: map-get($c-iconbox__sizes, 'normal')/2;
+		@supports (display: grid) {
+			//not IE11
+			padding-left: unset;
+		};
+	}
+	::selection {
+		color: currentColor;
+		background: transparent;
+	}
+}
+@mixin c-iconbox__icon () {
+	box-sizing: border-box;
+	width: var(--mySize);
+	height: var(--mySize);
+
+	text-align: center;
+
+	color: #FFFFFF;
+	border-radius: 100%;
+	text-shadow: $c-iconbox__text-shadow;
+
+	font-size: calc( var(--mySize) * .5);
+	line-height: var(--mySize);
+
+	--mySize: #{map-get($c-iconbox__sizes, 'normal')};
+}
+
+@mixin c-iconbox__title () {
+	margin: map-get($c-iconbox__title-typeScale, 'line') 0;
+	margin-bottom: map-get($c-iconbox__title-typeScale, 'line')*.25;
+
+	text-transform: capitalize;
+
+	font-size: map-get($c-iconbox__title-typeScale, 'fontSize');
+	font-weight: 100;
+	line-height: map-get($c-iconbox__title-typeScale, 'autoLineHeight')/1.618;
+}
+@mixin c-iconbox__price () {
+	margin-bottom: map-get($c-iconbox__title-typeScale, 'line')*.5;
+
+	font-size: .9em;
+	font-weight: bold;
+}
+@mixin c-iconbox__desc () {
+	padding: 0 $c-iconbox__desc__padding-H;
+}
+//Variations
+@mixin c-iconbox--H() {
+	text-align: left;
+	& .c-iconbox__title {
+		margin-top: 0;
+	}
+	& .c-iconbox__desc {
+		padding: 0;
+	}
+}
+
+@mixin c-iconbox--small() {
+	.c-iconbox__icon.c-iconbox__icon {
+		--mySize: #{map-get($c-iconbox__sizes, 'small')};
+	}
+}
+// iconbox selector output
+// --------------------------------------------------
+@if ($c-iconbox--enabled) {
+	.c-iconbox {
+		@include c-iconbox();
+	}
+
+	.c-iconbox__icon {
+		&#{&} {
+			@include c-iconbox__icon();
+		}
+	}
+	.c-iconbox__title {
+		@include c-iconbox__title();
+	}
+	.c-iconbox__price {
+		@include c-iconbox__price();
+	}
+	.c-iconbox__desc {
+		@include c-iconbox__desc();
+	}
+	.c-iconbox--H {
+		@include c-iconbox--H();
+	}
+	.c-iconbox--small {
+		@include c-iconbox--small();
+	}
+}

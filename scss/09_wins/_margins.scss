@@ -1,0 +1,19 @@
+// MARGIN LEFT
+.w-ml--huge {
+	margin-left: map-get($f-modspaces, 'huge' );
+}
+// MARGIN BOTTOM
+.w-mb--tiny {
+	margin-bottom: map-get($f-modspaces, 'tiny' );
+}
+.w-mb--small {
+	margin-bottom: map-get($f-modspaces, 'small' );
+}
+// MARGIN RIGHT
+
+// MARGIN TOP
+.w-mt--large {
+	margin-top: map-get($f-modspaces, 'large' )!important;
+}
+
+

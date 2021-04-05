@@ -1,0 +1,159 @@
+/*
+* DIALOG COMPONENT BASED ON https://github.com/edenspiekermann/a11y-dialog
+*/
+// DIALOG variables
+// these variables should link to a setting variable. Only DIALOG variables should be used inside the DIALOG
+// --------------------------------------------------
+$c-dialog__color--overlay: rgba(s-map-deep-get($f-colors, 'neutral','black'),.8);
+$c-dialog__border-radius: 6px;
+$c-dialog__shadow: map-get($f-shadows , 'elevated' );
+$c-dialog__padding: map-get($f-modspaces, 'medium' );
+$c-dialog__title-typeScale: map-get($sc-type-scale , 'sc-2' );
+$c-dialog__transition: all $f-global-transition;
+
+// DIALOG toggling
+$c-dialog--enabled: false!default;
+
+@if ($c-dialog--enabled) {
+	.c-dialog:not(.is-loaded)  * {
+		display: none;
+	}
+	[data-a11y-dialog-native] .c-dialog__overlay {
+		display: none;
+	}
+	dialog[open] {
+		display: flex;
+	}
+
+	.c-dialog[aria-hidden='true'] {
+		display: none;
+	}
+
+	.is-loaded .c-dialog__overlay {
+		position: fixed;
+		z-index: 2;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		background-color: $c-dialog__color--overlay;
+	}
+
+	.is-loaded .c-dialog__overlay {
+		background-color: $c-dialog__color--overlay;
+	}
+
+	dialog::backdrop {
+		background-color: $c-dialog__color--overlay;
+	}
+
+	.c-dialog__dialog {
+		position: fixed;
+		z-index: 3;
+		top: 50%;
+		left: 50%;
+
+		overflow: hidden;
+		flex-direction: column;
+
+		width: 650px;
+		max-width: 90%;
+		max-height: 90vh;
+		margin: 0;
+		padding: $c-dialog__padding;
+
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+
+		border: none;
+		border-radius: $c-dialog__border-radius;
+		background-color: rgb(255, 255, 255);
+		box-shadow: s-map-deep-get($f-shadows, 'elevated') rgba($f-shadow-color, .5);
+	}
+
+
+	.c-dialog:not([aria-hidden='true']) > .c-dialog__overlay {
+		animation: c-dialog__fade-in 200ms 1 both;
+	}
+
+	.c-dialog:not([aria-hidden='true']) > .c-dialog__dialog {
+		animation: c-dialog__appear 400ms 150ms 1 both;
+	}
+
+
+
+	// @media screen and (min-width: 700px) {
+	// 	.c-dialog__dialog {
+	// 		padding: $c-dialog__padding;
+	// 	}
+	// }
+
+	.c-dialog__header {
+		position: relative;
+
+		padding-right: 20px;
+	}
+	.c-dialog__body {
+		overflow-y: scroll;
+
+		padding-right: $c-dialog__padding;
+	}
+	.c-dialog .c-dialog__title {
+		margin: 0;
+		margin-bottom: map-get($c-dialog__title-typeScale, 'line');
+
+		font-size: map-get($c-dialog__title-typeScale, 'fontSize');
+		line-height: map-get($c-dialog__title-typeScale, 'autoLineHeight');
+	}
+
+	.c-dialog__btn--close {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+// width: 1.2em;
+		// height: 1.2em;
+		// padding: 0;
+
+		cursor: pointer;
+		transition: .15s;
+		text-align: center;
+
+		border: 0;
+		background-color: transparent;
+
+		font-size: 1.25em;
+
+		// font-weight: bold;
+	}
+
+	// @media screen and (min-width: 700px) {
+	// 	.c-dialog__btn--close {
+	// 		top: 1em;
+	// 		right: 1em;
+	// 	}
+	// }
+	@keyframes c-dialog__fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes c-dialog__appear {
+		from {
+			transform: translate(-50%, -40%);
+
+			opacity: 0;
+		}
+		to {
+			transform: translate(-50%, -50%);
+
+			opacity: 1;
+		}
+	}
+}

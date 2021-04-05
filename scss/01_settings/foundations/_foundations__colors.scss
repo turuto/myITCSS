@@ -1,0 +1,61 @@
+@import 'foundations__colors-brand';
+@import 'foundations__colors-neutral';
+@import 'foundations__colors-state';
+@import 'foundations__colors-vendor';
+@import 'foundations__colors-material';
+@import 'foundations__colors-other';
+
+
+// Color groups map
+
+$f-colors: (
+  'brand':        $f-colors-brand,
+  'neutral':      $f-colors-neutral,
+  'state':        $f-colors-state,
+  'vendor':       $f-colors-vendor,
+  'material':        $f-colors-material,
+  'other':        $f-colors-other,
+) !default;
+
+//Based on contrast checker tools, we can define color combinations allowed
+// 'bg' stands for background; 'fg' stands for foreground; 'accent' is links
+$f-color-scheme--default: (
+    'bg': s-map-deep-get($f-colors, 'neutral', 'white'),
+    'fg':s-map-deep-get($f-colors, 'neutral', 'black'),
+    'accent':s-map-deep-get($f-colors, 'brand', 'primary'),
+);
+$f-color-scheme--primary: (
+    'bg': s-map-deep-get($f-colors, 'brand', 'primary'),
+    'fg':s-map-deep-get($f-colors, 'brand', 'secondary'),
+    'accent':s-map-deep-get($f-colors, 'neutral', 'white')
+);
+$f-color-scheme--secondary: (
+    'bg': s-map-deep-get($f-colors, 'brand', 'secondary'),
+    'fg': s-map-deep-get($f-colors, 'neutral', 'white'),
+    'accent': s-map-deep-get($f-colors,'brand', 'primary'),
+);
+$f-color-scheme--terciary: (
+    'bg': s-map-deep-get($f-colors, 'brand', 'terciary'),
+    'fg': s-map-deep-get($f-colors, 'neutral', 'white'),
+    'accent': s-map-deep-get($f-colors, 'neutral', 'black'),
+);
+$f-color-scheme--neutral: (
+    'bg': s-map-deep-get($f-colors, 'neutral', 'grey--light'),
+    'fg': s-map-deep-get($f-colors, 'neutral', 'black'),
+    'accent': s-map-deep-get($f-colors, 'brand', 'primary'),
+);
+$f-color-scheme--inverted: (
+    'bg': s-map-deep-get($f-colors, 'neutral', 'black'),
+    'fg': s-map-deep-get($f-colors, 'neutral', 'white'),
+    'accent': s-map-deep-get($f-colors, 'brand', 'primary'),
+);
+
+// Color Schemes map
+$f-color-schemes: (
+  'primary': $f-color-scheme--primary,
+  'secondary': $f-color-scheme--secondary,
+  'terciary': $f-color-scheme--terciary,
+  'neutral': $f-color-scheme--neutral,
+  'inverted': $f-color-scheme--inverted,
+
+) !default;

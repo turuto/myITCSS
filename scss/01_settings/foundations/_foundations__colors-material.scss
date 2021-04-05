@@ -1,0 +1,46 @@
+
+/* -------------------------------------------------------------------------
+ * COLORS MATERIAL
+ *
+ * Color used in FENIX app that are based LOSELY on MATERIAL PALETTE
+ */
+
+$f-color-mat__red--dark: #DD3300 !default;
+$f-color-mat__pink--dark: #CB4378 !default;
+$f-color-mat__fuchsia: #E91E63 !default;
+$f-color-mat__purple: #9C27B0 !default;
+$f-color-mat__violet: #5C6BC0 !default;
+$f-color-mat__blue--dark: #3481C9 !default;
+$f-color-mat__blue--light: #80D8FF !default;
+$f-color-mat__blue: #30B0E4 !default;
+$f-color-mat__cyan: #3C97B3 !default;
+$f-color-mat__cyan--light: #06DFE2 !default;
+$f-color-mat__teal: #009988;
+$f-color-mat__green--apple: #4CAF50 !default;
+$f-color-mat__green: #00CCB5 !default;
+$f-color-mat__green--light: #6C9E48 !default;
+$f-color-mat__yellow: #F9B156 !default;
+$f-color-mat__orange: #FF6600 !default;
+$f-color-mat__grey--dark: #909090 !default;
+
+// Material color map
+
+$f-colors-material: (
+    'red--dark':       $f-color-mat__red--dark,
+    'fuchsia':         $f-color-mat__fuchsia,
+    'pink--dark':      $f-color-mat__pink--dark,
+    'purple':          $f-color-mat__purple,
+    'violet':          $f-color-mat__violet,
+    'blue':            $f-color-mat__blue,
+    'blue--dark':      $f-color-mat__blue--dark,
+    'blue--light':     $f-color-mat__blue--light,
+    'cyan':            $f-color-mat__cyan,
+    'cyan--light':     $f-color-mat__cyan--light,
+    'teal':            $f-color-mat__teal,
+    'green--apple':    $f-color-mat__green--apple,
+    'green':           $f-color-mat__green,
+    'green--light':    $f-color-mat__green--light,
+    'yellow':          $f-color-mat__yellow,
+    'orange':          $f-color-mat__orange,
+    'grey--dark':      $f-color-mat__grey--dark
+)  !default;

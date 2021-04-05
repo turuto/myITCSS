@@ -1,0 +1,38 @@
+/* -------------------------------------------------------------------------
+ * COLORS
+ *
+ * Foundation colors as color
+ *
+ */
+
+
+// Utility variables
+// --------------------------------------------------
+
+// Utility toggling
+
+$w-colors--enabled: false !default;
+
+// Colors maps
+
+$w-colors__maps: $f-color--exported__maps !default;
+
+
+
+
+// Utilities output
+// --------------------------------------------------
+
+@if ($w-colors--enabled) {
+	@each $_color-group__name, $_color-group__map in $w-colors__maps {
+		@each $_color-name, $_color-value in $_color-group__map {
+			@if ($_color-group__name != 'others') {
+				$_color-name: unquote('#{$_color-group__name}-#{$_color-name}');
+			}
+
+			.w-color--#{$_color-name} {
+				color: $_color-value !important;
+			}
+		}
+	}
+}

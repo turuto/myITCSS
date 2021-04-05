@@ -1,0 +1,9 @@
+$u-widths--enabled: false !default;
+
+@if ($u-widths--enabled) {
+	@for $i from 1 through 10 {
+		.u-width--#{$i} {
+			width: $i *1em;
+		}
+	}
+}

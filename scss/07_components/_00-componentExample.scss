@@ -1,0 +1,28 @@
+// COMPONENT variables
+// these variables should link to a setting variable. Only component variables should be used inside the component
+// --------------------------------------------------
+$c-component__variable1: 'value';
+
+// COMPONENT toggling
+$c-component--enabled: false !default;
+
+// COMPONENT and parts as a mixins
+// --------------------------------------------------
+@mixin c-component() {
+	// Write something good
+}
+@mixin c-component__element () {
+	// Write something good
+}
+
+// COMPONENT selector output
+// --------------------------------------------------
+@if ($c-component--enabled) {
+	.c-component {
+		@include c-component();
+	}
+
+	.c-component__element {
+		@include c-component__element();
+	}
+}

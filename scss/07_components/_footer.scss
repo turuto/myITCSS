@@ -1,0 +1,194 @@
+// footer variables
+// these variables should link to a setting variable. Only footer variables should be used inside the component
+// --------------------------------------------------
+$c-footer-toggle-BP: map-get($f-breakpoints , 'sml' );
+$c-footer__padding: map-get($f-spaces , 'small' );
+$c-footer__padding-top: map-get($f-spaces , 'large' );
+$c-footer__color-scheme: map-get($f-color-schemes, 'secondary');
+$c-footer__list-typeScale: map-get($sc-type-scale , 'p' );
+$c-footer__color-sep: rgba(white, .2);
+
+// COMPONENT toggling
+$c-footer--enabled: false !default;
+
+// footer and parts as a mixins
+// --------------------------------------------------
+@mixin c-footer() {
+	flex-wrap: wrap;
+
+	padding: 0 $c-footer__padding;
+	padding-top: $c-footer__padding-top;
+
+	color: map-get($c-footer__color-scheme,'fg');
+	background: map-get($c-footer__color-scheme,'bg');
+	background: $f-color-black;
+	@media screen and (min-width:$o-site-toggle-BP) {
+		@include t-container();
+	}
+}
+@mixin c-footer__upper() {
+	display: block;
+	@supports (display: grid) {
+		//not IE11
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+	};
+	@media screen and (min-width:$o-site-toggle-BP) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@mixin c-footer__contact () {
+	flex: 1;
+}
+@mixin c-footer__list() {
+	@media screen and (min-width:$o-site-toggle-BP) {
+		border-top: 1px solid $c-footer__color-sep;
+	}
+}
+@mixin  c-footer__list__item () {
+	margin: map-get($c-footer__list-typeScale, 'line') 0;
+
+	text-align: center;
+
+	font-size: map-get($c-footer__list-typeScale, 'fontSize');
+	line-height: map-get($c-footer__list-typeScale, 'autoLineHeight');
+
+
+	@media screen and (min-width:$o-site-toggle-BP) {
+		text-align: left;
+		&#{&} {
+			margin-left: map-get($f-spaces , 'large' );
+		}
+		&:before {
+			display: inline-block;
+
+			content: '|';
+			transform: translateX(-10px) rotate(45deg);
+
+			color: s-map-deep-get($f-colors, 'brand', 'primary');
+		}
+	}
+}
+@mixin c-footer__product () {
+	order: -1;
+
+	margin-bottom: $c-footer__padding-top;
+	.c-footer__heading {
+		width: 100%;
+		max-width: 50%;
+		margin-bottom: $c-footer__padding;
+		@media screen and (min-width:$o-site-toggle-BP) {
+			text-align: right;
+		}
+		img {
+			width: 100%;
+			max-width: 329px;
+			@supports (display: grid) {
+				//not IE11
+				max-width: unset;
+			}
+		}
+	}
+	.c-social {
+		max-width: 50%;
+		margin-right: 0;
+		@media screen and (max-width:$o-site-toggle-BP) {
+			margin: 0 auto;
+		}
+		@supports (display: grid) {
+			//not IE11
+			margin: 0 auto;
+		};
+	}
+
+
+	@media screen and (min-width:$o-site-toggle-BP) {
+		display: flex;
+		align-items: flex-end;
+		flex: 1.5;
+		flex-direction: column;
+		justify-content: center;
+		order: 1;
+		.c-social {
+			max-width: 50%;
+			@supports (display: grid) {
+				margin: unset;
+			}
+		}
+	}
+}
+@mixin c-footer__heading() {
+	max-width: 30vw;
+	margin: 0 auto;
+	@media screen and (min-width:$o-site-toggle-BP) {
+		max-width: 30%;
+		margin: 0;
+	}
+}
+@mixin c-footer__ending() {
+	width: calc(100vw - #{$c-footer__padding *4});
+	min-height: calc ( #{$c-footer__padding*2} + 1.5em ) ;
+	margin-left: calc(50% - 50vw);
+	padding: $c-footer__padding  $c-footer__padding*2;
+
+	text-align: center;
+
+	background-image: linear-gradient(to right, $c-footer__color-sep, $c-footer__color-sep);
+	background-repeat: no-repeat;
+	background-position: center 0;
+	background-size: 50% 1px;
+
+	font-size: .9em;
+	@media screen and (min-width:$o-site-toggle-BP) {
+		padding-right: $c-footer__padding*4;
+
+		text-align: right;
+
+		background-position: calc( 100% - #{$c-footer__padding*4}) 0;
+
+// background-position: $c-footer__padding*2 0;
+
+		background-imege: linear-gradient(to right, $c-footer__color-sep, $c-footer__color-sep 50%, transparent 50%);
+	}
+	a,
+	a:link,
+	a:visited {
+		border-bottom: 1px dotted s-map-deep-get($f-colors, 'brand', 'primary');
+
+		font-weight: bold;
+	};
+}
+
+
+// footer selector output
+// --------------------------------------------------
+@if ($c-footer--enabled) {
+	.c-footer {
+		@include c-footer();
+	}
+	.c-footer__upper {
+		@include c-footer__upper();
+	}
+	.c-footer__list {
+		@include c-footer__list();
+	}
+	.c-footer__list__item {
+		@include c-footer__list__item();
+	}
+	.c-footer__contact {
+		@include c-footer__contact();
+	}
+	.c-footer__product {
+		@include c-footer__product();
+	}
+	.c-footer__heading {
+		@include c-footer__heading();
+	}
+	.c-footer__ending {
+		@include c-footer__ending();
+	}
+}

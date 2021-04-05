@@ -1,0 +1,45 @@
+// CONTACTLIST variables
+// these variables should link to a setting variable. Only CONTACTLIST variables should be used inside the CONTACTLIST
+// --------------------------------------------------
+$c-contactList__typeScale: map-get($sc-type-scale , 'sc-0' );
+$c-contactList__iconsize: 30px;
+
+// CONTACTLIST toggling
+$c-contactList--enabled: false !default;
+
+// CONTACTLIST and parts as a mixins
+// --------------------------------------------------
+@mixin c-contactList() {
+}
+@mixin c-contactList__item () {
+	position: relative;
+
+	margin: 0;
+	margin-bottom: map-get($c-contactList__typeScale, 'line');
+
+	text-align: left;
+
+	font-size: map-get($c-contactList__typeScale, 'fontSize');
+	line-height: map-get($c-contactList__typeScale, 'autoLineHeight');
+	&#{&} {
+		margin-left: $c-contactList__iconsize;
+	}
+	i {
+		position: absolute;
+		left: - $c-contactList__iconsize;
+
+		width: $c-contactList__iconsize;
+	}
+}
+
+// CONTACTLIST selector output
+// --------------------------------------------------
+@if ($c-contactList--enabled) {
+	.c-contactList {
+		@include c-contactList();
+	}
+
+	.c-contactList__item {
+		@include c-contactList__item();
+	}
+}

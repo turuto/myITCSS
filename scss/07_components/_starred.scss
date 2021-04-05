@@ -1,0 +1,53 @@
+// STARRED variables
+// these variables should link to a setting variable. Only STARRED variables should be used inside the STARRED
+// --------------------------------------------------
+$c-starred__iconSize: 2rem;
+$c-starred__title-typeScale: map-get($sc-type-scale, 'sc-1');
+
+
+// STARRED toggling
+$c-starred--enabled: false !default;
+
+// STARRED and parts as a mixins
+// --------------------------------------------------
+@mixin c-starred() {
+	position: relative;
+
+	margin-bottom: map-get($c-starred__title-typeScale, 'line')*2 ;
+	padding-left: $c-starred__iconSize;
+
+	list-style: none;
+
+	&:before {
+		position: absolute;
+		top: $c-starred__iconSize*.3;
+		left: 0;
+
+		display: block;
+
+		content: '⭐';
+
+		opacity: .8;
+
+		font-size: $c-starred__iconSize * .7;
+	}
+}
+@mixin c-starred__title () {
+	margin: map-get($c-starred__title-typeScale, 'line') 0;
+	margin-bottom: map-get($c-starred__title-typeScale, 'line')/3;
+
+	font-size: map-get($c-starred__title-typeScale, 'fontSize');
+	line-height: map-get($c-starred__title-typeScale, 'autoLineHeight');
+}
+
+// STARRED selector output
+// --------------------------------------------------
+@if ($c-starred--enabled) {
+	.c-starred {
+		@include c-starred();
+	}
+
+	.c-starred__title {
+		@include c-starred__title();
+	}
+}

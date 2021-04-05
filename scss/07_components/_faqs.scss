@@ -1,0 +1,72 @@
+// FAQS variables
+// these variables should link to a setting variable. Only FAQS variables should be used inside the FAQS
+// --------------------------------------------------
+$c-faqs__variable1: 'value';
+$c-faqs__question-typeScale: map-get($sc-type-scale, 'sc-1');
+$c-faqs__color--accent: s-map-deep-get($f-colors, 'brand', 'primary');
+$c-faqs__iconSize: 2rem;
+
+
+// FAQS toggling
+$c-faqs--enabled: false !default;
+
+// FAQS and parts as a mixins
+// --------------------------------------------------
+@mixin c-faqs() {
+	// Write something good
+}
+@mixin c-faqs__question () {
+	position: relative;
+
+	margin: map-get($c-faqs__question-typeScale, 'line') 0;
+	margin-bottom: map-get($c-faqs__question-typeScale, 'line')*.5 ;
+	padding-left: $c-faqs__iconSize * 1.5;
+
+	font-size: map-get($c-faqs__question-typeScale, 'fontSize');
+	font-weight: bold;
+	line-height: map-get($c-faqs__question-typeScale, 'autoLineHeight');
+	@supports (display: grid) {
+		//not IE11
+		&:before {
+			position: absolute;
+			top: $c-faqs__iconSize*.2;
+			left: 0;
+
+			display: block;
+
+			width: $c-faqs__iconSize;
+			height: $c-faqs__iconSize;
+
+			content: '?';
+			text-align: center;
+
+			color: $c-faqs__color--accent;
+			border: 2px solid currentColor;
+			border-radius: 100%;
+
+			font-size: $c-faqs__iconSize*.8;
+			font-weight: 100;
+			line-height: $c-faqs__iconSize;
+		};
+	}
+}
+@mixin c-faqs__answer () {
+	margin-bottom: map-get($c-faqs__question-typeScale, 'line')*1.5 ;
+	padding-left: $c-faqs__iconSize * 1.5;
+}
+
+// FAQS selector output
+// --------------------------------------------------
+@if ($c-faqs--enabled) {
+	.c-faqs {
+		@include c-faqs();
+	}
+
+	.c-faqs__question {
+		@include c-faqs__question();
+	}
+	.c-faqs__answer {
+		@include c-faqs__answer();
+	}
+}
+

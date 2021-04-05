@@ -1,0 +1,37 @@
+/* ==========================================================================
+   #LIST-NAKED
+   ========================================================================== */
+
+/*
+ * Remove any ornament, margin, padding from the list aand their elements
+ *
+ *
+ */
+
+
+//  OBJECT TOGGLING
+$o-list-naked--enabled: false !default;
+
+
+//SCSS AS MIXINS
+@mixin o-list-naked () {
+	margin-left: 0;
+
+	list-style: none;
+}
+
+@mixin o-list-naked__item () {
+	margin-left: 0;
+}
+
+
+//OBJECT selector output
+@if ($o-list-naked--enabled) {
+	.o-list-naked {
+		@include o-list-naked();
+	}
+	.o-list-naked > li,
+	.o-list-naked__item {
+		@include o-list-naked__item();
+	}
+}

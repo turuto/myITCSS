@@ -1,0 +1,151 @@
+// TABS variables
+// these variables should link to a setting variable. Only TABS variables should be used inside the tabs
+// --------------------------------------------------
+$c-tabs-toggle-BP: map-get($f-breakpoints, 'sml');
+$c-tabs__button-padding: map-get($f-modspaces, 'tiny')  ;
+$c-tabs__color--accent: s-map-deep-get($f-colors, 'brand', 'primary');
+$c-tabs__color--grey: s-map-deep-get($f-colors, 'neutral', 'grey--light');
+$c-tabcontent__title-typeScale: map-get($sc-type-scale, 'sc-1');
+
+
+// TABS toggling
+$c-tabs--enabled: false !default;
+
+// TABS and parts as a mixins
+// --------------------------------------------------
+@mixin c-tabs() {
+}
+@mixin c-tabs__tablist () {
+	// [role='tablist']
+	padding: 0;
+
+	border-bottom: 1px solid  $c-tabs__color--grey;
+
+
+	[aria-selected] {
+		//SELECTED item
+		position: relative;
+		top: 2px;
+
+		border-bottom: 4px solid $c-tabs__color--accent;
+	}
+}
+@mixin c-tabs_item() {
+	//li
+	display: inline-block;
+}
+@mixin c-tabs__link () {
+	display: inline-block;
+
+	padding: $c-tabs__button-padding $c-tabs__button-padding*2;
+
+	text-decoration: none;
+	text-transform: uppercase;
+}
+@mixin c-tabs__tabcontent () {
+	h3 {
+		font-size: map-get($c-tabcontent__title-typeScale, 'fontSize');
+	}
+}
+
+// TABS selector output
+// --------------------------------------------------
+@if ($c-tabs--enabled) {
+	.c-tabs {
+		@include c-tabs();
+	}
+
+	.c-tabs__tablist {
+		@include c-tabs__tablist();
+	}
+	.c-tabs__link {
+		@include c-tabs__link();
+	}
+	.c-tabs__tabcontent {
+		@include c-tabs__tabcontent();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+ORIGINAL EXAMPLE TAKEN FROM https://codepen.io/heydon/pen/veeaEa/
+
+
+
+[role='tablist'] {
+	padding: 0;
+}
+
+[role='tablist'] li,
+[role='tablist'] a {
+	display: inline-block;
+}
+
+[role='tablist'] a {
+	padding: .5rem 1em;
+
+	text-decoration: none;
+}
+
+[role='tablist'] [aria-selected] {
+	position: relative;
+	top: 2px;
+
+	border: 2px solid;
+	border-bottom: 0;
+	background: #FFFFFF;
+}
+
+[role='tabpanel'] {
+	padding: 1.5rem;
+
+	border: 2px solid;
+}
+
+[role='tabpanel'] * + * {
+	margin-top: .75rem;
+}
+
+*:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 4px lightBlue;
+}
+
+@media (max-width: 550px) {
+	[role='tablist'] li,
+	[role='tablist'] a {
+		position: static;
+
+		display: block;
+	}
+
+	[role='tablist'] a {
+		border: 2px solid #222222 !important;
+	}
+
+	[role='tablist'] li + li a {
+		border-top: 0 !important;
+	}
+
+	[role='tablist'] [aria-selected] {
+		position: static;
+	}
+
+	[role='tablist'] [aria-selected]::after {
+		content: '\0020⬅';
+	}
+
+	[role='tabpanel'] {
+		border-top: 0;
+	}
+}
+*/

@@ -1,0 +1,4 @@
+//EXAMPLE OF READING A VALUE FROM THE CORRESPONDING MAP
+:root {
+	--color-brand-primary: #{s-map-deep-get($f-colors, 'brand', 'primary')};
+}

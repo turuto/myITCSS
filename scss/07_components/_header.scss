@@ -1,0 +1,65 @@
+// COMPONENT variables
+// these variables should link to a setting variable. Only component variables should be used inside the component
+// --------------------------------------------------
+$c-header__padding: map-get($f-spaces , 'small' );
+$c-header__padding-top: map-get($f-spaces , 'tiny' );
+$c-header__brand-height: 80px;
+$c-header__menu-toggle-BP: $f-menu-toggle-BP;
+
+// c-header toggling
+$c-header--enabled: false !default;
+
+// c-header and parts as a mixins
+// --------------------------------------------------
+@mixin c-header() {
+	position: relative;
+
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: space-between;
+
+	padding: 0 $c-header__padding;
+	padding-top: $c-header__padding-top;
+
+	box-shadow: s-map-deep-get($f-shadows, 'basic','s1') rgba($f-shadow-color, .22),
+	s-map-deep-get($f-shadows, 'basic','s2') rgba($f-shadow-color, .05);
+
+	@media screen and (min-width:$c-header__menu-toggle-BP) {
+		align-items: center;
+		flex-direction: row;
+
+		max-height: 80px + $c-header__padding;
+	}
+}
+@mixin c-header__brand () {
+	> img {
+		max-height: 50px;
+		@media screen and (min-width:$c-header__menu-toggle-BP + 100px) {
+			max-height: 80px;
+		}
+	}
+}
+@mixin c-header__nav () {
+	align-self: stretch;
+	@media screen and (min-width:$c-header__menu-toggle-BP) {
+		align-self: top;
+
+		padding-top: 23px;//baseline with the text inside the logo
+	}
+}
+
+// c-header selector output
+// --------------------------------------------------
+@if ($c-header--enabled) {
+	.c-header {
+		@include c-header();
+	}
+
+	.c-header__brand {
+		@include c-header__brand();
+	}
+	.c-header__nav {
+		@include c-header__nav();
+	}
+}

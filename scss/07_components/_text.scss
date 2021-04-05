@@ -1,0 +1,50 @@
+// TXT variables
+// these variables should link to a setting variable. Only TXT variables should be used inside the txt
+// --------------------------------------------------
+$c-txt__colors: (
+    'primary': s-map-deep-get($f-colors, 'brand', 'primary')
+);
+$c-txt__typeScales: (
+    'big':  map-get($sc-type-scale , 'sc-1' ),
+);
+
+
+// TXT toggling
+$c-txt--enabled: false !default;
+
+// TXT and parts as a mixins
+// --------------------------------------------------
+@mixin c-txt() {
+	// Write something good
+}
+@mixin c-txt__reminder () {
+	display: block;
+
+	text-transform: uppercase;
+
+	color: map-get($c-txt__colors , 'primary' );
+
+	font-weight: bold;
+}
+// SIZE VARIANTS
+@mixin c-txt--big () {
+	margin: s-map-deep-get($c-txt__typeScales,'big', 'line') 0;
+
+	font-size: s-map-deep-get($c-txt__typeScales,'big', 'fontSize');
+	line-height: 1.5em;
+}
+
+// TXT selector output
+// --------------------------------------------------
+@if ($c-txt--enabled) {
+	/*.c-txt {
+		@include c-txt();
+	}*/
+
+	.c-txt__reminder {
+		@include c-txt__reminder();
+	}
+	.c-txt--big {
+		@include c-txt--big();
+	}
+}

@@ -1,0 +1,81 @@
+/*
+VERTICAL RHYTHM
+
+only allowed the following properties:
+font-size
+line-eight
+margin-top
+margin-bottom
+
+All measures MUST be read from $sc-type-scale.
+They can be multiplied or scaled themselves
+
+You can draw a grid over the element to show the baseline with:
+@include drawGrid(lineHeight, color);
+*/
+
+html {
+	font-size: s-map-deep-get($sc-type-scale, 'default', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'default', 'autoLineHeight');
+}
+
+p {
+	margin: s-map-deep-get($sc-type-scale, 'p', 'line') 0;
+
+	font-size: s-map-deep-get($sc-type-scale, 'p', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'p', 'autoLineHeight');
+}
+
+h1 {
+	margin: s-map-deep-get($sc-type-scale, 'h1', 'line') 0;
+
+// @include drawGrid(s-map-deep-get($sc-type-scale, 'h1', 'autoLineHeight'), fuchsia);
+
+	font-size: s-map-deep-get($sc-type-scale, 'h1', 'fontSize');
+
+//decrease the lh in 1rem, we need to convert it to ems before
+	line-height: s-core-strip-units(s-map-deep-get($sc-type-scale, 'h1', 'autoLineHeight') - (1em / s-map-deep-get($sc-type-scale, 'h1', 'fontSize')) );
+}
+
+h2 {
+	margin: s-map-deep-get($sc-type-scale, 'h2', 'line') 0;
+	margin-top: s-map-deep-get($sc-type-scale, 'h2', 'line') * 1.5;
+
+	font-size: s-map-deep-get($sc-type-scale, 'h2', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'h2', 'autoLineHeight');
+}
+
+h3 {
+	margin-top: s-map-deep-get($sc-type-scale, 'h3', 'line')*1.25;
+	margin-bottom: s-map-deep-get($sc-type-scale, 'h3', 'line')*.75;
+
+	font-size: s-map-deep-get($sc-type-scale, 'h3', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'h3', 'autoLineHeight');
+}
+
+h4,
+h5,
+h6 {
+	margin-top: s-map-deep-get($sc-type-scale, 'default', 'line')* 1.25;
+	margin-bottom: s-map-deep-get($sc-type-scale, 'default', 'line')* .75;
+
+	font-size: s-map-deep-get($sc-type-scale, 'default', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'default', 'autoLineHeight');
+}
+
+blockquote {
+	margin: s-map-deep-get($sc-type-scale, 'default', 'line') 0;
+
+	font-size: s-map-deep-get($sc-type-scale, 'default', 'fontSize');
+	line-height: s-map-deep-get($sc-type-scale, 'default', 'autoLineHeight');
+}
+
+sup {
+	margin-top: s-map-deep-get($sc-type-scale, 'default', 'line')* .5;
+	margin-bottom: s-map-deep-get($sc-type-scale, 'default', 'line')* .5;
+
+	font-size: s-map-deep-get($sc-type-scale, 'default', 'fontSize')*.5;
+}
+small {
+	font-size: .5em;
+}

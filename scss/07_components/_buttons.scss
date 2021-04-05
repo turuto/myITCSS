@@ -1,0 +1,264 @@
+// BUTTON variables
+// these variables should link to a setting variable. Only BUTTON variables should be used inside the BUTTON
+// --------------------------------------------------
+$c-btn__padding-H: map-get($f-modspaces, 'large' );
+$c-btn__padding-V: map-get($f-modspaces, 'medium' );;
+$c-btn__paddings: $f-modspaces;
+$c-btn__radius: $f-radius;
+$c-btn__transition: all $f-global-transition;
+$c-btn__color-scheme--primary: map-get($f-color-schemes, 'primary');
+$c-btn__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
+$c-btn__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
+$c-btn__color-scheme--neutral: map-get($f-color-schemes, 'neutral');
+
+
+
+// BUTTON toggling
+$c-btn--enabled: false !default;
+$c-btn__sizes--enabled: false !default;
+$c-btn__special--enabled: false !default;
+
+// BUTTON and parts as a mixins
+// --------------------------------------------------
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+
+
+@mixin c-btn() {
+	display: inline-block; /* [1] */
+
+	margin: 0; /* [4] */
+	padding: $c-btn__padding-V $c-btn__padding-H;
+
+	cursor: pointer; /* [5] */
+	text-align: center; /* [4] */
+	vertical-align: middle; /* [2] */
+	white-space: nowrap;
+	text-transform: uppercase;
+
+	border: none;
+	border-radius: $c-btn__radius;
+	box-shadow: s-map-deep-get($f-shadows, 'btn','normal','s1') rgba($f-shadow-color, .1),
+	s-map-deep-get($f-shadows, 'btn','normal','s2') rgba($f-shadow-color, .3);
+
+	font: inherit; /* [3] */
+
+	--color-accent: var(--myColor);
+	&,
+	&:link,
+	&:visited {
+		//properties that need to override <a> propertiees
+		transition: $c-btn__transition;
+	}
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: s-map-deep-get($f-shadows, 'btn','hover','s1') rgba($f-shadow-color, .1),
+		s-map-deep-get($f-shadows, 'btn','hover','s2') rgba($f-shadow-color, .3);
+	};
+
+	&:disabled {
+		pointer-events: none;
+	}
+}
+@mixin c-btn--primary() {
+	&,
+	&:link,
+	&:visited {
+		color: map-get($c-btn__color-scheme--primary, 'fg' );
+		background: map-get($c-btn__color-scheme--primary, 'bg' );
+		background-color: map-get($c-btn__color-scheme--primary, 'bg' );
+
+		--myBg: #{map-get($c-btn__color-scheme--primary, 'bg' )};
+		--myColor: #{map-get($c-btn__color-scheme--primary, 'fg' )};
+	};
+	::selection {
+		color: s-map-deep-get($f-colors,'neutral', 'white');
+		background: s-map-deep-get($f-colors,'brand', 'secondary');
+		background-color: s-map-deep-get($f-colors,'brand', 'secondary');
+	}
+}
+@mixin c-btn--secondary() {
+	&,
+	&:link,
+	&:visited {
+		color: map-get($c-btn__color-scheme--secondary, 'fg' );
+		background: map-get($c-btn__color-scheme--secondary, 'bg' );
+		background-color: map-get($c-btn__color-scheme--secondary, 'bg' );
+
+		--myBg: #{map-get($c-btn__color-scheme--secondary, 'bg' )};
+		--myColor: #{map-get($c-btn__color-scheme--secondary, 'fg' )};
+	};
+}
+@mixin c-btn--terciary() {
+	&,
+	&:link,
+	&:visited {
+		color: map-get($c-btn__color-scheme--terciary, 'fg' );
+		background: map-get($c-btn__color-scheme--terciary, 'bg' );
+		background-color: map-get($c-btn__color-scheme--terciary, 'bg' );
+
+		--myBg: #{map-get($c-btn__color-scheme--terciary, 'bg' )};
+		--myColor: #{map-get($c-btn__color-scheme--terciary, 'fg' )};
+	};
+}
+@mixin c-btn--neutral() {
+	&,
+	&:link,
+	&:visited {
+		color: map-get($c-btn__color-scheme--neutral, 'fg' );
+		background: map-get($c-btn__color-scheme--neutral, 'bg' );
+		background-color: map-get($c-btn__color-scheme--neutral, 'bg' );
+
+		--myBg: #{map-get($c-btn__color-scheme--neutral, 'bg' )};
+		--myColor: #{map-get($c-btn__color-scheme--neutral, 'fg' )};
+	};
+}
+@mixin c-btn--context() {
+	&#{&}#{&} {
+		&,
+		&:link,
+		&:visited {
+			color: #FFFFFF;
+			background: var(--myColor);
+			background-color: var(--myColor);
+		};
+	}
+}
+
+@mixin c-btn--link() {
+	&,
+	&:link,
+	&:visited {
+		margin: 0;
+		padding: 0;
+
+		text-decoration: underline;
+
+		box-shadow: none;
+
+		font-weight: bold;
+	}
+}
+@mixin c-btn--outline() {
+	&,
+	&:link,
+	&:visited {
+		color: var(--myColor);
+		border: 1px solid var(--myColor);
+		background: transparent;
+		background-color: transparent;
+		box-shadow: none;
+	};
+}
+// BUTTON SIZES
+// --------------------------------------------------
+@mixin c-btn--sizes() {
+	.c-btn--tiny {
+		&,
+		&:link,
+		&:visited {
+			padding: map-get($c-btn__paddings,'tiny') map-get($c-btn__paddings,'medium');
+		};
+	}
+	.c-btn--small {
+		&,
+		&:link,
+		&:visited {
+			padding: map-get($c-btn__paddings,'small') map-get($c-btn__paddings,'medium');
+		};
+	}
+	.c-btn--block {
+		display: block;
+
+		width: 100%;
+	}
+}
+
+// STATES
+// --------------------------------------------------
+@mixin c-btn--disabled() {
+	pointer-events: none;
+
+	opacity: .2;
+}
+// SPECIAL BUTTONS
+// --------------------------------------------------
+@mixin c-btn--remove () {
+	margin-left: 1em;
+	padding: 0;
+
+	color: var(--myColor);
+	background: transparent;
+	background-color: transparent;
+	box-shadow: none;
+
+	font-size: 1.1em;
+	font-weight: bold;
+
+	--myBg: currentColor;
+	/*&,
+	&:link,
+	&:visited {
+	};*/
+	&:hover,
+	&:active,
+	&:focus {
+		box-shadow: none;
+
+		--myBg: s-map-deep-get($f-colors,'states', 'danger');
+	};
+}
+
+// BUTTON selector output
+// --------------------------------------------------
+@if ($c-btn--enabled) {
+	.c-btn {
+		@include c-btn();
+	}
+	.c-btn--primary {
+		@include c-btn--primary();
+	}
+	.c-btn--secondary {
+		@include c-btn--secondary();
+	}
+	.c-btn--terciary {
+		@include c-btn--terciary();
+	}
+	.c-btn--neutral {
+		@include c-btn--neutral();
+	}
+	.c-btn--context {
+		@include c-btn--context();
+	}
+	.c-btn--link {
+		@include c-btn--link();
+	}
+	.c-btn--outline {
+		@include c-btn--outline();
+	}
+	// STATES
+	.c-btn.is-disabled {
+		@include c-btn--disabled();
+	}
+}
+
+//SIZES
+@if ($c-btn--enabled and $c-btn__sizes--enabled) {
+	@include c-btn--sizes();
+}
+
+//SPECIAL BUTTONS
+@if ($c-btn--enabled and $c-btn__special--enabled) {
+	.c-btn--remove {
+		@include c-btn--remove();
+	}
+}

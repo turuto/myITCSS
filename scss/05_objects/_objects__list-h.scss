@@ -1,0 +1,110 @@
+/* ==========================================================================
+   #LIST-HORIZONTAL
+   ========================================================================== */
+
+/*
+ * Remove any ornament, margin, padding from the list aand their elements
+ * places the items side by side on big screen, and stacked on small viewports
+ *
+ *
+ */
+
+$o-list-h-toggle-BP: map-get($f-breakpoints, 'sml');
+$o-list-h-toggle-BP--md: map-get($f-breakpoints, 'md');
+$o-list-h__gutter: map-get($f-spaces, 'large' );
+
+//  OBJECT TOGGLING
+$o-list-h--enabled: false !default;
+
+//SCSS AS MIXINS
+@mixin o-list-h() {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	margin-right: auto;
+	margin-left: auto;
+
+	list-style: none;
+	@media screen and (max-width: $o-list-h-toggle-BP) {
+		> li {
+			width: 100%;
+			margin-bottom: $o-list-h__gutter;
+			@supports (display: grid) {
+				margin-bottom: unset;
+			}
+		}
+	}
+	@supports (display: grid) {
+		margin-right: unset;
+
+//not IE11
+		margin-left: 0;
+	}
+	@media screen and (min-width: $o-list-h-toggle-BP) {
+		align-items: flex-start;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+@mixin o-list-h__item() {
+	padding-right: $o-list-h__gutter/2;
+	padding-left: $o-list-h__gutter/2;
+}
+@mixin o-list-h--grid() {
+	flex-wrap: wrap;
+
+	> li {
+		width: 93%;
+	}
+
+	@media screen and (min-width: $o-list-h-toggle-BP) {
+		justify-content: flex-start;
+
+		> li {
+			display: inline-block;
+
+			max-width: 44%;
+			@supports (display: grid) {
+				//not IE11
+				display: unset;
+			};
+		}
+	}
+	@media screen and (min-width: $o-list-h-toggle-BP--md) {
+		> li {
+			display: inline-block;
+
+			max-width: 27%;
+
+
+			@supports (display: grid) {
+				//not IE11
+				display: unset;
+			};
+		}
+	}
+}
+
+
+@mixin o-list-h--left() {
+	align-items: flex-start;
+}
+//OBJECT selector output
+@if ($o-list-h--enabled) {
+	.o-list-h {
+		@include o-list-h();
+	}
+	.o-list-h > li,
+	.o-list-h__item {
+		@include o-list-h__item();
+	}
+	.o-list-h--grid {
+		@include o-list-h--grid();
+	}
+	.o-list-h--left {
+		@include o-list-h--left();
+	}
+}

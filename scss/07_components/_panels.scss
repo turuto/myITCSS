@@ -1,0 +1,54 @@
+// PANEL variables
+// these variables should link to a setting variable. Only PANEL variables should be used inside the PANEL
+// --------------------------------------------------
+$c-panel__border-color: s-map-deep-get($f-colors, 'neutral', 'grey');
+$c-panel__padding: map-get($f-modspaces , 'tiny' );
+$c-panel__separator: map-get($f-modspaces , 'medium' );
+$c-panel__color-scheme--primary: map-get($f-color-schemes, 'primary');
+$c-panel__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
+$c-panel__color-scheme--neutral: map-get($f-color-schemes, 'neutral');
+
+// PANEL toggling
+$c-panel--enabled: false !default;
+
+// PANEL and parts as a mixins
+// --------------------------------------------------
+@mixin c-panel() {
+	margin-bottom: $c-panel__separator ;
+
+// Write something good
+
+	border: 1px solid $c-panel__border-color;
+}
+@mixin c-panel__header () {
+	padding: $c-panel__padding;
+
+	color: map-get($c-panel__color-scheme--secondary, 'fg' );
+	background: map-get($c-panel__color-scheme--secondary, 'bg' );
+
+	font-weight: bold;
+}
+@mixin c-panel__body () {
+	padding: $c-panel__padding;
+}
+@mixin c-panel__footer () {
+	// Write something good
+}
+
+// PANEL selector output
+// --------------------------------------------------
+@if ($c-panel--enabled) {
+	.c-panel {
+		@include c-panel();
+	}
+
+	.c-panel__header {
+		@include c-panel__header();
+	}
+	.c-panel__body {
+		@include c-panel__body();
+	}
+	.c-panel__footer {
+		@include c-panel__footer();
+	}
+}

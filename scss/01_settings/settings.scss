@@ -1,0 +1,20 @@
+
+/* -------------------------------------------------------------------------
+ * SETTINGS
+ *
+ * Main configuration, settings and core functions.
+ *
+ * core-functions ............. Functions related to units, math, ...
+ * core ....................... Core variables of the system
+ * fonts ...................... Font-face for self-hosted fonts
+ * foundations ...............  Visual language expressed into SASS Tokens...
+ * customProperties ........... Some tokens can be exported to native CustomProperties
+ * FeatureToggling ........... Last config layer that controls CSS OUPUT
+ *
+ */
+@import 'settings__01-core-functions';
+@import 'settings__02-core';
+@import 'settings__03-fonts';
+@import 'settings__04-foundations';
+@import 'settings__05-customProperties';
+@import 'settings__06-featureToggling';

@@ -1,0 +1,72 @@
+// FORM variables
+// these variables should link to a setting variable. Only FORM variables should be used inside the FORM
+// --------------------------------------------------
+$c-form-toggle-BP: 700px;
+
+// FORM toggling
+$c-form--enabled: false !default;
+
+// FORM and parts as a mixins
+// --------------------------------------------------
+@mixin c-form() {
+	& > label,
+	& > input {
+		display: block;
+	}
+}
+@mixin c-form__privacy () {
+	input {
+		display: none !important;
+	}
+	input + label {
+		position: relative!important;
+
+		display: inline-block !important;
+
+		padding-left: 2em !important;
+
+		cursor: pointer;
+		&:before {
+			position: absolute;
+			top: -.1em;
+			left: 0;
+
+			display: block;
+
+			width: 1.2em;
+			height: 1.2em;
+
+			content: '';
+			cursor: pointer;
+
+			border: 1px solid#CCCCCC;
+			background: transparent;
+		}
+		@media screen and (min-width:$c-form-toggle-BP) {
+			input + label {
+				margin-top: .3em!important;
+				padding-left: 1.2em;
+				&:before {
+					left: -1.75em;
+				}
+			}
+		}
+	}
+	.wpforms-selected {
+		.wpforms-field-label-inline:before {
+			background: s-map-deep-get($f-colors, 'brand', 'primary');
+			box-shadow: inset 0 0 0 1px  white;
+		}
+	}
+}
+
+// FORM selector output
+// --------------------------------------------------
+@if ($c-form--enabled) {
+	.c-form {
+		@include c-form();
+	}
+	.c-form__privacy {
+		@include c-form__privacy();
+	}
+}

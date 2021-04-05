@@ -1,0 +1,62 @@
+// GALLERY variables
+// these variables should link to a setting variable. Only GALLERY variables should be used inside the gallery
+// --------------------------------------------------
+
+
+// GALLERY toggling
+$c-gallery--enabled: false !default;
+$c-gallery-toggle-BP: map-get($f-breakpoints, 'sml');
+
+
+// GALLERY and parts as a mixins
+// --------------------------------------------------
+@mixin c-gallery() {
+	flex: 1;
+	flex-direction: row;
+	flex-wrap: wrap;
+	&#{&}#{&} {
+		width: unset;
+		max-width: 100%;
+		margin-top: map-get($f-spaces, 'medium' );
+		margin-left: 0;
+		@media screen and (max-width: $c-gallery-toggle-BP) {
+			width: 100%;
+			max-width: 100%!important;
+		}
+	}
+}
+
+@mixin c-gallery__item() {
+	overflow: hidden;
+
+// flex-basis: 50%;
+
+	margin: .5rem;
+
+	@media screen and (min-width: $c-gallery-toggle-BP) {
+		flex-basis: calc(30% - .5rem - 10px);
+	}
+}
+@mixin c-gallery__thumb() {
+	border: 5px solid white;
+	box-shadow: s-map-deep-get($f-shadows, 'btn','normal','s1') rgba($f-shadow-color, .1),
+	s-map-deep-get($f-shadows, 'btn','normal','s2') rgba($f-shadow-color, .3);
+	@media screen and (max-width: $c-gallery-toggle-BP) {
+		max-width: 89%;
+	}
+}
+
+// GALLERY Selector output
+// --------------------------------------------------
+@if ($c-gallery--enabled) {
+	.c-gallery {
+		@include c-gallery();
+	}
+
+	.c-gallery__item {
+		@include c-gallery__item();
+	}
+	.c-gallery__thumb {
+		@include c-gallery__thumb();
+	}
+}

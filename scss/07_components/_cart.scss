@@ -1,0 +1,29 @@
+// CART variables
+// these variables should link to a setting variable. Only CART variables should be used inside the CART
+// --------------------------------------------------
+$c-cart__variable1: 'value';
+$c-variable2: 'value';
+
+// CART toggling
+$c-cart--enabled: false !default;
+
+// CART and parts as a mixins
+// --------------------------------------------------
+@mixin c-cart() {
+	// Write something good
+}
+@mixin c-cart__element () {
+	// Write something good
+}
+
+// CART selector output
+// --------------------------------------------------
+@if ($c-cart--enabled) {
+	.c-cart {
+		@include c-cart();
+	}
+
+	.c-cart__element {
+		@include c-cart__element();
+	}
+}

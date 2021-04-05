@@ -1,0 +1,321 @@
+// SECTION variables
+// these variables should link to a setting variable. Only SECTION variables should be used inside the SECTION
+// --------------------------------------------------
+$c-section-toggle-BP: map-get($f-breakpoints, 'sml');
+$c-section__padding-H: map-get($f-spaces, 'small');
+$c-section__padding-V: map-get($f-modspaces, 'large');
+$c-section__color-scheme--default: map-get($f-color-schemes, 'terciary');
+$c-section__color-scheme--primary: map-get($f-color-schemes, 'primary');
+$c-section__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
+$c-section__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
+$c-section__color-scheme--neutral: map-get($f-color-schemes, 'neutral');
+$c-section__title-typeScale: map-get($sc-type-scale, 'sc-2');
+$c-section__lead-typeScale: map-get($sc-type-scale, 'sc-1');
+$c-page__title-typeScale: map-get($sc-type-scale , 'sc-3' );
+
+
+
+// SECTION toggling
+$c-section--enabled: false !default;
+
+// SECTION and parts as a mixins
+// --------------------------------------------------
+@mixin c-section() {
+	padding: $c-section__padding-V $c-section__padding-H;
+
+	background-color: s-map-deep-get($f-colors, 'neutral', 'white') ;
+
+@include c-section__switcher ();
+
+	--color-accent: #{s-map-deep-get($f-colors, 'brand', primary)};
+
+	a {
+		&,
+		&:link,
+		&:visited {
+			color: var(--color-accent);
+
+			font-weight: 400;
+		};
+	}
+
+
+
+	& > p,
+	& > ul {
+		// overflow: hidden;
+		max-width: 100%;
+
+		@media screen and (max-width: $c-section-toggle-BP) {
+			max-width: unset;
+		}
+	}
+	@media screen and (min-width: $c-section-toggle-BP) {
+		@include t-container();
+
+		p {
+			margin-top: 0;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+}
+
+@mixin c-section__switcher () {
+	//if it is a media object, don't let the images to expand equally
+	//if the section o section__body is a media object, let's stack de content in small screen
+	&.o-media {
+		@media screen and (max-width: $c-section-toggle-BP) {
+			flex-direction: column;
+			.o-media__img {
+				order: 3;
+
+				max-width: 50%;
+			}
+		}
+	}
+}
+@mixin c-section__title() {
+	position: relative;
+
+	margin: map-get($c-section__title-typeScale, 'line') 0;
+	margin-bottom: 0;
+	padding-bottom: map-get($f-modspaces, 'large');
+
+	text-align: center;
+
+	font-size: map-get($c-section__title-typeScale, 'fontSize');
+	line-height: map-get($c-section__title-typeScale, 'autoLineHeight');
+
+	column-span: all;
+	&.c-page__title {
+		font-size: map-get($c-page__title-typeScale, 'fontSize');
+		line-height: map-get($c-page__title-typeScale, 'autoLineHeight');
+	}
+	@supports (display: grid) {
+		//not IE11
+		margin-bottom: map-get($c-section__title-typeScale, 'line') * 3;
+	};
+	&:before {
+		position: absolute;
+		bottom: -.6em;
+		left: 25%;
+
+		display: block;
+		overflow: hidden;
+
+		width: 50%;
+		height: 1em /.6;
+
+		content: '';
+
+		color: var(--color-accent);
+		background: red;
+		background: linear-gradient(
+		to right,
+		var(--color-accent) 45%,
+		transparent 45%,
+		transparent 55%,
+		var(--color-accent) 55%
+		);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100% 1px;
+		background-size: 100% 1px;
+
+		font-size: .6em;
+		@supports (display: grid) {
+			//not IE11
+			content: '★';
+		};
+	}
+	&--noSep {
+		margin-bottom: 0;
+		&#{&}#{&} {
+			padding-bottom: .5em;
+		}
+		&:before {
+			content: none;
+		}
+	}
+}
+@mixin c-section__subtitle() {
+	margin-top: 0;
+}
+@mixin c-section__lead() {
+	margin: map-get($c-section__lead-typeScale, 'line') 0;
+	margin-top: -.5rem;
+
+	text-align: center;
+
+	font-size: map-get($c-section__lead-typeScale, 'fontSize');
+	// line-height: map-get($c-section__lead-typeScale, 'autoLineHeight');
+}
+@mixin c-section__body() {
+	padding: $c-section__padding-V $c-section__padding-H;
+
+@include c-section__switcher ();
+
+	&:not(.o-media) {
+		//only if it's not a media object
+		@media screen and (min-width: $c-section-toggle-BP) {
+			padding-right: calc( (90vw - #{$sc-measure})/2 + 4vw);
+		}
+	}
+}
+
+// variations
+@mixin c-section--col2() {
+	@media screen and (min-width: $c-section-toggle-BP) {
+		column-count: 2;
+	}
+}
+@mixin c-section--split() {
+	display: flex;
+	flex-direction: column;
+
+	padding: 0;
+
+	.c-section__title {
+		margin: 0;
+
+@include c-section--primary() ;
+
+		@supports (display: grid) {
+			//not IE11
+			flex: 1;
+		};
+
+		&:before {
+			display: none;
+		}
+	}
+	.c-section__body {
+		@supports (display: grid) {
+			//not IE11
+			flex: 1;
+		};
+	}
+	::selection {
+		color: s-map-deep-get($f-colors,'neutral', 'white');
+		background: s-map-deep-get($f-colors,'brand', 'secondary');
+	}
+	@media screen and (min-width: $c-section-toggle-BP) {
+		align-items: stretch;
+		flex-direction: row;
+	}
+}
+
+@mixin c-section--overlap() {
+	padding-top: 1px;
+
+
+	.c-section__title {
+		margin-top: -$c-section__padding-V * 1.5;
+		padding: $c-section__padding-V $c-section__padding-H;
+
+		background: inherit;
+
+		@supports (display: grid) {
+			max-width: $sc-measure!important;
+			margin-right: -$c-section__padding-H;
+			margin-left: -$c-section__padding-H;
+		}
+	}
+}
+// color variations
+@mixin c-section--primary() {
+	color: map-get($c-section__color-scheme--primary, 'fg');
+	background: map-get($c-section__color-scheme--primary, 'bg');
+
+	--color-accent: #{map-get($c-section__color-scheme--primary, 'accent')};
+}
+
+@mixin c-section--secondary() {
+	color: map-get($c-section__color-scheme--secondary, 'fg');
+	background: map-get($c-section__color-scheme--secondary, 'bg');
+
+	--color-accent: #{map-get($c-section__color-scheme--secondary, 'accent')};
+}
+@mixin c-section--terciary() {
+	color: map-get($c-section__color-scheme--terciary, 'fg');
+	background: map-get($c-section__color-scheme--terciary, 'bg');
+
+	--color-accent: #{map-get($c-section__color-scheme--terciary, 'accent')};
+}
+@mixin c-section--neutral() {
+	color: map-get($c-section__color-scheme--neutral, 'fg');
+	background: map-get($c-section__color-scheme--neutral, 'bg');
+
+	--color-accent: #{map-get($c-section__color-scheme--neutral, 'accent')};
+}
+
+// PARTICULAR SECTIONS
+@mixin c-section--advantages() {
+	.c-section__title {
+		background-repeat: no-repeat;
+		background-position: 0 $c-section__padding-V*4;
+		background-size: cover;
+		@media screen and (max-width: 1200px) {
+			background-image: url('../images/user-fenix-osx.jpg?size=900');
+		}
+		@media screen and (min-width: 1200px) {
+			background-image: url('../images/user-fenix-osx.jpg?size=1200');
+		}
+		@supports (display: grid) {
+			//not IE11
+			padding: $c-section__padding-V $c-section__padding-H;
+			padding-right: calc( (90vw - #{$sc-measure})/2 + 4vw);
+		};
+	}
+}
+
+
+// SECTION selector output
+// --------------------------------------------------
+@if ($c-section--enabled) {
+	.c-section {
+		@include c-section();
+	}
+
+	.c-section__title {
+		@include c-section__title();
+	}
+	.c-section__subtitle {
+		@include c-section__subtitle();
+	}
+	.c-section__lead {
+		@include c-section__lead();
+	}
+	.c-section__body {
+		@include c-section__body();
+	}
+
+	// VARIATIONS
+	.c-section--col2 {
+		@include c-section--col2();
+	}
+	.c-section--col2 {
+		@include c-section--col2();
+	}
+	.c-section--split {
+		@include c-section--split();
+	}
+	.c-section--overlap {
+		@include c-section--overlap();
+	}
+	//COLOR VARIATIONS
+	.c-section--primary {
+		@include c-section--primary();
+	}
+	.c-section--secondary {
+		@include c-section--secondary();
+	}
+	.c-section--neutral {
+		@include c-section--neutral();
+	}
+	// PARTICULAR SECTIONS
+	.c-section--advantages {
+		@include c-section--advantages();
+	}
+}

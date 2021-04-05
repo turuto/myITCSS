@@ -1,0 +1,42 @@
+// ASIDE variables
+// these variables should link to a setting variable. Only ASIDE variables should be used inside the ASIDE
+// --------------------------------------------------
+$c-aside__border-color: s-map-deep-get($f-colors, 'neutral', 'grey--light');
+$c-aside-toggle-BP: map-get($f-breakpoints , 'sml' );
+
+// ASIDE toggling
+$c-aside--enabled: false !default;
+
+// ASIDE and parts as a mixins
+// --------------------------------------------------
+@mixin c-aside() {
+	// Write something good
+}
+@mixin c-aside--right () {
+	@media screen and (min-width:$c-aside-toggle-BP) {
+		border-left: 1px solid $c-aside__border-color;
+	}
+}
+
+@mixin c-aside--left () {
+	@media screen and (min-width:$c-aside-toggle-BP) {
+		border-right: 1px solid $c-aside__border-color;
+	}
+}
+
+
+
+// ASIDE selector output
+// --------------------------------------------------
+@if ($c-aside--enabled) {
+	.c-aside {
+		@include c-aside();
+	}
+
+	.c-aside--left {
+		@include c-aside--left();
+	}
+	.c-aside--right {
+		@include c-aside--right();
+	}
+}

@@ -1,0 +1,45 @@
+// LIST variables
+// these variables should link to a setting variable. Only LIST variables should be used inside the list
+// --------------------------------------------------
+$c-list__indent: map-get($f-modspaces ,'large' );
+$c-list__typeScale: map-get($sc-type-scale , 'default' );
+
+
+
+// LIST toggling
+$c-list--enabled: false !default;
+
+// LIST and parts as a mixins
+// --------------------------------------------------
+@mixin c-list() {
+	margin-left: $c-list__indent;
+}
+@mixin c-list__item () {
+	margin: map-get($c-list__typeScale, 'line') 0;
+
+	list-style: none;
+
+	font-size: map-get($c-list__typeScale, 'fontSize');
+	line-height: map-get($c-list__typeScale, 'autoLineHeight');
+	&:before {
+		display: inline-block;
+
+		content: '|';
+		transform: translateX(-10px) rotate(45deg);
+
+		color: s-map-deep-get($f-colors, 'brand', 'primary');
+	}
+}
+
+// LIST selector output
+// --------------------------------------------------
+@if ($c-list--enabled) {
+	.c-list {
+		@include c-list();
+	}
+
+	.c-list__item,
+	.c-list > li {
+		@include c-list__item();
+	}
+}
