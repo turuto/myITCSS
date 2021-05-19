@@ -1,10 +1,10 @@
 @mixin lint {
-	/* ESTILOS INLINE */
+	// Inline styles
 	*[style] {
 		outline: 1px dotted red;
 	}
 
-	/* ENLACES SIN LINK O CON LINK MAL PUESTO */
+	// Links with wrong link or without it
 
 	a:not([href]),
 	a[href='#'],
@@ -13,7 +13,7 @@
 		outline: 1px dotted gold;
 	}
 
-	/* IMAGENES NO ACCESIBLES */
+	// Imgs with no a11y
 
 	img:not([alt]) {
 		outline: 1px dotted deeppink;
@@ -21,26 +21,26 @@
 		filter: blur(10px);
 	}
 
-	/* EL DOC NO TIENE LANG */
+	// Doc has no LANG
 
 	html:not([lang]),
 	html[lang=''] {
 		outline: 1px dotted red;
 	}
 
-	/* IMÁGENES SIN ATTR LOADING; lazy-loading*/
+	// Imgs with not LOADING ATTR
 
 	img:not([loading]) {
 		border: solid 1px red;
 	}
 
-	/* CHARSET NO EN UTF-8 */
+	// CHARSET is not UTF8
 
 	meta[charset]:not([charset='UTF-8']) {
 		outline: 1px dotted red;
 	}
 
-	/* UNACCESSIBLE VIEWPORT ATTRIBUTES */
+	// Unaccessible viewport attributes
 
 	meta[name='viewport'][content*='user-scalable=no'],
 	meta[name='viewport'][content*='maximum-scale'],
@@ -48,43 +48,36 @@
 		outline: 1px dotted cyan;
 	}
 
-	/* FORMULARIOS */
+	// FORMS
 
-	/* SIN ID */
+	// no ID
 	input:not([id]),
 	select:not([id]),
 	textarea:not([id]) {
 		outline: 1px dotted cyan;
 	}
 
-	/* LABELS QUE NO APUNTAN A NADIE */
+	// Labels not pointing to anyone
 	label:not([for]) {
 		outline: 1px dotted cyan;
 	}
 
-	/* SIN NAME */
+	// Controls without name
 	input:not([name]),
 	select:not([name]),
 	textarea:not([name]) {
 		outline: 1px dotted lawngreen;
 	}
 
-	/* FORMULARIO SIN NAME O ID */
+	// Forms with no name or ID
 	form:not([name]):not([id]) {
 		outline: 1px dotted lawngreen;
 	}
 
-	/* ENLACES Y BOTONES VACÍOS */
+	// Empty BUTTONS and LINKS
 
 	button:empty,
 	a:empty {
-		outline: 1px dotted lawngreen;
-	}
-
-	/* ATRIBUTOS OBSOLETOS */
-
-	script[type='text/javascript'],
-	link[rel='stylesheet'][type='text/css'] {
 		outline: 1px dotted lawngreen;
 	}
 }

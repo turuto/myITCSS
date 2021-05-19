@@ -26,19 +26,18 @@
 }
 
 
-/* .conDebugs {
-    @extend debug;
-    div {
-        @extend debug2;
-    }
-    &>* {
-        @extend debug3;
-    }
-} */
-
-.txtNeeded {
-	outline: 2px dashed red!important;
+.withDebugs {
+	@extend debug;
+	div {
+		@extend debug2;
+	}
+	& > * {
+		@extend debug3;
+	}
 }
+
+
+//  mixin to draw baseline grid to check vertical rhythm
 @mixin drawGrid ($lh: 1rem, $color: cyan) {
 	outline: 1px solid darken($color,20%);
 	background: linear-gradient(rgba($color, .6) 1px, transparent 1px);
