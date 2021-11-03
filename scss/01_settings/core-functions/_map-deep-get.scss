@@ -12,16 +12,18 @@
  * Returns:
  * The desired deeeper value of the last key
  *
- * Example
+ * Example:
  * map-deep-get($rootMap, 'first-key', 'deeperkey')
  * map-deep-get($colors,'vendor')
  * map-deep-get($colors,'brand', 'secondary')
  * map-deep-get($colors,'brand', 'primary', 'normal')
  *
  */
+
 @function s-map-deep-get($map, $keys...) {
 	@each $key in $keys {
 		$map: map-get($map, $key);
 	}
+
 	@return $map;
 }

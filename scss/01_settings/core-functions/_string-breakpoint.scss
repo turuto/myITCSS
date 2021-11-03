@@ -2,13 +2,15 @@
 /* -------------------------------------------------------------------------
  * STRING BREAKPOINT
  *
- * Returns a breakpoint string with its escaped separator
  * Useful for utilities that uses breakpoints modifiers
  *
+ * Returns:
+ * Returns a breakpoint string with its escaped separator
+ *
+ * Example:
  * s-core-string-breakpoint(md) == \@md
  */
 
-
 @function s-core-string-breakpoint($_bp-name) {
-  @return unquote("#{$s-config__special-char--breakpoint-separator}#{$_bp-name}");
+	@return unquote('#{$s-config__special-char--breakpoint-separator}#{$_bp-name}');
 }
