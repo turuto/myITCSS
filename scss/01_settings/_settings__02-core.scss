@@ -13,7 +13,6 @@ $sc-measure: 120ch;
 // Every spacing metric should be based on this.
 $sc-spacingBase: 6px !default;
 
-
 // How many grid lines should our spacing unit variants span?
 // Each value should be an unitless integer.
 $sc-factor--default: 4 !default;
@@ -21,7 +20,6 @@ $sc-factor--tiny: 1 !default;
 $sc-factor--small: 2 !default;
 $sc-factor--large: 8 !default;
 $sc-factor--huge: 16 !default;
-//
 $sc-spacing-unit-factors: ('default': $sc-factor--default,
     'tiny': $sc-factor--tiny,
     'small': $sc-factor--small,
@@ -32,13 +30,13 @@ $sc-spacing-unit-factors: ('default': $sc-factor--default,
 // Spacing values are determined based on your project’s global spacingBase grid.
 // It is not recommended that you modify these following variables
 // (it can break your vertical rhythm), but if you need to, you can.
-$sc-spacing-unit: ('default': $sc-spacingBase * map-get($sc-spacing-unit-factors,'default') , //24px
-   'tiny':$sc-spacingBase * map-get($sc-spacing-unit-factors,'tiny'), 		//6px
-    'small':$sc-spacingBase * map-get($sc-spacing-unit-factors,'small'), 	//12px
-    'large':$sc-spacingBase * map-get($sc-spacing-unit-factors,'large'), 	//48px
-    'huge':$sc-spacingBase * map-get($sc-spacing-unit-factors,'huge'), 	//96px
+$sc-spacing-unit: (
+    'default': $sc-spacingBase * map-get($sc-spacing-unit-factors,'default'),   //24px
+    'tiny':$sc-spacingBase * map-get($sc-spacing-unit-factors,'tiny'), 		    //6px
+    'small':$sc-spacingBase * map-get($sc-spacing-unit-factors,'small'),        //12px
+    'large':$sc-spacingBase * map-get($sc-spacing-unit-factors,'large'),   	    //48px
+    'huge':$sc-spacingBase * map-get($sc-spacing-unit-factors,'huge'), 	        //96px
 );
-
 
 // Base typographical styles.
 $sc-base-font-size: 16px !default;
@@ -49,123 +47,118 @@ $sc-ratio: 1.618;
 //GOLDEN Modular scale (1.618)
 //generated in gridlover.net(fz:16, lh:1.5, scale:1.618)
 $sc-scale0-R: (
-  'fontSize': 1rem, //16px
-  'line': 1.5rem,
-  'autoLineCount': 1,
-  'autoLineHeight': 1.5rem
+    'fontSize': 1rem, //16px
+    'line': 1.5rem,
+    'autoLineCount': 1,
+    'autoLineHeight': 1.5rem
 );
 $sc-scale0: (
-  'fontSize': 1rem, //fz
-  'line': 1.5rem,
-  'autoLineCount': 1,
-  'autoLineHeight': 1.5rem
+    'fontSize': 1rem, //fz
+    'line': 1.5rem,
+    'autoLineCount': 1,
+    'autoLineHeight': 1.5rem
 );
 $sc-scale1: (
-  'fontSize': 1.625rem, //fz
-  'line': 1.5rem, //.92307692em, //1.5rem converted to em. Baseline used as margin top/bottom basis ===
-  'autoLineCount': 2, // Magic?
-  'autoLineHeight':3rem,// 1.84615385em //3rem lh=line*autoLineCount
+    'fontSize': 1.625rem, //fz
+    'line': 1.5rem, //.92307692em -> 1.5rem converted to em. Baseline used as margin top/bottom basis ===
+    'autoLineCount': 2,
+    'autoLineHeight':3rem, // 1.84615385em -> 3rem lh=line*autoLineCount
 );
 $sc-scale2: (
-  'fontSize': 2.625rem,
-  'line': 1.5rem, //.57142857em, //1.5rem
-  'autoLineCount': 2,
-  'autoLineHeight': 3rem//1.14285714em //3rem
+    'fontSize': 2.625rem,
+    'line': 1.5rem, //.57142857em -> 1.5rem
+    'autoLineCount': 2,
+    'autoLineHeight': 3rem //1.14285714em ->3rem
 );
 $sc-scale3: (
-  'fontSize': 4.25em,
-  'line': 1.5rem,//.35294118em, //1.5rem
-  'autoLineCount': 3,
-  'autoLineHeight':4.5rem//1.05882353em //4.5rem
+    'fontSize': 4.25em,
+    'line': 1.5rem, //.35294118em -> 1.5rem
+    'autoLineCount': 3,
+    'autoLineHeight':4.5rem //1.05882353em ->4.5rem
 );
 $sc-scale4: (
-  'fontSize': 6.875em,
-  'line': 1.5rem,//.21818182em, //1.5rem
-  'autoLineCount': 5,
-  'autoLineHeight': 7.5rem//1.09090909em //7.5rem
+    'fontSize': 6.875em,
+    'line': 1.5rem, //.21818182em -> 1.5rem
+    'autoLineCount': 5,
+    'autoLineHeight': 7.5rem //1.09090909em -> 7.5rem
 );
 $sc-scale5: (
-  'fontSize': 11.0625em,
-  'line': 1.5rem,//.13559322em, //1.5rem
-  'autoLineCount': 8,
-  'autoLineHeight': 12rem//1.08474576em //12rem
+    'fontSize': 11.0625em,
+    'line': 1.5rem, //.13559322em -> 1.5rem
+    'autoLineCount': 8,
+    'autoLineHeight': 12rem //1.08474576em -> 12rem
 );
 $sc-scale6: (
-  'fontSize': 17.9375em,
-  'line': 1.5rem,//.08362369em, //1.5rem
-  'autoLineCount': 12,
-  'autoLineHeight':18rem// 1.00348432em //18rem
+    'fontSize': 17.9375em,
+    'line': 1.5rem, //.08362369em -> 1.5rem
+    'autoLineCount': 12,
+    'autoLineHeight':18rem // 1.00348432em -> 18rem
 );
 $sc-scale7: (
-  'fontSize': 29em,
-  'line': 1.5rem,//.05172414em, //1.5rem
-  'autoLineCount': 20,
-  'autoLineHeight': 30rem//1.03448276em //30rem
+    'fontSize': 29em,
+    'line': 1.5rem, //.05172414em -> 1.5rem
+    'autoLineCount': 20,
+    'autoLineHeight': 30rem //1.03448276em -> 30rem
 );
 $sc-scale8: (
-  'fontSize': 47em,
-  'line': 1.5rem,//.03191489em, //1.5rem
-  'autoLineCount': 32,
-  'autoLineHeight':48rem// 1.0212766em //48rem
+    'fontSize': 47em,
+    'line': 1.5rem, //.03191489em -> 1.5rem
+    'autoLineCount': 32,
+    'autoLineHeight':48rem // 1.0212766em -< 48rem
 );
 $sc-scale9: (
-  'fontSize': 76em,
-  'line': 1.5rem,//.01973684em, //1.5rem
-  'autoLineCount': 51,
-  'autoLineHeight':76.5rem //1.00657895em //76.5rem
+    'fontSize': 76em,
+    'line': 1.5rem, //.01973684em -> 1.5rem
+    'autoLineCount': 51,
+    'autoLineHeight':76.5rem //1.00657895em -> 76.5rem
 );
 $sc-scale10: (
-  'fontSize': 122.9375em,
-  'line': 1.5rem,//.01220132em, //1.5rem
-  'autoLineCount': 82,
-  'autoLineHeight':123rem// 1.00050839em //123rem
+    'fontSize': 122.9375em,
+    'line': 1.5rem, //.01220132em -> 1.5rem
+    'autoLineCount': 82,
+    'autoLineHeight':123rem // 1.00050839em -> 123rem
 );
 $sc-scale11: (
-  'fontSize': 198.9375em,
-  'line': 1.5rem,//.00754006em, //1.5rem
-  'autoLineCount': 133,
-  'autoLineHeight':199.5rem// 1.00282752em //199.5rem
+    'fontSize': 198.9375em,
+    'line': 1.5rem, //.00754006em -> 1.5rem
+    'autoLineCount': 133,
+    'autoLineHeight':199.5rem // 1.00282752em -> 199.5rem
 );
 $sc-scale12: (
-  'fontSize': 321.9375em,
-  'line': 1.5rem,//.00465929em, //1.5rem
-  'autoLineCount': 215,
-  'autoLineHeight':322.5rem// 1.00174723em //322.5rem
+    'fontSize': 321.9375em,
+    'line': 1.5rem, //.00465929em -> 1.5rem
+    'autoLineCount': 215,
+    'autoLineHeight':322.5rem // 1.00174723em -> 322.5rem
 );
-
-
-
 
 //map the scales. All the items not included are using default. Feel free to add more items to the map
 $sc-type-scale: (
 	'default': $sc-scale0-R,
-	'p': $sc-scale0,
-	'h1': $sc-scale3,
-	'h2': $sc-scale2,
-	'h3': $sc-scale1,
-  'h4': $sc-scale1,
-  'li': $sc-scale0,
-  'sc-0':  $sc-scale0,
-  'sc-1':  $sc-scale1,
-  'sc-2':  $sc-scale2,
-  'sc-3':  $sc-scale3,
-  'sc-4':  $sc-scale4,
-  'sc-5':  $sc-scale5,
-  'sc-6':  $sc-scale6,
-  'sc-7':  $sc-scale7,
-  'sc-8':  $sc-scale8,
-  'sc-9':  $sc-scale9,
-  'sc-10':  $sc-scale10,
-  'sc-11':  $sc-scale11,
-  'sc-12':  $sc-scale12,
+	'p':        $sc-scale0,
+	'h1':       $sc-scale3,
+	'h2':       $sc-scale2,
+	'h3':       $sc-scale1,
+    'h4':       $sc-scale1,
+    'li':       $sc-scale0,
+    'sc-0':     $sc-scale0,
+    'sc-1':     $sc-scale1,
+    'sc-2':     $sc-scale2,
+    'sc-3':     $sc-scale3,
+    'sc-4':     $sc-scale4,
+    'sc-5':     $sc-scale5,
+    'sc-6':     $sc-scale6,
+    'sc-7':     $sc-scale7,
+    'sc-8':     $sc-scale8,
+    'sc-9':     $sc-scale9,
+    'sc-10':    $sc-scale10,
+    'sc-11':    $sc-scale11,
+    'sc-12':    $sc-scale12,
 );
-
-
 
 // Check that the chosen font rules are pixel numbers.
 @each $_base-item in
-      $sc-base-font-size
-      $sc-base-line-height {
+    $sc-base-font-size
+    $sc-base-line-height {
 	@if (type-of($_base-item) == number) {
 		@if (unit($_base-item) != 'px') {
 			@error '`#{$_base-item}` needs to be a pixel value.';
@@ -189,5 +182,3 @@ $sc-type-scale: (
 		@error '`#{$_value}` needs to be a number.';
 	}
 }
-
-
