@@ -7,16 +7,13 @@
  *
  * The contained values here are for sample proposes, consider add your owns
  *
- * aspect-ratios ......... to support some objects, material and components
  * breakpoints ........... to determine screen sizes and media queries
- * *colors ................ brand, neutral, vendor, state and other colors
- * *durations ............. time durations to be used on animations
+ * colors ................ brand, neutral, vendor, state and other colors
+ * durations ............. time durations to be used on animations
  * easings ............... easing functions to be used on animations
  * font-families ......... to import and define the families
- * font-sizes ............ fixed sizes catalog
- * line-heights .......... unit less line heights
- * *radiuses .............. to be used as a border radius
- * *shadows ............... uncolored shadow sizes
+ * radiuses .............. to be used as a border radius
+ * shadows ............... uncolored shadow sizes
  * spaces ................ to determine common spacing and gutters
  *
  */
@@ -35,8 +32,8 @@ $f-color-black: s-map-deep-get($f-colors,'neutral', 'black');
 $f-color-white: s-map-deep-get($f-colors,'neutral', 'white');
 $f-color-text: s-map-deep-get($f-colors, 'other','cool-grey--dark');
 $f-global-transition: map-get($f-durations,'normal') map-get($f-easings, 'base');
+
 //SPECIFIC VALUES
-// $f-menu-toggle-BP: map-get($f-breakpoints,'sml');
 $f-menu-toggle-BP: map-get($f-breakpoints,'sm');
 
 
