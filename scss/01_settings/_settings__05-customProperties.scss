@@ -1,4 +1,12 @@
-//EXAMPLE OF READING A VALUE FROM THE CORRESPONDING MAP
+
+/* -------------------------------------------------------------------------
+ * CUSTOM PROPERTIES
+ *
+ * Place here all the values you need to expose as CSS CUSTOM PROPERTIES
+ * To expose a value you need to use the SCSS interpolation
+ *
+ */
+
 :root {
 	--color-brand-primary: #{s-map-deep-get($f-colors, 'brand', 'primary')};
 }

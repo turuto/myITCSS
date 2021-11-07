@@ -1,54 +1,56 @@
 /* -------------------------------------------------------------------------
  * FEATURE TOGGLING
  *
- * Enable any object/component/wins css output by overriding their own variable that is defaulted to FALSE
+ * Enable any object/component/wins css output by overriding their
+ * own variable that is defaulted to FALSE
  *
  *
  */
 
 //OBJECTS
-$o-site--enabled: true;
-$o-list-h--enabled: true;
-$o-list-naked--enabled: true;
-$o-media--enabled: true;
-$o-media__mod-reverse--enabled: true;
-$o-media__mod-flag--enabled: true;
+// $o-site--enabled: true;
+// $o-list-h--enabled: true;
+// $o-list-naked--enabled: true;
+// $o-media--enabled: true;
+// $o-media__mod-reverse--enabled: true;
+// $o-media__mod-flag--enabled: true;
+
 //COMPONENT
-$c-aside--enabled: true;
-$c-banner--enabled: true;
-$c-btn--enabled: true;
-$c-btn__sizes--enabled: true;
-$c-btn__special--enabled: true;
-$c-carrousel--enabled: true;
-$c-cart--enabled: true;
-$c-contactList--enabled: true;
-$c-cookies--enabled: true;
-$c-cta--enabled: true;
-$c-dialog--enabled: true;
-$c-faqs--enabled: true;
-$c-footer--enabled: true;
-$c-form--enabled: true;
-$c-gallery--enabled: true;
-$c-header--enabled: true;
-$c-hero--enabled: true;
-$c-iconbox--enabled: true;
-$c-image--enabled: true;
-$c-list--enabled: true;
-$c-main-nav--enabled: true;
-$c-menu--enabled: true;
-$c-page--enabled: true;
-$c-panel--enabled: true;
-$c-priceCard--enabled: true;
-$c-section--enabled: true;
-$c-social--enabled: true;
-$c-starred--enabled: true;
-$c-store--enabled: true;
-$c-table--enabled: true;
-$c-table--removableRows--enabled: true;
-$c-tabs--enabled: true;
-$c-testimonial--enabled: true;
-$c-txt--enabled: true;
-$c-well--enabled: true;
+// $c-aside--enabled: true;
+// $c-banner--enabled: true;
+// $c-btn--enabled: true;
+// $c-btn__sizes--enabled: true;
+// $c-btn__special--enabled: true;
+// $c-carrousel--enabled: true;
+// $c-cart--enabled: true;
+// $c-contactList--enabled: true;
+// $c-cookies--enabled: true;
+// $c-cta--enabled: true;
+// $c-dialog--enabled: true;
+// $c-faqs--enabled: true;
+// $c-footer--enabled: true;
+// $c-form--enabled: true;
+// $c-gallery--enabled: true;
+// $c-header--enabled: true;
+// $c-hero--enabled: true;
+// $c-iconbox--enabled: true;
+// $c-image--enabled: true;
+// $c-list--enabled: true;
+// $c-main-nav--enabled: true;
+// $c-menu--enabled: true;
+// $c-page--enabled: true;
+// $c-panel--enabled: true;
+// $c-priceCard--enabled: true;
+// $c-section--enabled: true;
+// $c-social--enabled: true;
+// $c-starred--enabled: true;
+// $c-store--enabled: true;
+// $c-table--enabled: true;
+// $c-table--removableRows--enabled: true;
+// $c-tabs--enabled: true;
+// $c-testimonial--enabled: true;
+// $c-txt--enabled: true;
+// $c-well--enabled: true;
 
 //EXPORTING COLOR FOR UTILITIES CLASES.
 //-------------------------------------------------
