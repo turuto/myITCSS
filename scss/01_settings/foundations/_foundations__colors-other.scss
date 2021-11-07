@@ -7,15 +7,10 @@
  *
  */
 
-
 // Main other colors
-
 $f-color__cool-grey--dark: #25282B !default;
 
-
-
-// Other color map
-
+// Other colors map (Expose only the values you are actually using)
 $f-colors-other: (
-  'cool-grey--dark':                  $f-color__cool-grey--dark,
+    'cool-grey--dark':  $f-color__cool-grey--dark,
 ) !default;

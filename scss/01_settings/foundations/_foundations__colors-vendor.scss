@@ -7,40 +7,29 @@
  *
  */
 
-
 // Main vendor colors
-
 $f-color__vendor-facebook: #3B5998 !default;
 $f-color__vendor-twitter: #1DA1F2 !default;
 $f-color__vendor-linkedin: #0077B5 !default;
 $f-color__vendor-youtube: #FF0000 !default;
 
 // Facebook shades
-
 $f-color__vendor-facebook--ultra-light: #F7F7F7 !default;
 $f-color__vendor-facebook--light: #DFE3EE !default;
 $f-color__vendor-facebook--semi-light: #8B9DC3 !default;
 
 // Twitter shades
-
 $f-color__vendor-twitter--ultra-light: #FFFFFF !default;
 $f-color__vendor-twitter--light: #C0DEED !default;
 $f-color__vendor-twitter--semi-light: #1DCAFF !default;
 $f-color__vendor-twitter--dark: #0084B4 !default;
 
-
-// Vendor color map
-
+// Vendor color map (Expose only the values you are actually using)
 $f-colors-vendor: (
-  // "facebook":                             $f-color__vendor-facebook,
-  'twitter':                              $f-color__vendor-twitter,
-  'linkedin':                              $f-color__vendor-linkedin,
-  'youtube':                              $f-color__vendor-youtube,
-  // "facebook--ultra-light":                $f-color__vendor-facebook--ultra-light,
-  // "facebook--light":                      $f-color__vendor-facebook--light,
-  // "facebook--semi-light":                 $f-color__vendor-facebook--semi-light,
-  // "twitter--ultra-light":                 $f-color__vendor-twitter--ultra-light,
-  // "twitter--light":                       $f-color__vendor-twitter--light,
-  // "twitter--semi-light":                  $f-color__vendor-twitter--semi-light,
-  // "twitter--dark":                        $f-color__vendor-twitter--dark,
+    'facebook':                  $f-color__vendor-facebook,
+    'facebook--ultra-light':     $f-color__vendor-facebook--ultra-light,
+    'facebook--light':           $f-color__vendor-facebook--light,
+    'twitter':                   $f-color__vendor-twitter,
+    'linkedin':                  $f-color__vendor-linkedin,
+    'youtube':                   $f-color__vendor-youtube,
 ) !default;

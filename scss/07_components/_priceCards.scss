@@ -8,13 +8,13 @@ $c-priceCard__colors: (
     'plus': s-map-deep-get($f-colors, 'material','teal' ),
     'completa': s-map-deep-get($f-colors, 'material','orange' ),
 	);
-$c-priceCard__iconSize: map-get($f-modspaces , 'large' );
+$c-priceCard__iconSize: map-get($f-spaces , 'large' );
 $c-priceCard__transition: all $f-global-transition;
 $c-priceCard__border-radius: 6px;
 $c-priceCard__border-color: s-map-deep-get($f-colors, 'neutral', 'grey');
-$c-priceCard__paddingV: map-get($f-modspaces, 'small' );
-$c-priceCard__paddingH: map-get($f-modspaces, 'tiny' );
-$c-priceCard__paddingB: map-get($f-modspaces, 'medium' );
+$c-priceCard__paddingV: map-get($f-spaces, 'small' );
+$c-priceCard__paddingH: map-get($f-spaces, 'tiny' );
+$c-priceCard__paddingB: map-get($f-spaces, 'medium' );
 $c-priceCard__title-typeScale: map-get($sc-type-scale , 'sc-1' );
 $c-priceCard__price-typeScale: map-get($sc-type-scale , 'sc-3' );
 $c-priceCard__features-typeScale: map-get($sc-type-scale , 'default' );

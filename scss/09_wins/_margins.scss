@@ -1,19 +1,19 @@
 // MARGIN LEFT
 .w-ml--huge {
-	margin-left: map-get($f-modspaces, 'huge' );
+	margin-left: map-get($f-spaces, 'huge' );
 }
 // MARGIN BOTTOM
 .w-mb--tiny {
-	margin-bottom: map-get($f-modspaces, 'tiny' );
+	margin-bottom: map-get($f-spaces, 'tiny' );
 }
 .w-mb--small {
-	margin-bottom: map-get($f-modspaces, 'small' );
+	margin-bottom: map-get($f-spaces, 'small' );
 }
 // MARGIN RIGHT
 
 // MARGIN TOP
 .w-mt--large {
-	margin-top: map-get($f-modspaces, 'large' )!important;
+	margin-top: map-get($f-spaces, 'large' )!important;
 }
 
 

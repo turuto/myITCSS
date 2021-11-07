@@ -2,7 +2,7 @@
 // these variables should link to a setting variable. Only TABS variables should be used inside the tabs
 // --------------------------------------------------
 $c-tabs-toggle-BP: map-get($f-breakpoints, 'sml');
-$c-tabs__button-padding: map-get($f-modspaces, 'tiny')  ;
+$c-tabs__button-padding: map-get($f-spaces, 'tiny')  ;
 $c-tabs__color--accent: s-map-deep-get($f-colors, 'brand', 'primary');
 $c-tabs__color--grey: s-map-deep-get($f-colors, 'neutral', 'grey--light');
 $c-tabcontent__title-typeScale: map-get($sc-type-scale, 'sc-1');

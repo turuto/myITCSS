@@ -7,8 +7,8 @@ $c-banner__color-schemes: (
     );
 $c-banner__title-typeScale: map-get($sc-type-scale , 'h3' );
 $c-banner__lead-typeScale: map-get($sc-type-scale , 'h4' );
-$c-banner__padding-V: map-get($f-modspaces , 'large' );
-$c-banner__padding-H: map-get($f-modspaces , 'large' );
+$c-banner__padding-V: map-get($f-spaces , 'large' );
+$c-banner__padding-H: map-get($f-spaces , 'large' );
 
 
 // BANNER toggling

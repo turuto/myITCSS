@@ -2,7 +2,7 @@
 // these variables should link to a setting variable. Only IMAGS variables should be used inside the images
 // --------------------------------------------------
 $c-image__sizes: (
-	'small': map-get($f-modspaces , 'large' )
+	'small': map-get($f-spaces , 'large' )
 );
 
 
@@ -15,8 +15,8 @@ $c-image--enabled: false !default;
 // --------------------------------------------------
 @mixin c-image() {
 	// Write something good
-	margin-top: map-get($f-modspaces , 'medium' );
-	margin-bottom: map-get($f-modspaces , 'medium' );
+	margin-top: map-get($f-spaces , 'medium' );
+	margin-bottom: map-get($f-spaces , 'medium' );
 }
 
 // SIZES

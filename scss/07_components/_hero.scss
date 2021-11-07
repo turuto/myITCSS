@@ -5,7 +5,7 @@ $c-hero-toggle-BP: map-get($f-breakpoints , 'sml' );
 $c-hero__title-typeScale: map-get($sc-type-scale , 'sc-3' );
 $c-hero__desc-typeScale: map-get($sc-type-scale , 'sc-2' );
 $c-hero__padding: map-get($f-spaces , 'small' );
-$c-hero__padding-top: map-get($f-modspaces , 'large' );
+$c-hero__padding-top: map-get($f-spaces , 'large' );
 
 // hero toggling
 $c-hero--enabled: false !default;

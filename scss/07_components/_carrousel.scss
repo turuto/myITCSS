@@ -9,7 +9,7 @@ $c-carrousel__colors: (
 	'controls': s-map-deep-get($f-colors, 'brand', 'primary'),
 	'focus': s-map-deep-get($f-colors, 'brand', 'secondary'),
 );
-$c-carrousel__btn-sz: map-get($f-modspaces , 'large' );
+$c-carrousel__btn-sz: map-get($f-spaces , 'large' );
 $c-carrousel__controls__transitions: all $f-global-transition;
 
 

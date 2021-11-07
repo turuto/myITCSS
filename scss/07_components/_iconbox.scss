@@ -2,13 +2,13 @@
 // these variables should link to a setting variable. Only iconbox variables should be used inside the iconbox
 // --------------------------------------------------
 $c-iconbox__sizes: (
-	'normal': map-get($f-modspaces , 'huge'),
-	'small':map-get($f-modspaces , 'large')
+	'normal': map-get($f-spaces , 'huge'),
+	'small':map-get($f-spaces , 'large')
 );
 $c-iconbox__title-typeScale: map-get($sc-type-scale , 'h4' );
-$c-iconbox__desc__padding-H: map-get($f-modspaces , 'small');
+$c-iconbox__desc__padding-H: map-get($f-spaces , 'small');
 $c-iconbox__text-shadow: 0 0 2px black;
-$c-iconbox__gutter: map-get($f-modspaces , 'small');
+$c-iconbox__gutter: map-get($f-spaces , 'small');
 // iconbox toggling
 $c-iconbox--enabled: false !default;
 

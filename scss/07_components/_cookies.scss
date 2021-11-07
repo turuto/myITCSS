@@ -2,8 +2,8 @@
 // these variables should link to a setting variable. Only c-cookies variables should be used inside the component
 // --------------------------------------------------
 $c-cookies-toggle-BP: map-get($f-breakpoints , 'sml' );
-$c-cookies__padding-V: map-get($f-modspaces , 'small' );
-$c-cookies__padding-H: map-get($f-modspaces , 'tiny' );
+$c-cookies__padding-V: map-get($f-spaces , 'small' );
+$c-cookies__padding-H: map-get($f-spaces , 'tiny' );
 
 // C-COOKIES toggling
 $c-cookies--enabled: false !default;
@@ -72,6 +72,7 @@ $c-cookies--enabled: false !default;
 	margin-left: auto;
 
 	text-align: center;
+
 	p {
 		margin: 0 auto;
 

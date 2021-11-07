@@ -1,9 +1,9 @@
 // BUTTON variables
 // these variables should link to a setting variable. Only BUTTON variables should be used inside the BUTTON
 // --------------------------------------------------
-$c-btn__padding-H: map-get($f-modspaces, 'large' );
-$c-btn__padding-V: map-get($f-modspaces, 'medium' );;
-$c-btn__paddings: $f-modspaces;
+$c-btn__padding-H: map-get($f-spaces, 'large' );
+$c-btn__padding-V: map-get($f-spaces, 'medium' );;
+$c-btn__paddings: $f-spaces;
 $c-btn__radius: $f-radius;
 $c-btn__transition: all $f-global-transition;
 $c-btn__color-scheme--primary: map-get($f-color-schemes, 'primary');

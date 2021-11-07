@@ -11,11 +11,9 @@
  */
 
 // Main easing
-
 $f-easing: cubic-bezier(.64, 0, .35, 1) !default;
 
 // Easing variants
-
 $f-easing--base: $f-easing !default;
 $f-easing--in: cubic-bezier(.36, 0, 1, 1) !default;
 $f-easing--out: cubic-bezier(0, 0, .42, 1) !default;
@@ -25,12 +23,11 @@ $f-easing--anticipate: cubic-bezier(.38, -.4, .88, .65) !default;
 
 
 // Easings map
-
 $f-easings: (
-  'base':                     $f-easing--base,
-  'in':                       $f-easing--in,
-  'out':                      $f-easing--out,
-  'excite':                   $f-easing--excite,
-  'overshoot':                $f-easing--overshoot,
-  'anticipate':               $f-easing--anticipate,
+    'base':                     $f-easing--base,
+    'in':                       $f-easing--in,
+    'out':                      $f-easing--out,
+    'excite':                   $f-easing--excite,
+    'overshoot':                $f-easing--overshoot,
+    'anticipate':               $f-easing--anticipate,
 ) !default;

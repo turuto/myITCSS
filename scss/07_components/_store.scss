@@ -22,13 +22,13 @@ $c-store--enabled: false !default;
 
 		grid-template-columns: 1fr 300px ;
 		grid-template-rows: auto 1fr ;
-		grid-column-gap: map-get($f-modspaces,'small');
+		grid-column-gap: map-get($f-spaces,'small');
 	}
 }
 @mixin c-store__title () {
 	grid-column: 1 /-1;
 	@media screen and (min-width: $c-store-toggle-BP) {
-		margin-bottom: map-get($f-modspaces, 'large' );
+		margin-bottom: map-get($f-spaces, 'large' );
 	}
 }
 @mixin c-store__products () {
@@ -54,7 +54,7 @@ $c-store--enabled: false !default;
 	flex: 1;
 
 	min-width: 47%;
-	margin-bottom: map-get($f-modspaces, 'large' );
+	margin-bottom: map-get($f-spaces, 'large' );
 	&#{&} {
 		max-width: none;
 	}
@@ -72,7 +72,7 @@ $c-store--enabled: false !default;
 	top: 20px;
 
 	width: 100%;
-	margin-bottom: map-get($f-modspaces,'large');
+	margin-bottom: map-get($f-spaces,'large');
 
 // padding-bottom: map-get($f-spaces, 'medium' );
 
@@ -89,7 +89,7 @@ $c-store--enabled: false !default;
 		top: unset;
 
 		width: auto;
-		padding-left: map-get($f-modspaces, 'small' );
+		padding-left: map-get($f-spaces, 'small' );
 
 		border-bottom: none;
 		border-left: 1px solid $c-store__border-color;

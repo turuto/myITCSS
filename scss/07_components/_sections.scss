@@ -3,7 +3,7 @@
 // --------------------------------------------------
 $c-section-toggle-BP: map-get($f-breakpoints, 'sml');
 $c-section__padding-H: map-get($f-spaces, 'small');
-$c-section__padding-V: map-get($f-modspaces, 'large');
+$c-section__padding-V: map-get($f-spaces, 'large');
 $c-section__color-scheme--default: map-get($f-color-schemes, 'terciary');
 $c-section__color-scheme--primary: map-get($f-color-schemes, 'primary');
 $c-section__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
@@ -80,7 +80,7 @@ $c-section--enabled: false !default;
 
 	margin: map-get($c-section__title-typeScale, 'line') 0;
 	margin-bottom: 0;
-	padding-bottom: map-get($f-modspaces, 'large');
+	padding-bottom: map-get($f-spaces, 'large');
 
 	text-align: center;
 

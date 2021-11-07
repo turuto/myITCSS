@@ -23,8 +23,8 @@ $f-color-mat__yellow: #F9B156 !default;
 $f-color-mat__orange: #FF6600 !default;
 $f-color-mat__grey--dark: #909090 !default;
 
-// Material color map
 
+// Material color map (Expose only the values you are actually using)
 $f-colors-material: (
     'red--dark':       $f-color-mat__red--dark,
     'fuchsia':         $f-color-mat__fuchsia,

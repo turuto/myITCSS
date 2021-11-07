@@ -4,17 +4,16 @@
  *
  * Neutral colors are the ones without saturation
  * The values here are for sample proposes, consider add your owns
+ * Or comment or delete the ones you don't need
  *
  */
 
 
 // Black & White
-
 $f-color__neutral-white: #FFFFFF !default;
 $f-color__neutral-black: #222222 !default;
 
 // Grey shades (Mid tones are missing intentionally)
-
 $f-color__neutral-grey--ultra-light: darken(#FFFFFF, 5%) !default;
 $f-color__neutral-grey--light: darken(#FFFFFF, 10%) !default;
 $f-color__neutral-grey--semi-light: darken(#FFFFFF, 20%) !default;
@@ -24,23 +23,21 @@ $f-color__neutral-grey--dark: darken(#FFFFFF, 80%) !default;
 $f-color__neutral-grey--ultra-dark: darken(#FFFFFF, 90%) !default;
 
 // Transparent colors
-
 $f-color__neutral-white--transparent: rgba($f-color__neutral-white, 0) !default;
 $f-color__neutral-black--transparent: rgba($f-color__neutral-black, 0) !default;
 
 
-// Neutral color map
-
+// Neutral color map (Expose only the values you are actually using)
 $f-colors-neutral: (
-  'white':                              $f-color__neutral-white,
-  'black':                              $f-color__neutral-black,
-  'grey--ultra-light':                  $f-color__neutral-grey--ultra-light,
-  'grey--light':                        $f-color__neutral-grey--light,
-  // "grey--semi-light":                   $f-color__neutral-grey--semi-light,
-  'grey':                               $f-color__neutral-grey,
-  // "grey--semi-dark":                    $f-color__neutral-grey--semi-dark,
-  'grey--dark':                         $f-color__neutral-grey--dark,
-  'grey--ultra-dark':                   $f-color__neutral-grey--ultra-dark,
-  // "white--transparent":                 $f-color__neutral-white--transparent,
-  // "black--transparent":                 $f-color__neutral-black--transparent,
+    'white':                 $f-color__neutral-white,
+    'black':                 $f-color__neutral-black,
+    'grey--ultra-light':     $f-color__neutral-grey--ultra-light,
+    'grey--light':           $f-color__neutral-grey--light,
+    // "grey--semi-light":      $f-color__neutral-grey--semi-light,
+    'grey':                  $f-color__neutral-grey,
+    // "grey--semi-dark":       $f-color__neutral-grey--semi-dark,
+    'grey--dark':            $f-color__neutral-grey--dark,
+    'grey--ultra-dark':      $f-color__neutral-grey--ultra-dark,
+    // "white--transparent":    $f-color__neutral-white--transparent,
+    // "black--transparent":    $f-color__neutral-black--transparent,
 ) !default;

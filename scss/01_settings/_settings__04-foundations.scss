@@ -28,12 +28,13 @@
 @import 'foundations/foundations__spaces';
 
 // APPLIANCES
+
+// IF YOU LIKE, YOU CAN PLACE SHORTCUTS TO COMMON VALUES THAT MAKE SENSE TO YOUR PROJECT
+// Here you have several examples.
 $f-color-black: s-map-deep-get($f-colors,'neutral', 'black');
 $f-color-white: s-map-deep-get($f-colors,'neutral', 'white');
 $f-color-text: s-map-deep-get($f-colors, 'other','cool-grey--dark');
 $f-global-transition: map-get($f-durations,'normal') map-get($f-easings, 'base');
-
-//SPECIFIC VALUES
 $f-menu-toggle-BP: map-get($f-breakpoints,'sm');
 
 

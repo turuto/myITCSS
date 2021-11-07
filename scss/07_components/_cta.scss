@@ -6,7 +6,7 @@ $c-cta__color-scheme--primary: map-get($f-color-schemes, 'primary');
 $c-cta__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
 $c-cta__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
 $c-cta__title-typeScale: map-get($sc-type-scale , 'sc-2' );
-$c-cta__padding-V: map-get($f-modspaces , 'large' );
+$c-cta__padding-V: map-get($f-spaces , 'large' );
 
 
 // cta toggling

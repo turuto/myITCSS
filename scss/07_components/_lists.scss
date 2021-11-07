@@ -1,7 +1,7 @@
 // LIST variables
 // these variables should link to a setting variable. Only LIST variables should be used inside the list
 // --------------------------------------------------
-$c-list__indent: map-get($f-modspaces ,'large' );
+$c-list__indent: map-get($f-spaces ,'large' );
 $c-list__typeScale: map-get($sc-type-scale , 'default' );
 
 

@@ -6,22 +6,18 @@
  *
  *
  */
+
+
 // Main font-family
-
 $f-font--primary: 'Roboto', 'Franklin Gothic Medium', Tahoma, sans-serif !default;
-
-// font-family variants (when neede uncomment below)
-
 // $f-font--secondary: 'Times' !default;
 // $f-font--secondary: 'Comic Sans' !default;
 
 
 
 // font-families map
-
 $f-fonts: (
-  'primary':        $f-font--primary,
-//   'secondary':      $f-font--secondary,
-//   'terciary':       $f-font--terciary,
-
+    'primary':        $f-font--primary,
+    //   'secondary':      $f-font--secondary,
+    //   'terciary':       $f-font--terciary,
 ) !default;

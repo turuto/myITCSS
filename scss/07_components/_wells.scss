@@ -1,7 +1,7 @@
 // WELL variables
 // these variables should link to a setting variable. Only WELL variables should be used inside the WELL
 // --------------------------------------------------
-$c-well__padding: map-get($f-modspaces , 'tiny' );
+$c-well__padding: map-get($f-spaces , 'tiny' );
 $c-well__title-typeScale: map-get($sc-type-scale , 'default' );
 $c-well__border-color: s-map-deep-get($f-colors, 'neutral', 'grey');
 $c-well__border-radius: 6px;

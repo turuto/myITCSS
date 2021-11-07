@@ -9,7 +9,6 @@
 
 
 // Main shadow
-
 $f-shadow: (
   's1':     0 4px 5px -2px ,  //black.22
   's2':     0 2px 1px -1px    //black .05
@@ -17,7 +16,6 @@ $f-shadow: (
 
 
 // Shadow variants
-
 $f-shadow--basic: $f-shadow !default;
 $f-shadow--elevated: 0 14px 28px 0 !default;
 $f-shadow--sunken: inset 0 0 28px 0 !default;
@@ -37,11 +35,9 @@ $f-shadow--btn: (
 $f-shadow-color: black!default;
 
 // Shadows map
-
 $f-shadows: (
   'basic':                    $f-shadow--basic,
   'btn':                      $f-shadow--btn,
   'elevated':                 $f-shadow--elevated,
   'sunken':                   $f-shadow--sunken
-
 ) !default;

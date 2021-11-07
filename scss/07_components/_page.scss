@@ -1,7 +1,7 @@
 // PAGE variables
 // these variables should link to a setting variable. Only PAGE variables should be used inside the PAGE
 // --------------------------------------------------
-$c-page__title__paddingV: map-get($f-modspaces , 'huge' );
+$c-page__title__paddingV: map-get($f-spaces , 'huge' );
 $c-page__color-schemes: (
 	'default':(
 		'title': map-get($f-color-schemes, 'primary'),

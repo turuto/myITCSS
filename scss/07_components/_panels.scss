@@ -2,8 +2,8 @@
 // these variables should link to a setting variable. Only PANEL variables should be used inside the PANEL
 // --------------------------------------------------
 $c-panel__border-color: s-map-deep-get($f-colors, 'neutral', 'grey');
-$c-panel__padding: map-get($f-modspaces , 'tiny' );
-$c-panel__separator: map-get($f-modspaces , 'medium' );
+$c-panel__padding: map-get($f-spaces , 'tiny' );
+$c-panel__separator: map-get($f-spaces , 'medium' );
 $c-panel__color-scheme--primary: map-get($f-color-schemes, 'primary');
 $c-panel__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
 $c-panel__color-scheme--neutral: map-get($f-color-schemes, 'neutral');

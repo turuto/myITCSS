@@ -2,7 +2,7 @@
 // these variables should link to a setting variable. Only TABLE variables should be used inside the TABLE
 // --------------------------------------------------
 $c-table__border-color: s-map-deep-get($f-colors, 'neutral', 'grey--light');
-$c-table__padding: map-get($f-modspaces , 'tiny' );
+$c-table__padding: map-get($f-spaces , 'tiny' );
 
 // TABLE toggling
 $c-table--enabled: false !default;
@@ -74,18 +74,18 @@ $c-table--removableRows--enabled: false !default;
 }
 @mixin c-table--clean() {
 	width: 100%;
-	margin-bottom: map-get($f-modspaces , 'medium' );
+	margin-bottom: map-get($f-spaces , 'medium' );
 
 	table-layout: fixed;;
 	.c-table__header {
 		th {
-			padding: map-get($f-modspaces , 'small' );
+			padding: map-get($f-spaces , 'small' );
 
 			vertical-align: bottom;
 		}
 	}
 	.c-table__cell {
-		padding: map-get($f-modspaces , 'small' );
+		padding: map-get($f-spaces , 'small' );
 
 		vertical-align: top;
 		&:first-child {

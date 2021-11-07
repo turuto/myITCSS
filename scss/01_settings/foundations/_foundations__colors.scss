@@ -2,23 +2,22 @@
 @import 'foundations__colors-neutral';
 @import 'foundations__colors-state';
 @import 'foundations__colors-vendor';
-@import 'foundations__colors-material';
+// @import 'foundations__colors-material';  //Other libaries  or color collections you might use
 @import 'foundations__colors-other';
-
 
 // Color groups map
 
 $f-colors: (
-  'brand':        $f-colors-brand,
-  'neutral':      $f-colors-neutral,
-  'state':        $f-colors-state,
-  'vendor':       $f-colors-vendor,
-  'material':        $f-colors-material,
-  'other':        $f-colors-other,
+    'brand':        $f-colors-brand,
+    'neutral':      $f-colors-neutral,
+    'state':        $f-colors-state,
+    'vendor':       $f-colors-vendor,
+    // 'material':     $f-colors-material,
+    'other':        $f-colors-other,
 ) !default;
 
-//Based on contrast checker tools, we can define color combinations allowed
-// 'bg' stands for background; 'fg' stands for foreground; 'accent' is links
+// Always using a contrast checker tool, we can define color combinations allowed
+// 'bg' stands for background; 'fg' stands for foreground; 'accent' is for links
 $f-color-scheme--default: (
     'bg': s-map-deep-get($f-colors, 'neutral', 'white'),
     'fg':s-map-deep-get($f-colors, 'neutral', 'black'),
@@ -52,10 +51,9 @@ $f-color-scheme--inverted: (
 
 // Color Schemes map
 $f-color-schemes: (
-  'primary': $f-color-scheme--primary,
-  'secondary': $f-color-scheme--secondary,
-  'terciary': $f-color-scheme--terciary,
-  'neutral': $f-color-scheme--neutral,
-  'inverted': $f-color-scheme--inverted,
-
+    'primary':   $f-color-scheme--primary,
+    'secondary': $f-color-scheme--secondary,
+    'terciary':  $f-color-scheme--terciary,
+    'neutral':   $f-color-scheme--neutral,
+    'inverted':  $f-color-scheme--inverted,
 ) !default;

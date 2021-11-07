@@ -7,7 +7,7 @@
 $c-dialog__color--overlay: rgba(s-map-deep-get($f-colors, 'neutral','black'),.8);
 $c-dialog__border-radius: 6px;
 $c-dialog__shadow: map-get($f-shadows , 'elevated' );
-$c-dialog__padding: map-get($f-modspaces, 'medium' );
+$c-dialog__padding: map-get($f-spaces, 'medium' );
 $c-dialog__title-typeScale: map-get($sc-type-scale , 'sc-2' );
 $c-dialog__transition: all $f-global-transition;
 
