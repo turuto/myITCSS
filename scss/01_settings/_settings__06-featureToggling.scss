@@ -61,19 +61,15 @@ $w-colors--enabled: true;
 //for a total export make:
 // $f-color--exported__maps:$f-colors
 $f-color--exported__maps: map-merge(
-  $f-colors,
-  (
-    'brand': map-remove($f-colors-brand, 'accent', 'terciary'),
-    'neutral': '',
-    'other': '',
-  )
+    $f-colors,
+    (
+        'brand': map-remove($f-colors-brand, 'accent', 'terciary'),
+        'neutral': '',
+        'other': '',
+    )
 );
 //SECOND: cleaning the map of empty strings
-$f-color--exported__maps: map-remove(
-  $f-color--exported__maps,
-  'neutral',
-  'other',
-);
+$f-color--exported__maps: map-remove($f-color--exported__maps,'neutral','other');
 
 /*WINS*/
 $w-bgcolors--enabled: true;
