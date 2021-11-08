@@ -21,7 +21,6 @@
 		$_: log('Value for `to-number` should be a number or a string.');
 	}
 
-
 	@for $i from if($minus, 2, 1) through str-length($value) {
 		$character: str-slice($value, $i, $i);
 
@@ -38,7 +37,6 @@
 			$result: $result + map-get($numbers, $character) / $digits;
 		}
 	}
-
 
 	@return if($minus, -$result, $result);
 }

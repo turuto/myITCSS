@@ -8,12 +8,12 @@
  */
 
 @mixin t-container ($max-width: $sc-measure) {
-	@media screen and (min-width:map-get($f-breakpoints , 'sml' )) {
+	@media screen and (min-width:map-get($f-breakpoints, 'sml' )) {
 		padding-right: 2vw;
 		padding-left: 2vw;
 	}
 
-	@media screen and (min-width:map-get($f-breakpoints , 'lg' )) {
+	@media screen and (min-width:map-get($f-breakpoints, 'lg' )) {
 		max-width: 98%;
 		margin-right: auto;
 		margin-left: auto;

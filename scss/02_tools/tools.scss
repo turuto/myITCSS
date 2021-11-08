@@ -1,19 +1,20 @@
-// 1.-GLOBAL FUNCTIONS
-//Unit conversions
-// @import '_tools__core-functions';
+// 1. GLOBAL FUNCTIONS
+// 1.1 Unit conversions
+@import '_tools__core-functions';
 @import '_tools__f-casting';
 
-//2.-GLOBAL MIXINS
-//Media Queries
-//Ratios
-//Clearfix
-// @import 'tools__clearfix';
-//QUANTITY QUERIES
+// 2. GLOBAL MIXINS
+// 2.1 Media Queries
+// 2.2 Ratios
+// 2.3 Clearfix
+@import 'tools__clearfix';
+// 2.4 Quantity Queries
 // @import 'vendor/quantity-queries';
-//colores
-//font sizes
+// 2.5 Colors
+// 2.6 Font sizes
 // @import '_tools__font-size'
-//3.-SMALL RECIPES
+
+// 3.-SMALL RECIPES
 @import 'tools__m-container';
 
 

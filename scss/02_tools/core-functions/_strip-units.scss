@@ -9,16 +9,14 @@
  *
  */
 
-
 @function s-core-strip-units($_value) {
+	@if (type-of($_value) != number) {
+		@error 's-core-strip-units: `#{$_value}` needs to be a number.';
+	}
 
-  @if (type-of($_value) != number) {
-    @error "s-core-strip-units: `#{$_value}` needs to be a number.";
-  }
+	@if not unitless($_value) {
+		@return $_value / ($_value * 0 + 1);
+	}
 
-  @if not unitless($_value) {
-    @return $_value / ($_value * 0 + 1);
-  }
-
-  @return $_value;
+	@return $_value;
 }

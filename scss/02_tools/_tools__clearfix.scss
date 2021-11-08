@@ -7,27 +7,29 @@
  *
  */
 
-
 @mixin t-clearfix() {
-  &::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
+	&::after {
+		display: block;
+		clear: both;
+
+		content: '';
+	}
 }
 
 @mixin t-clearfix--unset() {
-  &::after {
-    content: initial;
-    display: initial;
-    clear: initial;
-  }
+	&::after {
+		display: initial;
+		clear: initial;
+
+		content: initial;
+	}
 }
 
 @mixin t-clearfix-important() {
-  &::after {
-    content: "" !important;
-    display: block !important;
-    clear: both !important;
-  }
+	&::after {
+		display: block !important;
+		clear: both !important;
+
+		content: '' !important;
+	}
 }
