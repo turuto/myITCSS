@@ -1,8 +1,18 @@
-//Patrones repetibles de diseño
-//Propiedades asociadas a la distribución
-//Heredables por los componentes
+/* -------------------------------------------------------------------------
+* OBJECTS
+*
+*
+* Reusable Layout patterns
+* Only LAYOUT related properties that can
+* can be inherited by the componentss
+*
+* NO COSMETIC STYLING ALLOWED IN HERE
+*
+*
+*/
+
 @import '_objects__site-layout';
-@import 'objects__list-naked';
-@import 'objects__list-h';
+@import '_objects__list-naked';
+@import '_objects__list-h';
 // @import 'objects__list-h';
 @import 'objects__media';

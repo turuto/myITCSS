@@ -1,21 +1,24 @@
 /* -------------------------------------------------------------------------
- * FEATURE TOGGLING
- *
- * Enable any object/component/wins css output by overriding their
- * own variable that is defaulted to FALSE
- *
- *
- */
+* FEATURE TOGGLING
+*
+* Enable any object/component/wins css output by overriding their
+* own variable that is defaulted to FALSE
+*
+*/
 
-//OBJECTS
+// OBJECTS
+//-------------------------------------------------
 // $o-site--enabled: true;
 // $o-list-h--enabled: true;
 // $o-list-naked--enabled: true;
 // $o-media--enabled: true;
 // $o-media__mod-reverse--enabled: true;
 // $o-media__mod-flag--enabled: true;
+// ...
+// What else?
 
-//COMPONENT
+// COMPONENT
+//-------------------------------------------------
 // $c-aside--enabled: true;
 // $c-banner--enabled: true;
 // $c-btn--enabled: true;
@@ -51,15 +54,24 @@
 // $c-testimonial--enabled: true;
 // $c-txt--enabled: true;
 // $c-well--enabled: true;
+// ...
+// What else?
 
-//EXPORTING COLOR FOR UTILITIES CLASES.
+/* WINS*/
 //-------------------------------------------------
+
+// EXPOSING COLOR FOR UTILITIES CLASES.
 $w-colors--enabled: true;
+$w-bgcolors--enabled: true;
 // A color can be exported for w-color--red{} and w-bg--red{}
-//Only export as needed. 2 STEPS:
-// FIRST removing elements o erasing a whole map
-//for a total export make:
-// $f-color--exported__maps:$f-colors
+// Only export the colors you needed, or your final CSS will be bloated.
+// The process consists on 2 STEPS:
+//      1. Removing elements o erasing a whole map
+//      2. Cleaning the map of empty strings
+
+// STEP 1
+// for a total export: $f-color--exported__maps:$f-colors
+// for partial and controlled export:
 $f-color--exported__maps: map-merge(
     $f-colors,
     (
@@ -68,9 +80,9 @@ $f-color--exported__maps: map-merge(
         'other': '',
     )
 );
-//SECOND: cleaning the map of empty strings
+// STEP 2:
+// Cleaning the map of empty strings
 $f-color--exported__maps: map-remove($f-color--exported__maps,'neutral','other');
 
-/*WINS*/
-$w-bgcolors--enabled: true;
+// EXPOSING UTILITIES CLASES OF WIDTHS
 $u-widths--enabled: true;

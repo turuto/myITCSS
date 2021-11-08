@@ -1,8 +1,16 @@
+/* -------------------------------------------------------------------------
+* TAGS
+*
+* Defaults for HTML tags.
+*
+*/
+
 * {
 	@supports (display: grid) {
 		max-width: $sc-measure;
 	}
 }
+
 html,
 body,
 div,
@@ -14,10 +22,12 @@ section,
 footer {
 	max-width: none;
 }
+
 main {
 	margin: 0;
 	padding: 0;
 }
+
 html,
 body {
 	overflow-x: hidden;
@@ -29,14 +39,17 @@ body {
 	font-family: map-get($f-fonts, 'primary');
 }
 
+
 html {
 	overflow: hidden;
 	// overflow-y: scroll;
 }
 
+
 h1 {
 	word-break: break-word;
 }
+
 
 h2 {
 	word-break: break-word;
@@ -44,24 +57,29 @@ h2 {
 	font-weight: lighter;
 }
 
+
 h3 {
 	letter-spacing: .1em;
 	text-transform: uppercase;
 
 	font-weight: normal;
 }
+
 h4 {
 	text-transform: uppercase;
 }
+
 h5,
 h6 {
 	letter-spacing: .1em;
 
 	font-weight: lighter;
 }
+
 h6 {
 	text-transform: none;
 }
+
 p {
 	width: 100%;
 	max-width: 100%;
@@ -73,6 +91,7 @@ p {
 		max-width: 120ch;
 	}
 }
+
 blockquote {
 	width: 100%;
 	max-width: 100%;
@@ -83,12 +102,14 @@ blockquote {
 		max-width: 120ch;
 	}
 }
+
 sup {
 	text-transform: none;
 
 	font-weight: normal;
 	font-style: italic;
 }
+
 a {
 	&,
 	&:link,
@@ -99,19 +120,23 @@ a {
 
 		color: inherit;
 	}
+
 	&:hover,
 	&:active,
 	&:focus {
 		color: s-map-deep-get($f-colors, 'brand', 'primary');
 	}
 }
+
 img {
 	max-width: 100%;
 }
+
 figcaption {
 	color: s-map-deep-get($f-color-schemes, 'secondary', 'fg');
 	background: s-map-deep-get($f-color-schemes, 'secondary', 'bg');
 }
+
 a,
 button,
 input,
@@ -124,11 +149,12 @@ textarea {
 			outline: none;
 			box-shadow: none;
 			box-shadow: inset 0 0 0 2px rgba(s-map-deep-get($f-colors, 'brand', 'primary'),.02);
-		};
+		}
+		;
 	}
 }
+
 ::selection {
 	color: s-map-deep-get($f-colors,'neutral', 'white');
 	background: s-map-deep-get($f-colors,'brand', 'primary');
 }
-

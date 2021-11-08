@@ -1,10 +1,14 @@
-// Normalización de navegadores
+// Browser normalization
 @import '_normalice';
-// Reseteado de componentes
+
+// Component resets
 @import '_reset';
-// Modelo de caja
-// Inicialización de comportamiento
+
+// Box model (if needed, it should be here)
+
+// Initial styles
 @import '_tags';
-// Espaciado y ritmo vertical
+
+// Spacing and Vertical Rhythm
 @import '_vertical-rhythm';
 

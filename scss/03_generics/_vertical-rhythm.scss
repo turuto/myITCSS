@@ -1,17 +1,17 @@
-/*
-VERTICAL RHYTHM
-
-only allowed the following properties:
-font-size
-line-eight
-margin-top
-margin-bottom
-
-All measures MUST be read from $sc-type-scale.
-They can be multiplied or scaled themselves
-
-You can draw a grid over the element to show the baseline with:
-@include drawGrid(lineHeight, color);
+/* -------------------------------------------------------------------------
+* VERTICAL RHYTHM
+*
+* only allowed the following properties:
+* font-size
+* line-eight
+* margin-top
+* margin-bottom
+*
+* All measures MUST be read from $sc-type-scale.
+* They can be multiplied or scaled themselves
+*
+* You can draw a grid over the element to show the baseline with:
+* @include drawGrid(lineHeight, color);
 */
 
 html {
