@@ -39,4 +39,5 @@ But if you want to use our compile, you can find an extremely simple `gulpfile.j
 Thanks to [Hugo Estévez](https://github.com/Hugoer) for all his help in not only the build part of the project (it's completely his work but some minor adjustments that probably have made it worse 😁).
 
 He has taught me a lot about what to expect from a project, and his ideas after using this repo have made it much better than my initial intentions.
+
 ![Best of friends](https://c.tenor.com/QlSW6EWurAQAAAAC/hug-boo.gif)
