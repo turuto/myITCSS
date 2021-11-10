@@ -11,8 +11,6 @@ $c-btn__color-scheme--secondary: map-get($f-color-schemes, 'secondary');
 $c-btn__color-scheme--terciary: map-get($f-color-schemes, 'terciary');
 $c-btn__color-scheme--neutral: map-get($f-color-schemes, 'neutral');
 
-
-
 // BUTTON toggling
 $c-btn--enabled: false !default;
 $c-btn__sizes--enabled: false !default;
@@ -20,7 +18,6 @@ $c-btn__special--enabled: false !default;
 
 // BUTTON and parts as a mixins
 // --------------------------------------------------
-
 /**
  * 1. Allow us to style box model properties.
  * 2. Line different sized buttons up a little nicer.
@@ -29,8 +26,6 @@ $c-btn__special--enabled: false !default;
  * 4. Reset/normalize some styles.
  * 5. Force all button-styled elements to appear clickable.
  */
-
-
 
 @mixin c-btn() {
 	display: inline-block; /* [1] */
@@ -69,6 +64,7 @@ $c-btn__special--enabled: false !default;
 		pointer-events: none;
 	}
 }
+
 @mixin c-btn--primary() {
 	&,
 	&:link,
@@ -86,6 +82,7 @@ $c-btn__special--enabled: false !default;
 		background-color: s-map-deep-get($f-colors,'brand', 'secondary');
 	}
 }
+
 @mixin c-btn--secondary() {
 	&,
 	&:link,
@@ -98,6 +95,7 @@ $c-btn__special--enabled: false !default;
 		--myColor: #{map-get($c-btn__color-scheme--secondary, 'fg' )};
 	};
 }
+
 @mixin c-btn--terciary() {
 	&,
 	&:link,
@@ -110,6 +108,7 @@ $c-btn__special--enabled: false !default;
 		--myColor: #{map-get($c-btn__color-scheme--terciary, 'fg' )};
 	};
 }
+
 @mixin c-btn--neutral() {
 	&,
 	&:link,
@@ -122,6 +121,7 @@ $c-btn__special--enabled: false !default;
 		--myColor: #{map-get($c-btn__color-scheme--neutral, 'fg' )};
 	};
 }
+
 @mixin c-btn--context() {
 	&#{&}#{&} {
 		&,
@@ -148,6 +148,7 @@ $c-btn__special--enabled: false !default;
 		font-weight: bold;
 	}
 }
+
 @mixin c-btn--outline() {
 	&,
 	&:link,
@@ -159,6 +160,7 @@ $c-btn__special--enabled: false !default;
 		box-shadow: none;
 	};
 }
+
 // BUTTON SIZES
 // --------------------------------------------------
 @mixin c-btn--sizes() {
@@ -190,6 +192,7 @@ $c-btn__special--enabled: false !default;
 
 	opacity: .2;
 }
+
 // SPECIAL BUTTONS
 // --------------------------------------------------
 @mixin c-btn--remove () {
@@ -224,27 +227,35 @@ $c-btn__special--enabled: false !default;
 	.c-btn {
 		@include c-btn();
 	}
+
 	.c-btn--primary {
 		@include c-btn--primary();
 	}
+
 	.c-btn--secondary {
 		@include c-btn--secondary();
 	}
+
 	.c-btn--terciary {
 		@include c-btn--terciary();
 	}
+
 	.c-btn--neutral {
 		@include c-btn--neutral();
 	}
+
 	.c-btn--context {
 		@include c-btn--context();
 	}
+
 	.c-btn--link {
 		@include c-btn--link();
 	}
+
 	.c-btn--outline {
 		@include c-btn--outline();
 	}
+
 	// STATES
 	.c-btn.is-disabled {
 		@include c-btn--disabled();

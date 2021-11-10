@@ -21,10 +21,12 @@ $c-social--enabled: false !default;
 	align-items: center;
 	flex-direction: row;
 	justify-content: center;
+
 	@media screen and (min-width:$c-social-toggle-BP) {
 		justify-content: flex-end;
 	}
 }
+
 @mixin c-social__item () {
 	display: inline-block;
 	&#{&} {
@@ -36,13 +38,16 @@ $c-social--enabled: false !default;
 	&--twitter {
 		--myBg: #{map-get($c-social__colors,'twitter')};
 	}
+
 	&--linkedin {
 		--myBg: #{map-get($c-social__colors,'linkedin')};
 	}
+
 	&--youtube {
 		--myBg: #{map-get($c-social__colors,'youtube')};
 	}
 }
+
 @mixin c-social__btn () {
 	&,
 	&:link,
@@ -60,6 +65,7 @@ $c-social--enabled: false !default;
 
 		font-size: $c-social__size/2;
 	};
+
 	&:hover,
 	&:active,
 	&:focus {
@@ -78,6 +84,7 @@ $c-social--enabled: false !default;
 	.c-social__item {
 		@include c-social__item();
 	}
+
 	.c-social__btn {
 		@include c-social__btn();
 	}

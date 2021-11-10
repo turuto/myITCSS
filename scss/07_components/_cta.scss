@@ -31,9 +31,11 @@ $c-cta--enabled: false !default;
 		color: s-map-deep-get($f-colors,'neutral', 'white');
 		background: s-map-deep-get($f-colors,'brand', 'secondary');
 	}
+
 	> * {
 		display: inline-block;
 	}
+
 	@supports (display: grid) {
 		//not IE11
 		display: flex;
@@ -41,6 +43,7 @@ $c-cta--enabled: false !default;
 			display: unset;
 		}
 	};
+
 	@media screen and (min-width:$c-cta-toggle-BP) {
 		display: flex;
 		align-items: center;
@@ -52,6 +55,7 @@ $c-cta--enabled: false !default;
 @include t-container();
 	}
 }
+
 @mixin c-cta--secondary() {
 	color: map-get($c-cta__color-scheme--secondary, 'fg');
 	background: map-get($c-cta__color-scheme--secondary, 'bg');
@@ -60,6 +64,7 @@ $c-cta--enabled: false !default;
 		background: s-map-deep-get($f-colors,'brand', 'primary');
 	}
 }
+
 @mixin c-cta__title () {
 	margin: map-get($c-cta__title-typeScale, 'line') 0;
 

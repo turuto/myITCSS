@@ -5,16 +5,12 @@ $c-image__sizes: (
 	'small': map-get($f-spaces , 'large' )
 );
 
-
-
-
 // IMAGES toggling
 $c-image--enabled: false !default;
 
 // IMAGES and parts as a mixins
 // --------------------------------------------------
 @mixin c-image() {
-	// Write something good
 	margin-top: map-get($f-spaces , 'medium' );
 	margin-bottom: map-get($f-spaces , 'medium' );
 }

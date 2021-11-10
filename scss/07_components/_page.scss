@@ -33,6 +33,7 @@ $c-page--enabled: false !default;
 @mixin c-page() {
 	// Write something good
 }
+
 @mixin c-page__hero() {
 	padding-top: $c-page__title__paddingV;
 	padding-bottom: $c-page__title__paddingV;
@@ -45,6 +46,7 @@ $c-page--enabled: false !default;
 	background-position: center;
 	background-size: contain;
 }
+
 @mixin c-page__title () {
 	margin: 0;
 
@@ -74,130 +76,8 @@ $c-page--enabled: false !default;
 
 @include t-container();
 }
-// PAGE Variants
-@mixin c-page--features() {
-	.c-page__hero {
-		// background-image: url('../images/features_tit_bg.png');
-		/*@media screen and (max-width: 600px) {
-			background-image: url('../images/features_tit_bg.png?size=300');
-		}
-		@media screen and (min-width: 600px) {
-			background-image: url('../images/features_tit_bg.png?size=600');
-		}
-		@media screen and (min-width: 900px) {
-			background-image: url('../images/features_tit_bg.png?size=900');
-		}
-		@media screen and (min-width: 1200px) {
-			background-image: url('../images/features_tit_bg.png?size=1200');
-		}*/
-	}
-}
-@mixin c-page--about() {
-	.c-page__hero {
-		background-image: url('../images/contacto_bg.svg');
-		background-position: center 20%;
-		background-size: 80% auto;
-		@media (min-width:800px) {
-			background-position: center -20%;
-			background-size: 100% auto;
-		}
-		@media (min-width:1076px) {
-			color: white!important;
-			background-position: center 20%;
-		}
-	}
-}
-@mixin c-page--tarifas() {
-	.c-page__hero {
-		color: s-map-deep-get($c-page__color-schemes,'inverted', 'title', 'fg');
-		background-position: center;
-		background-size: cover;
-		@media screen and (max-width: 300px) {
-			background-image: url('../images/office-620822.jpg?size=300');
-		}
-		@media screen and (min-width:300px) and (max-width:600px) {
-			background-image: url('../images/office-620822.jpg?size=600');
-		}
-		@media screen and (min-width:600px) and (max-width:900px) {
-			background-image: url('../images/office-620822.jpg?size=900');
-		}
-		@media screen and (min-width:900px) and (max-width:1200px) {
-			background-image: url('../images/office-620822.jpg?size=1200');
-		}
-		@media screen and (min-width:1200px) and (max-width:2000px) {
-			background-image: url('../images/office-620822.jpg?size=2000');
-		}
-		@media screen and (min-width:2000px) {
-			background-image: url('../images/office-620822.jpg?size=3000');
-		}
-	}
-	.c-section--secondary {
-		// la seccion de abajo con el oblicuo
-		@media screen and (max-width:840px) {
-			.o-media__img.o-media__img {
-				max-width: none;
-				margin-right: 0;
-				// background: pink;
-				img {
-					margin: 0 auto;
-				}
-			}
-		}
-	}
-}
-@mixin c-page--contacto() {
-	@media screen and (max-width:$c-page-toggle-BP) {
-		.o-list-h {
-			overflow: hidden;
-
-			max-width: 89%;
-			padding-left: 0;
 
 
-			@supports (display: grid) {
-				//not IE11
-				max-width: 100%;
-			}
-
-			.o-list-h__item {
-				width: 89%;
-				max-width: 89%;
-				@supports (display: grid) {
-					//not IE11
-					width: unset;
-					max-width: unset;
-				}
-			}
-		}
-	}
-	.c-page__map {
-		position: relative;
-
-		overflow: hidden;
-
-		height: 500px;
-		max-height: 50vw;
-
-		background-color: s-map-deep-get($f-colors,'brand', 'terciary');
-	}
-	//In the contact page the cookie banner will be HUGE
-	& ~ .c-cookies {
-		position: absolute;
-		top: 10%;
-		right: 10%;
-		bottom: 10%;
-		left: 10%;
-
-		border: none;
-		@media screen and (max-width:$c-page-toggle-BP) {
-			.c-cookies__body {
-				flex: unset;
-
-				margin-bottom: 1em;
-			}
-		}
-	}
-}
 // PAGE Variants
 @mixin c-page--default() {
 	.c-page__hero {
@@ -212,6 +92,7 @@ $c-page--enabled: false !default;
 		background-color: s-map-deep-get($c-page__color-schemes, 'secondary', 'title', 'bg');
 	}
 }
+
 @mixin c-page--terciary() {
 	.c-page__hero {
 		color: s-map-deep-get($c-page__color-schemes, 'terciary', 'title', 'fg');
@@ -226,6 +107,7 @@ $c-page--enabled: false !default;
 	.c-page {
 		@include c-page();
 	}
+
 	.c-page__hero {
 		@include c-page__hero ();
 	}
@@ -233,27 +115,19 @@ $c-page--enabled: false !default;
 	.c-page__title {
 		@include c-page__title();
 	}
+
 	.c-page__desc {
 		@include c-page__desc();
 	}
-	.c-page--features {
-		@include c-page--features();
-	}
-	.c-page--about {
-		@include c-page--about();
-	}
-	.c-page--contacto {
-		@include c-page--contacto();
-	}
-	.c-page--tarifas {
-		@include c-page--tarifas();
-	}
+
 	.c-page--default {
 		@include c-page--default();
 	}
+
 	.c-page--secondary {
 		@include c-page--secondary();
 	}
+
 	.c-page--terciary {
 		@include c-page--terciary();
 	}

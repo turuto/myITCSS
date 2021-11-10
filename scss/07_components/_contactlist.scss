@@ -10,7 +10,9 @@ $c-contactList--enabled: false !default;
 // CONTACTLIST and parts as a mixins
 // --------------------------------------------------
 @mixin c-contactList() {
+	// Write some magic
 }
+
 @mixin c-contactList__item () {
 	position: relative;
 

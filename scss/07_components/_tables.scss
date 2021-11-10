@@ -22,17 +22,21 @@ $c-table--removableRows--enabled: false !default;
 		padding-right: $c-table__padding ;
 	}
 }
+
 @mixin c-table__header () {
 	th {
 		padding-top: $c-table__padding*3;
 	}
 }
+
 @mixin c-table__row() {
 	border-bottom: 1px solid $c-table__border-color;
+
 	td {
 		padding: $c-table__padding 0;
 	}
 }
+
 @mixin c-table__footer() {
 	font-weight: bold;
 
@@ -44,12 +48,11 @@ $c-table--removableRows--enabled: false !default;
 		vertical-align: bottom;
 	}
 }
+
 //CELLS
 @mixin  c-table__cell-units() {
 	min-width: 6ch;
 }
-
-
 
 //VARIANTS
 @mixin c-table--removableRows() {
@@ -58,25 +61,30 @@ $c-table--removableRows--enabled: false !default;
 			margin: 0 .5em;
 		}
 	}
+
 	//make it visible in tr over
 	tbody tr:hover {
 		cursor: pointer;
 		transition: background-color .2s ease-out;
 
 		background-color: #{s-map-deep-get($f-colors,'neutral', 'grey--ultra-light')};
+
 		td:first-child:before {
 			opacity: 1;
 		}
+
 		.c-btn--remove {
 			--myColor: #{s-map-deep-get($f-colors,'state', 'danger')};
 		}
 	}
 }
+
 @mixin c-table--clean() {
 	width: 100%;
 	margin-bottom: map-get($f-spaces , 'medium' );
 
-	table-layout: fixed;;
+	table-layout: fixed;
+
 	.c-table__header {
 		th {
 			padding: map-get($f-spaces , 'small' );
@@ -84,19 +92,23 @@ $c-table--removableRows--enabled: false !default;
 			vertical-align: bottom;
 		}
 	}
+
 	.c-table__cell {
 		padding: map-get($f-spaces , 'small' );
 
 		vertical-align: top;
+
 		&:first-child {
 			font-weight: bold;
 		}
 	}
 }
+
 @mixin c-table--small() {
 	font-size: .9em;
 	line-height: 1.2;
 }
+
 // TABLE selector output
 // --------------------------------------------------
 @if ($c-table--enabled) {
@@ -113,16 +125,20 @@ $c-table--removableRows--enabled: false !default;
 	.c-table__row {
 		@include c-table__row();
 	}
+
 	.c-table tfoot,
 	.c-table__footer {
 		@include c-table__footer();
 	}
+
 	.c-table__cell-units {
 		@include c-table__cell-units();
 	}
+
 	.c-table--clean {
 		@include c-table--clean();
 	}
+
 	.c-table--small {
 		@include c-table--small();
 	}

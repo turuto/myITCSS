@@ -10,7 +10,6 @@ $c-banner__lead-typeScale: map-get($sc-type-scale , 'h4' );
 $c-banner__padding-V: map-get($f-spaces , 'large' );
 $c-banner__padding-H: map-get($f-spaces , 'large' );
 
-
 // BANNER toggling
 $c-banner--enabled: false !default;
 
@@ -27,18 +26,21 @@ $c-banner--enabled: false !default;
 		};
 	}
 }
+
 @mixin c-banner__title () {
 	margin: map-get($c-banner__title-typeScale, 'line') 0;
 
 	font-size: map-get($c-banner__title-typeScale, 'fontSize');
 	line-height: map-get($c-banner__title-typeScale, 'autoLineHeight');
 }
+
 @mixin c-banner__lead () {
 	margin: map-get($c-banner__lead-typeScale, 'line') 0;
 
 	font-size: map-get($c-banner__lead-typeScale, 'fontSize');
 	line-height: map-get($c-banner__lead-typeScale, 'autoLineHeight');
 }
+
 @mixin c-banner--lima {
 	display: flex;
 	flex-direction: column;
@@ -53,8 +55,7 @@ $c-banner--enabled: false !default;
 	background-position: center;
 	background-size: cover;
 	text-shadow: 0 0 2px black;
-	@media screen and (min-width:$c-banner-toggle-BP) {
-	}
+
 	.c-banner__img {
 		overflow: visible;
 		align-self: center;

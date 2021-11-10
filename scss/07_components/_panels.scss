@@ -16,10 +16,9 @@ $c-panel--enabled: false !default;
 @mixin c-panel() {
 	margin-bottom: $c-panel__separator ;
 
-// Write something good
-
 	border: 1px solid $c-panel__border-color;
 }
+
 @mixin c-panel__header () {
 	padding: $c-panel__padding;
 
@@ -28,9 +27,11 @@ $c-panel--enabled: false !default;
 
 	font-weight: bold;
 }
+
 @mixin c-panel__body () {
 	padding: $c-panel__padding;
 }
+
 @mixin c-panel__footer () {
 	// Write something good
 }
@@ -45,9 +46,11 @@ $c-panel--enabled: false !default;
 	.c-panel__header {
 		@include c-panel__header();
 	}
+
 	.c-panel__body {
 		@include c-panel__body();
 	}
+
 	.c-panel__footer {
 		@include c-panel__footer();
 	}

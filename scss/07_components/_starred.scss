@@ -32,6 +32,7 @@ $c-starred--enabled: false !default;
 		font-size: $c-starred__iconSize * .7;
 	}
 }
+
 @mixin c-starred__title () {
 	margin: map-get($c-starred__title-typeScale, 'line') 0;
 	margin-bottom: map-get($c-starred__title-typeScale, 'line')/3;

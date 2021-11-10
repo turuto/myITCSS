@@ -9,6 +9,7 @@ $c-iconbox__title-typeScale: map-get($sc-type-scale , 'h4' );
 $c-iconbox__desc__padding-H: map-get($f-spaces , 'small');
 $c-iconbox__text-shadow: 0 0 2px black;
 $c-iconbox__gutter: map-get($f-spaces , 'small');
+
 // iconbox toggling
 $c-iconbox--enabled: false !default;
 
@@ -16,6 +17,7 @@ $c-iconbox--enabled: false !default;
 // --------------------------------------------------
 @mixin c-iconbox() {
 	text-align: center;
+
 	&#{&}#{&} {
 		display: flex;
 	}
@@ -23,31 +25,38 @@ $c-iconbox--enabled: false !default;
 	&--V {
 		align-items: center;
 		flex-direction: column;
+
 		&#{&}#{&}#{&}#{&} {
 			display: list-item;
 		}
+
 		@supports (display: grid) {
 			//not IE11
 			display: block;
 		};
 	}
+
 	.o-media__img {
 		flex: 0;
 
 		margin-right: $c-iconbox__gutter ;
 	}
+
 	.o-media__body {
 		padding-left: map-get($c-iconbox__sizes, 'normal')/2;
+
 		@supports (display: grid) {
 			//not IE11
 			padding-left: unset;
 		};
 	}
+
 	::selection {
 		color: currentColor;
 		background: transparent;
 	}
 }
+
 @mixin c-iconbox__icon () {
 	box-sizing: border-box;
 	width: var(--mySize);
@@ -75,21 +84,26 @@ $c-iconbox--enabled: false !default;
 	font-weight: 100;
 	line-height: map-get($c-iconbox__title-typeScale, 'autoLineHeight')/1.618;
 }
+
 @mixin c-iconbox__price () {
 	margin-bottom: map-get($c-iconbox__title-typeScale, 'line')*.5;
 
 	font-size: .9em;
 	font-weight: bold;
 }
+
 @mixin c-iconbox__desc () {
 	padding: 0 $c-iconbox__desc__padding-H;
 }
+
 //Variations
 @mixin c-iconbox--H() {
 	text-align: left;
+
 	& .c-iconbox__title {
 		margin-top: 0;
 	}
+
 	& .c-iconbox__desc {
 		padding: 0;
 	}
@@ -112,18 +126,23 @@ $c-iconbox--enabled: false !default;
 			@include c-iconbox__icon();
 		}
 	}
+
 	.c-iconbox__title {
 		@include c-iconbox__title();
 	}
+
 	.c-iconbox__price {
 		@include c-iconbox__price();
 	}
+
 	.c-iconbox__desc {
 		@include c-iconbox__desc();
 	}
+
 	.c-iconbox--H {
 		@include c-iconbox--H();
 	}
+
 	.c-iconbox--small {
 		@include c-iconbox--small();
 	}

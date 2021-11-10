@@ -7,11 +7,11 @@
  *
  */
 
-
 // O-MEDIA variables
 // --------------------------------------------------
 $o-media__gutter: map-get($f-spaces , 'large' );
 $o-media__BP: map-get($f-breakpoints, 'sml');
+
 // O-MEDIA toggling
 // --------------------------------------------------
 $o-media--enabled: false !default;
@@ -26,11 +26,13 @@ $o-media__mod-flag--enabled: false !default;
 		display: block;
 	}
 }
+
 @mixin o-media__img() {
 	flex-direction: column;
 	flex-grow: 0;
 
 	margin-right: $o-media__gutter;
+
 	@supports (display: grid) {
 		//not IE11
 		display: flex;
@@ -50,6 +52,7 @@ $o-media__mod-flag--enabled: false !default;
 @mixin o-media__body() {
 	flex: 1;
 }
+
 @mixin o-media--switched() {
 	display: block;
 	@supports (display: grid) {
@@ -60,8 +63,10 @@ $o-media__mod-flag--enabled: false !default;
 	}
 }
 
+
 // O-MEDIA selector output
 // --------------------------------------------------
+
 @if ($o-media--enabled) {
 	.o-media {
 		@include o-media();
@@ -81,7 +86,6 @@ $o-media__mod-flag--enabled: false !default;
 // Reverse modifier
 // --------------------------------------------------
 
-
 @mixin o-media__img--reverse() {
 	order: 1;
 
@@ -100,7 +104,8 @@ $o-media__mod-flag--enabled: false !default;
 	@include o-media__mod-reverse();
 }
 
-// FLAG modifier
+
+// FLAG modifier (https://csswizardry.com/2013/05/the-flag-object/)
 // --------------------------------------------------
 @mixin o-media__mod-flag() {
 	.o-media--flag {
@@ -116,118 +121,3 @@ $o-media__mod-flag--enabled: false !default;
 @if ($o-media--enabled and $o-media__mod-flag--enabled) {
 	@include o-media__mod-flag();
 }
-
-
-//ABAJO ESTÁ LA VERSIÓN DE HAITICSS con variables a False para que no compilen nada
-
-
-
-
-/* -------------------------------------------------------------------------
- * MEDIA
- *
- * Place any image-like and text-like content side-by-side, as per:
- * http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
- *
- */
-
-
-// Object variables
-// --------------------------------------------------
-
-// Object toggling
-
-$o-media--enabled: false !default;
-
-// Modifier Reverse
-
-$o-media__mod-reverse--enabled: false !default;
-
-/*
-// Object as a mixin
-// --------------------------------------------------
-
-@mixin o-media() {
-	display: block;
-
-@include t-clearfix;
-}
-
-@mixin o-media__img() {
-	float: left;
-
-	> img {
-		display: block;
-	}
-}
-
-@mixin o-media__body() {
-	display: block;
-	overflow: hidden;
-
-	&,
-	> :last-child {
-		margin-bottom: 0;
-	}
-}
-
-
-// Object selector output
-// --------------------------------------------------
-
-@if ($o-media--enabled) {
-	.o-media {
-		@include o-media();
-	}
-
-	.o-media__img {
-		@include o-media__img();
-	}
-
-	.o-media__body {
-		@include o-media__body();
-	}
-}
-
-// Reverse modifier
-// --------------------------------------------------
-
-@mixin o-media__img--reverse() {
-	float: right;
-}
-
-@mixin o-media__mod-reverse() {
-	.o-media--reverse {
-		> .o-media__img {
-			@include o-media__img--reverse;
-		}
-	}
-}
-
-@if ($o-media--enabled and $o-media__mod-reverse--enabled) {
-	@include o-media__mod-reverse();
-}
-
-
-// Unset as mixin
-// --------------------------------------------------
-
-@mixin o-media--unset() {
-	display: inherit;
-
-@include t-clearfix--unset;
-}
-
-@mixin o-media__img--unset() {
-	float: inherit;
-
-	> img {
-		display: inherit;
-	}
-}
-
-@mixin o-media__body--unset() {
-	display: inherit;
-	overflow: inherit;
-}
-*/

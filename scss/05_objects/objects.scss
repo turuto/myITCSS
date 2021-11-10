@@ -8,11 +8,21 @@
 *
 * NO COSMETIC STYLING ALLOWED IN HERE
 *
+* I find it useful to have a site/page layout for distributing the main elements.
+* You may have want to split into views, and put them in a folder
+*
+* You can have as many objects as you like.
+*
+* Having a look at Heydon Pickering and Andy Bell's Every Layout (https://every-layout.dev/)
+* can give you ideas of all the layouts you might need.
+* Another source of ideas is haiticss's objects folder: https://github.com/haiticss/haiticss/tree/master/src/objects
+*
+* I include the famous media object as an example
 *
 */
 
 @import '_objects__site-layout';
-@import '_objects__list-naked';
-@import '_objects__list-h';
+// @import '_objects__list-naked';
+// @import '_objects__list-h';
 // @import 'objects__list-h';
 @import 'objects__media';

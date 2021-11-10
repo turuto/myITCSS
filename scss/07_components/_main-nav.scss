@@ -11,6 +11,7 @@ $c-main-nav--enabled: false !default;
 @mixin c-main-nav() {
 	//display: none;
 }
+
 @mixin c-main-nav__burger () {
 	position: absolute;
 	top: 15px;
@@ -20,19 +21,6 @@ $c-main-nav--enabled: false !default;
 
 	font-size: 1.5rem;
 
-	// &:hover,
-	// &:active,
-	// &:focus {
-	// 	&:after {
-	// 		outline: 2px solid s-map-deep-get($f-colors, 'brand', 'primary');
-	// 		@supports (display: grid) {
-	// 			//not IE11
-	// 			outline: none;
-	// 			box-shadow: none;
-	// 			box-shadow: inset 0 0 0 2px s-map-deep-get($f-colors, 'brand', 'primary');
-	// 		};
-	// 	}
-	// };
 	&:after {
 		position: absolute;
 		top: 0;
@@ -49,6 +37,7 @@ $c-main-nav--enabled: false !default;
 		display: none;
 	}
 }
+
 @mixin c-main-nav__toggle () {
 	display: none;
 
@@ -57,6 +46,7 @@ $c-main-nav--enabled: false !default;
 			content: '+';
 			transform: rotate(45deg);
 		}
+
 		&:checked ~ .c-main-nav__menu {
 			display: flex;
 			align-items: stretch;
@@ -70,12 +60,14 @@ $c-main-nav--enabled: false !default;
 		}
 	}
 }
+
 @mixin c-main-nav__menu () {
 	overflow: hidden;
 
 	height: 0;
 
 	opacity: 0;
+
 	@media screen and (min-width: $c-main-nav-toggle-BP) {
 		overflow: visible;
 		flex-direction: row;
@@ -83,6 +75,7 @@ $c-main-nav--enabled: false !default;
 		height: 49px;
 
 		opacity: 1;
+
 		@supports (display: grid) {
 			//not IE11
 			overflow: unset;
@@ -98,12 +91,15 @@ $c-main-nav--enabled: false !default;
 	.c-main-nav {
 		@include c-main-nav();
 	}
+
 	.c-main-nav__burger {
 		@include c-main-nav__burger();
 	}
+
 	.c-main-nav__toggle {
 		@include c-main-nav__toggle();
 	}
+
 	.c-main-nav__menu.c-main-nav__menu {
 		@include c-main-nav__menu();
 	}

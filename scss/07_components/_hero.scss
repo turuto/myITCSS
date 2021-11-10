@@ -10,8 +10,6 @@ $c-hero__padding-top: map-get($f-spaces , 'large' );
 // hero toggling
 $c-hero--enabled: false !default;
 
-
-
 // hero and parts as a mixins
 // --------------------------------------------------
 @mixin c-hero() {
@@ -27,12 +25,8 @@ $c-hero--enabled: false !default;
 		display: block;
 
 		text-align: center;
-
-		// @supports (display: grid) {
-		// 	//not IE11
-		// 	display: flex;
-		// };
 	}
+
 	@media screen and (min-width:$c-hero-toggle-BP) {
 		display: flex;
 
@@ -46,6 +40,7 @@ $c-hero--enabled: false !default;
 
 	font-size: map-get($c-hero__title-typeScale, 'fontSize');
 	line-height: map-get($c-hero__title-typeScale, 'autoLineHeight');
+
 	@media screen and (max-width:400px) {
 		font-size: map-get($c-hero__title-typeScale, 'fontSize')*.8;
 		line-height: map-get($c-hero__title-typeScale, 'autoLineHeight')*.8;
@@ -66,18 +61,22 @@ $c-hero--enabled: false !default;
 	&#{&} {
 		margin: 0 auto;
 	}
+
 	@media screen and (min-width:$c-hero-toggle-BP) {
 		width: 390px;
 		max-width: 390px;
 		height: 300px;
 	}
+
 	@supports (display: grid) {
 		width: calc( 300px * 1.3);
 		height: 300px;
+
 		@media screen and (max-width:$c-hero-toggle-BP) {
 			width: 300px;
 			height: auto;
 		}
+
 		@media screen and (min-width:$c-hero-toggle-BP) {
 			// max-width: 44%;
 			max-width: unset;
@@ -87,6 +86,7 @@ $c-hero--enabled: false !default;
 		}
 	}
 }
+
 // hero selector output
 // --------------------------------------------------
 @if ($c-hero--enabled) {

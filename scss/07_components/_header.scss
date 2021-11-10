@@ -32,20 +32,24 @@ $c-header--enabled: false !default;
 		max-height: 80px + $c-header__padding;
 	}
 }
+
 @mixin c-header__brand () {
 	> img {
 		max-height: 50px;
+
 		@media screen and (min-width:$c-header__menu-toggle-BP + 100px) {
 			max-height: 80px;
 		}
 	}
 }
+
 @mixin c-header__nav () {
 	align-self: stretch;
+
 	@media screen and (min-width:$c-header__menu-toggle-BP) {
 		align-self: top;
 
-		padding-top: 23px;//baseline with the text inside the logo
+		padding-top: 23px; //baseline with the text inside the logo
 	}
 }
 

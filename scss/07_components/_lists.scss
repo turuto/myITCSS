@@ -4,8 +4,6 @@
 $c-list__indent: map-get($f-spaces ,'large' );
 $c-list__typeScale: map-get($sc-type-scale , 'default' );
 
-
-
 // LIST toggling
 $c-list--enabled: false !default;
 
@@ -14,6 +12,7 @@ $c-list--enabled: false !default;
 @mixin c-list() {
 	margin-left: $c-list__indent;
 }
+
 @mixin c-list__item () {
 	margin: map-get($c-list__typeScale, 'line') 0;
 
@@ -21,6 +20,7 @@ $c-list--enabled: false !default;
 
 	font-size: map-get($c-list__typeScale, 'fontSize');
 	line-height: map-get($c-list__typeScale, 'autoLineHeight');
+
 	&:before {
 		display: inline-block;
 

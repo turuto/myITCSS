@@ -26,6 +26,7 @@ $c-well--enabled: false !default;
 	box-shadow: 0 0 2px rgba(0,0,0,.5);
 	box-shadow: s-map-deep-get($f-shadows, 'btn','normal','s1') rgba($f-shadow-color, .1),;
 }
+
 @mixin c-well__title () {
 	margin: map-get($c-well__title-typeScale, 'line')/2 0;
 
@@ -38,6 +39,7 @@ $c-well--enabled: false !default;
 @mixin c-well--primary() {
 	color: map-get($c-well__color-scheme--primary, 'fg');
 	border-left-color: map-get($c-well__color-scheme--primary, 'bg');
+
 	::selection {
 		color: s-map-deep-get($f-colors,'neutral', 'white');
 		background: s-map-deep-get($f-colors,'brand', 'secondary');
@@ -45,19 +47,19 @@ $c-well--enabled: false !default;
 }
 
 @mixin c-well--secondary() {
-	// color: map-get($c-well__color-scheme--secondary, 'fg');
 	border-left-color: map-get($c-well__color-scheme--secondary, 'bg');
 }
+
 @mixin c-well--terciary() {
-	// color: map-get($c-well__color-scheme--terciary, 'fg');
 	border-left-color: map-get($c-well__color-scheme--terciary, 'bg');
 }
+
 @mixin c-well--neutral() {
-	// color: map-get($c-well__color-scheme--neutral, 'fg');
 	border-left-color: map-get($c-well__color-scheme--neutral, 'bg');
 
 	--color-accent: #{s-map-deep-get($f-colors, 'brand', secondary)};
 }
+
 // WELL selector output
 // --------------------------------------------------
 @if ($c-well--enabled) {
@@ -68,6 +70,7 @@ $c-well--enabled: false !default;
 	.c-well__title {
 		@include c-well__title();
 	}
+
 	.c-well--primary {
 		@include c-well--primary();
 	}

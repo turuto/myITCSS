@@ -48,6 +48,7 @@ $c-cookies--enabled: false !default;
 		pointer-events: none;
 	}
 }
+
 @mixin c-cookies__title () {
 	flex: 1 0 0;
 
@@ -65,10 +66,9 @@ $c-cookies--enabled: false !default;
 		//not IE11
 	}
 }
+
 @mixin c-cookies__body () {
 	margin-right: auto;
-
-//write something good
 	margin-left: auto;
 
 	text-align: center;
@@ -94,6 +94,7 @@ $c-cookies--enabled: false !default;
 		}
 	}
 }
+
 @mixin c-cookies__action () {
 	display: block;
 
@@ -106,9 +107,8 @@ $c-cookies--enabled: false !default;
 
 	font-size: 1em;
 	@supports (display: grid) {
+		//not IE11
 		display: unset;
-
-//not IE11
 
 		max-width: unset;
 		margin: 0;

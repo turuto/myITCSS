@@ -18,6 +18,7 @@ $c-form--enabled: false !default;
 	input {
 		display: none !important;
 	}
+
 	input + label {
 		position: relative!important;
 
@@ -26,6 +27,7 @@ $c-form--enabled: false !default;
 		padding-left: 2em !important;
 
 		cursor: pointer;
+
 		&:before {
 			position: absolute;
 			top: -.1em;
@@ -42,20 +44,16 @@ $c-form--enabled: false !default;
 			border: 1px solid#CCCCCC;
 			background: transparent;
 		}
+
 		@media screen and (min-width:$c-form-toggle-BP) {
 			input + label {
 				margin-top: .3em!important;
 				padding-left: 1.2em;
+
 				&:before {
 					left: -1.75em;
 				}
 			}
-		}
-	}
-	.wpforms-selected {
-		.wpforms-field-label-inline:before {
-			background: s-map-deep-get($f-colors, 'brand', 'primary');
-			box-shadow: inset 0 0 0 1px  white;
 		}
 	}
 }

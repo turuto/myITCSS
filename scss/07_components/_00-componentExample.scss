@@ -1,9 +1,21 @@
+/* ==========================================================================
+	#COMPONENT EXAMPLE
+========================================================================== */
+
+/*
+ * This file won't be compiled
+ *
+ * This is just a template of how to write a new object/component
+ *
+ */
+
 // COMPONENT variables
 // these variables should link to a setting variable. Only component variables should be used inside the component
 // --------------------------------------------------
 $c-component__variable1: 'value';
 
-// COMPONENT toggling
+// COMPONENT toggling.
+// BE SURE TO SET THIS VARIABLE TO TRUE IT IN scss\01_settings\_settings__06-featureToggling.scss
 $c-component--enabled: false !default;
 
 // COMPONENT and parts as a mixins
@@ -11,9 +23,11 @@ $c-component--enabled: false !default;
 @mixin c-component() {
 	// Write something good
 }
+
 @mixin c-component__element () {
 	// Write something good
 }
+
 
 // COMPONENT selector output
 // --------------------------------------------------
