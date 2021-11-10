@@ -1,36 +1,6 @@
-/* -------------------------------------------------------------------------
- * SCOPES & VENDORS
-*/
-@import 'scopes/tobii';
-@import 'scopes/wpforms';
 
-/* -------------------------------------------------------------------------
- * UTILITIES
- *
- * Helper classes with important statements
- *
- * alignments ............. Force text alignment☑️
- * bgcolors ............... Foundation colors as a background color☑️
- * colors ................. Foundation colors as color☑️
- * font-families .......... Foundation font-families
- * font-sizes ............. Foundation font-sizes
- * hidden ................. Force hide elements on certain breakpoints range
- * line-heights ........... Foundation line-heights
- * margins ................ Margin utilities based on foundations spaces ☑️
- * paddings ............... Padding utilities based on foundations spaces
- * radiuses ............... Foundation radiuses as border-radius
- * shadows ................ Foundation shadows
- * widths ................. Fraction widths
- *
- */
 
-@import '_alignments';
-@import '_bgcolors';
-@import '_colors';
-@import 'margins';
-@import '_widths';
-@import 'internet-explorer'
-// @import '_visibility';
+
 
 
 

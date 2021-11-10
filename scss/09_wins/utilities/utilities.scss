@@ -1,0 +1,25 @@
+/* -------------------------------------------------------------------------
+ * UTILITIES
+ *
+ * Helper classes with important statements
+ *
+ * alignments ............. Force text alignment
+ * bgcolors ............... Foundation colors as a background color
+ * colors ................. Foundation colors as color
+ * font-families .......... Foundation font-families (Still To Do)
+ * font-sizes ............. Foundation font-sizes (Still To Do)
+ * hidden ................. Force hide elements on certain breakpoints range (Still To Do)
+ * line-heights ........... Foundation line-heights (Still To Do)
+ * margins ................ Margin utilities based on foundations spaces
+ * paddings ............... Padding utilities based on foundations spaces (Still To Do)
+ * radiuses ............... Foundation radiuses as border-radius (Still To Do)
+ * shadows ................ Foundation shadows (Still To Do)
+ * widths ................. Fraction widths
+ *
+ */
+
+@import '_alignments';
+@import '_bgcolors';
+@import '_colors';
+@import 'margins';
+@import '_widths';
