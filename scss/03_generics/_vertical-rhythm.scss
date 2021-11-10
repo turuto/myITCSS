@@ -10,7 +10,7 @@
 * All measures MUST be read from $sc-type-scale.
 * They can be multiplied or scaled themselves
 *
-* You can draw a grid over the element to show the baseline with:
+* In DEVMODE (gulpfile) you can draw a grid over the element to show the baseline with:
 * @include drawGrid(lineHeight, color);
 */
 
