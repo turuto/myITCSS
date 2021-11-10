@@ -20,14 +20,22 @@ The only one thing I didn't like about the original ITCSS proposal was that the 
 
 ### What can I find inside those folders/layers?
 
-0. **devtools** This folder is automatically
-1. **devtools**
-2. **devtools**
-3. **devtools**
-4. **devtools**
-5. **devtools**
-6. **devtools**
-7. **devtools**
-8. **devtools**
-9. **devtools**
+0. **DEVTOOLS**: This folder is automatically compiled if the `config.develop` in gulpfile.js is `true`.
+1. **SETTINGS**: The foundations of your project
+2. **TOOLS**: Functions and mixins
+3. **GENERIC**: Normalization and resets. This is the **first folder when we begin to actually produce CSS output.**
+4. **ELEMENTS**: Styles for HTML tags.
+5. **OBJECTS**: Layouts
+6. **ANIMATIONS**:  Self-explanatory
+7. **COMPONENTS**: Cosmetic styling for all the component. Every file should be autonomous. This is, that every component should use only variables defined in its own file. These variables can, obviously, refer to other project variables otuside. Addittionaly, all the components are disabled by default, but we overwrite (and activate the component) in `scss\01_settings\_settings__06-featureToggling.scss`
+8. **MODES**: Theming
+9. **WINS**: Those styles are supposed to be at the very end of the CSS output, so we are allowed to use `!important`. This folder is about overwrites for  vendors and utility classe.s
 
+## Install and usage
+Feel free to bring it into your own build workflow.
+But if you want to use our compile, you can find an extremely simple `gulpfile.js` with some variables to define, the name of the entry file, the output folder and so on.
+
+## Acknowledgements
+Thanks to [Hugo Estévez](https://github.com/Hugoer) for all his help in not only the build part of the project (it's completely his work but some minor adjustments that probably have made it worse 😁).
+
+He has taught me a lot about what to expect from a project, and his ideas after using this repo have made it much better than my initial intentions.
