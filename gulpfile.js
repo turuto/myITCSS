@@ -14,7 +14,7 @@ config.activeTheme = 'css';
 config.develop = true;
 config.srcSCSSFolder = `./scss`;
 config.mainSCSSFile = `${config.srcSCSSFolder}/main.scss`;
-config.mainSCSSFile_dev = `${config.srcSCSSFolder}/main.scss`;
+config.mainSCSSFile_dev = `${config.srcSCSSFolder}/main_dev.scss`;
 config.distCSSFolder = `./${config.activeTheme}`;
 
 var onError = function (err) {
@@ -32,11 +32,8 @@ var onError = function (err) {
 gulp.task('css', () => {
     console.log(`Executing CSS task on '${config.distCSSFolder}' - isDevelop: ${config.develop}`);
     let entryFile = config.develop ? config.mainSCSSFile_dev : config.mainSCSSFile;
-    // if (config.develop) {
-    //     entryFile = config.mainSCSSFile_dev;
-    // } else {
-    //     entryFile = config.mainSCSSFile;
-    // }
+
+    console.log(entryFile);
     return new Promise((resolve, reject) => {
         return gulp.src(entryFile)
             .pipe(plumber({
