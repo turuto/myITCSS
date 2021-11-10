@@ -1,4 +1,4 @@
-# myITCSS
+# 🔻 myITCSS 🔻
 
 This is my take on ITCSS. I am deeply in love with ITCSS proposal by Harry Roberts as it provides a versatile and modular CSS architecture that has proved to be scalable and  maintainable.
 
