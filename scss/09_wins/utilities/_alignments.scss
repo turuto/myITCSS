@@ -1,0 +1,33 @@
+/* -------------------------------------------------------------------------
+ * ALIGNMENTS
+ *
+ * bOTH TEXT ALIGN AND BOX ALIGNMENT
+ *
+ */
+
+// TEXT ALIGN
+.w-align-left {
+	text-align: left !important;
+}
+
+.w-align-center {
+	text-align: center !important;
+}
+
+.w-align-right {
+	text-align: right !important;
+}
+
+// BOX ALIGNMENT
+.w-centered {
+	display: inline-block !important;
+
+	margin-right: auto !important;
+	margin-left: auto !important;
+}
+.w-lefted {
+	margin-right: auto !important;
+}
+.w-righted {
+	margin-left: auto !important;
+}

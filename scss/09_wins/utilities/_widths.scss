@@ -1,0 +1,25 @@
+
+/* -------------------------------------------------------------------------
+* WIDTHS
+*
+* Foundation widths
+*
+* If more clases are needed change the limit in line 20
+*
+*/
+
+// Utility variables
+// --------------------------------------------------
+
+// Utility toggling
+$u-widths--enabled: false !default;
+
+// Utilities output
+// --------------------------------------------------
+@if ($u-widths--enabled) {
+	@for $i from 1 through 10 {
+		.u-width--#{$i} {
+			width: $i *1em !important;
+		}
+	}
+}

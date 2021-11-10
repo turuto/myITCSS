@@ -1,0 +1,29 @@
+/* -------------------------------------------------------------------------
+* MARGINS AND SPACINGS
+*
+* BASIC FORCED MARGINS
+*
+* STILL INCOMPLETE
+*
+*/
+
+// MARGIN LEFT
+.w-ml--huge {
+	margin-left: map-get($f-spaces, 'huge' )!important;
+}
+
+// MARGIN BOTTOM
+.w-mb--tiny {
+	margin-bottom: map-get($f-spaces, 'tiny' )!important;
+}
+.w-mb--small {
+	margin-bottom: map-get($f-spaces, 'small' )!important;
+}
+// MARGIN RIGHT
+
+// MARGIN TOP
+.w-mt--large {
+	margin-top: map-get($f-spaces, 'large' )!important;
+}
+
+
