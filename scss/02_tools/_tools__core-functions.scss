@@ -1,9 +1,8 @@
-
 /* -------------------------------------------------------------------------
  * CORE FUNCTIONS
  * SASS core functions (s-core- prefixed)
  *
- * map-diff .............. returns the differences between two maps, skipping equal values
+
  * px-to-em .............. returns EM equivalent value using a given PX value and a REM reference
  * px-to-rem ............. returns REM equivalent value using a given PX value
  * rem-to-px ............. returns PX equivalent value using a given REM value
@@ -14,10 +13,9 @@
  */
 
 
-@import "core-functions/map-diff";
-@import "core-functions/px-to-em";
-@import "core-functions/px-to-rem";
-@import "core-functions/rem-to-px";
-@import "core-functions/string-breakpoint";
-@import "core-functions/string-ratio";
-@import "core-functions/strip-units";
+@import 'core-functions/px-to-em';
+@import 'core-functions/px-to-rem';
+@import 'core-functions/rem-to-px';
+@import 'core-functions/string-breakpoint';
+@import 'core-functions/string-ratio';
+@import 'core-functions/strip-units';
